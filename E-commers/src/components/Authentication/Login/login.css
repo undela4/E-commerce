@@ -1,0 +1,24 @@
+.login-section
+{
+    height: 570px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+}
+#login-img{
+    width: 450px;
+    height: 500px;
+}
+.login-right{
+    width: 550px;
+    height: 330px;
+    padding: 20px;
+   
+}
+.textFields{
+    width:300px;
+    height:55px;
+    border-left: none;
+    
+}

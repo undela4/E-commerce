@@ -1,0 +1,54 @@
+.card-container{
+    width: 1070px;
+    height: 650px;
+    margin-top:2.5rem;
+    position: relative;
+
+}
+
+.card-header{
+    text-align:center;
+    font-weight: 400;
+    font-family:'Times New Roman', Times, serif;
+}
+.card-header h2{
+    font-weight: bold;
+}
+.category{
+    height: 500px;
+    position: relative;
+
+}
+/* .card-img{
+
+
+} */
+
+.card-img button{
+    background-color: white;
+    position: absolute;
+    color:black;
+    font-weight: 500;
+    width:170px;
+    height:48px;
+}
+.men button{
+    left:8%;
+    bottom:3%;
+
+}
+.women button{
+    left:8%;
+    bottom:3%;
+
+}
+.Accessories button{
+    left:9%;
+    top:171px;
+
+}
+.kids button{
+    left:7%;
+    top:171px;
+
+}

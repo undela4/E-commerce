@@ -1,0 +1,25 @@
+.categories{
+    height: 250px;
+    margin-top: 5rem;
+    margin-bottom:  5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    gap:5rem;
+}
+
+
+.category-item >img{
+    width: 200px;
+    border-radius: 50%;
+    transition:all 2s;
+
+}
+.category-item >h3{
+    text-align: center;
+    margin-top: 1rem;
+}
+.category-item>img:hover{
+    transform: scale(1.1);
+
+}

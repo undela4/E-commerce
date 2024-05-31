@@ -1,0 +1,42 @@
+.product-card{
+    width: 1124px;
+    height:1452px;
+    margin: 0 auto;
+ 
+
+}
+.product-heading{
+    text-align: center;
+    margin-bottom:80px;
+}
+h5{
+    color: gray;
+}
+.product-heading >h3{
+    font-weight: bold;
+}
+.product-heading >h6{
+    font-weight: 300;
+    color: second-text-color;
+}
+
+/* .card-item{
+
+} */
+.card-content{
+    text-align: start;
+    margin:1rem 0 4rem;
+
+}
+.colors div{
+    width:16px;
+    height: 16px;
+}
+.card-content a{
+    text-decoration: none;
+    color: black;
+}
+.heart{
+    position: relative;
+    right:19%;
+}

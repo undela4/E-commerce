@@ -1,0 +1,33 @@
+.footer{
+    height: 500px;
+}
+.logo img{
+    width:108;
+    height: 32px;
+}
+.icon{
+    font-size: 40px;
+
+}
+.head{
+    background-color: #FAFAFA;
+    height: 145px;
+    align-items: center;
+}
+.body{
+    height: 272px;
+}
+
+.links{
+    width: 100px;
+    color:black;
+}
+
+.tail{
+    height: 74px;;
+    background-color:#FAFAFA;
+    color:#737373;
+    padding-left: 195px;
+    padding-top: 25px;
+
+}

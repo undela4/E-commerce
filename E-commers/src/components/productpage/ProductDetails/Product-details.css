@@ -1,0 +1,20 @@
+.similar-products{
+    width: 1439px;
+    height: max-content;
+    height:400px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 7rem;
+}
+.similar-products-list{
+    margin-top: 3rem;
+    overflow: auto;
+    overflow-y: hidden;
+    display: flex;
+    gap: 3rem;
+
+}
+.similar-products-item{
+    display: inline-block;
+
+}

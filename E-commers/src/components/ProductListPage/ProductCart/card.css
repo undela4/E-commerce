@@ -1,0 +1,21 @@
+
+.product-card-container{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width:239px;
+    height:max-content;
+    transition:transform 1s;
+}
+.card-img img{
+    width:239px;
+    border-radius: 8px;
+
+
+}
+.product-card-container:hover{
+    transform:scale(1.05);
+}
+.card-content{
+    text-align: start;
+    margin:1rem 1rem ;
+
+}

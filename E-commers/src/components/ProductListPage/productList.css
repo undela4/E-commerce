@@ -1,0 +1,43 @@
+.product-layout{
+    margin-top: 2rem;
+}
+.product-list{
+    margin-left: 4rem;
+    display: flex;
+    justify-content: space-between;
+    gap:15px;
+    flex-wrap: wrap;
+}
+.product-filters
+{
+    height: max-content;
+    box-shadow:10 10 20 black;
+}
+
+.dropdown-items
+{
+    width:95%;
+    height: max-content;
+    margin-left:10%;
+    margin-bottom: 30px;
+    padding:15px;
+    transition: all 0.4s;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; 
+    border: 1px solid rgb(240, 212, 212);
+    
+}
+
+input[type="checkbox"] {
+        width: 22px;
+        height: 20px;
+      }
+.check >span{
+    margin-left:9px;
+     font-size: 21px;
+}
+.check{
+    margin-top:1rem;
+}
+/* .dropdown-list{
+
+} */
