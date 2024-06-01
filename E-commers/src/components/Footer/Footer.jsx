@@ -1,9 +1,9 @@
 import React from 'react';
 import './footer.css';
+import { Bandage } from '../../assets/img';
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";  
 import { FaTwitter } from "react-icons/fa6"; 
-import {Bandage} from  'D:/Projects/E-commers/E-commers/src/assets/img.js';
 import { FaCcVisa } from "react-icons/fa";
 import { FaCcMastercard } from "react-icons/fa6";
 import { FaGooglePay } from "react-icons/fa";

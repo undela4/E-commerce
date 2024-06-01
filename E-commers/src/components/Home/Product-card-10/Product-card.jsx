@@ -2,8 +2,7 @@ import React from 'react';
 import Card from './card';
 import './.css'
 
-import {productCoverImg, fh1,fh2,fh4,fh5,fh6,fh7,fh8 } from 'D:/Projects/E-commers/E-commers/src/assets/img.js';
-
+import {productCoverImg, fh1,fh2,fh4,fh5,fh6,fh7,fh8 } from '../../../assets/img';
 
 export default function ProductCard({data}) {
 

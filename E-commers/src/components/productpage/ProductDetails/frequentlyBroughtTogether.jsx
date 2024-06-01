@@ -14,7 +14,7 @@ export default function FrequentlyBroughtTogether() {
                     [1,2,3,4,5,6,7,8,9,10].map((index) => {
                         return (
 
-                             <Card className='d-inline-block' key={index} />
+                             <Card className='d-inline-block' key={index} onClick={()=>nav(`/product/k/${index}`)}/>
                             
                         )
                     })

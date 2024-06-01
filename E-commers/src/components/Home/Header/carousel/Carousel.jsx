@@ -1,5 +1,6 @@
 import React from 'react';
-import {carouselInner} from  'D:/Projects/E-commers/E-commers/src/assets/img.js';
+import { carouselInner } from '../../../../assets/img';
+
 
 
 export default function Carousel({data,imgonly}) {

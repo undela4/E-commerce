@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import './login.css';
-import {login2} from  'D:/Projects/E-commers/E-commers/src/assets/img.js';
+import { login2} from '../../../assets/img';
+
 import {Button} from 'react-bootstrap';
 import InputFeild from './InputFeild';
 import { successfunction } from '../../../tostify';

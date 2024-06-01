@@ -1,6 +1,6 @@
 import React from 'react';
 import './.css';
-import {filter,filterWomen,filterAccessories,filterkids} from  'D:/Projects/E-commers/E-commers/src/assets/img.js';
+import  {filter,filterWomen,filterAccessories,filterkids}  from '../../../assets/img';
 
 
 export default function Page() {

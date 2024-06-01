@@ -5,6 +5,7 @@
     margin-top:2px;
     align-items: center;
     height:58px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
 .logo{
     width: 100px;

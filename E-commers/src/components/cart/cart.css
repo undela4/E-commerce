@@ -1,0 +1,78 @@
+.cart{
+    justify-content: space-around;
+    margin-bottom: 10%;
+
+}
+.cart-left{
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.title{
+
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 0;
+    padding-top:1%;
+
+    
+}
+.p{
+    align-self: flex-end;
+    color: rgb(70, 69, 69);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+/* -----> */
+
+.cart-card{
+    width: 100%;
+    display: flex;
+    gap:0.8rem;
+    margin-bottom:1rem;
+    margin-top:1rem;
+
+
+}
+.cart-card-left img{
+    width: 180px;
+
+}
+
+.cart-right{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: max-content;
+  
+}
+.price{
+    padding:5%;
+    display: flex;
+    flex-direction: column;
+    gap:0.8rem;
+
+}
+.price h6{
+    font-size:20px;
+}
+.price p{
+    font-size: 16px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+.total{
+    padding:3%;
+    background-color: rgb(200, 199, 199);
+    border-radius:5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.proceed{
+    margin-top:1rem;
+}

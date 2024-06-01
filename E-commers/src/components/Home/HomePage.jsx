@@ -4,8 +4,8 @@ import Page from './shop-card-31/page';
 import ProductCard from './Product-card-10/Product-card';
 import data from './carousel-2/data';
 import FluidCard from './container-fluid/fluidCard';
-import {productCoverImg, fh1,fh2,fh4,fh5,fh6,fh7,fh8 } from 'D:/Projects/E-commers/E-commers/src/assets/img.js';
-import Categories from './Categories/categories';
+import {productCoverImg, fh1,fh2,fh4,fh5,fh6,fh7,fh8 } from '../../assets/img';
+import  Categories from './Categories/categories';
 
 
  export const cards = [

@@ -3,7 +3,7 @@ import  './signup.css';
 import InputFeild from '../Login/InputFeild';
 import {Button} from 'react-bootstrap';
 import { FaGoogle } from "react-icons/fa";
-import {login3} from  'D:/Projects/E-commers/E-commers/src/assets/img.js';
+import { login3 } from '../../../assets/img';
 import { successfunction,errorfunction } from '../../../tostify';
 import { clientValidation } from '../Login/helper';
 

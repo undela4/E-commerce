@@ -16,8 +16,7 @@ export default function Navbar() {
 }
 
 
-
-import {Bandage} from  'D:/Projects/E-commers/E-commers/src/assets/img.js';
+import { Bandage } from '../../assets/img';
 import { IoIosArrowDown } from "react-icons/io";
 import { RxAvatar } from "react-icons/rx";
 import { IoIosSearch } from "react-icons/io";
@@ -91,7 +90,7 @@ function Nav() {
               <NavLink to="/signup"  className="NavLink" >  Register</NavLink>
 
               <NavLink to="/"  className="NavLink"><IoIosSearch className='nav-icons' /></NavLink>
-              <NavLink to="/"  className="NavLink"><CiShoppingCart className='nav-icons'/><span> 1</span></NavLink>
+              <NavLink to="/cart"  className="NavLink"><CiShoppingCart className='nav-icons'/><span> 1</span></NavLink>
               <NavLink to="/"  className="NavLink"><CiHeart className='nav-icons'/><span> 1</span></NavLink>
               
               </div>

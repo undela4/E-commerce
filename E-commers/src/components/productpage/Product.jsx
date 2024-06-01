@@ -7,11 +7,13 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import { Product1 } from './ProductDetails/ProductDetails';
 import SimilarProducts from './ProductDetails/SimilarProducts';
 import FrequentlyBroughtTogether from './ProductDetails/frequentlyBroughtTogether';
+import { successfunction } from '../../tostify';
 
 
 export default function Product() {
   const {name,id}=useParams()
   const [img,setimg]=useState('https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257');
+  
   const images=[
     {id:1,
       img:"https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257"
@@ -94,7 +96,7 @@ export default function Product() {
 
             </div>
             <div className="d-flex gap-5">
-              <button className='btn btn-outline-info'>Add To Cart</button>
+              <button className='btn btn-outline-info' onClick={()=>successfunction("Successfully add to Cart")}>Add To Cart</button>
               <button className='btn btn-info'>Buy Now</button>
               <CiHeart className='fs-1'/>
             </div>
@@ -104,8 +106,6 @@ export default function Product() {
 
         <Product1/>
         <SimilarProducts/>
-        
-
         <FrequentlyBroughtTogether/>
     </div>
 
