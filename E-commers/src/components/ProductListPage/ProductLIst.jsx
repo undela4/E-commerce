@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './productList.css'
 import { cards } from '../Home/HomePage';
@@ -6,13 +6,33 @@ import { useParams } from 'react-router-dom';
 import Card from './ProductCart/Card';
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Outlet } from 'react-router-dom';
+import { Dropdown } from './Dropdown';
+import {data} from '../../../Data/Mobile_data.js';
+import { smart_tv } from '../../../Data/Smart_tv.js';
+
 
 
 export default function ProductLIst() 
 {
-    
+const [products,setprodutes]=useState([]);
 const nav=useNavigate();
 const {name}=useParams();
+
+useEffect(()=>{
+    switch(name){
+        case "Mobile":
+            setprodutes(data);
+            break;
+        case "Tv":
+            setprodutes(smart_tv);
+            break;
+        default:
+            setprodutes(data);
+            break;
+    }
+
+},[]);
+
 
 const filters=[
     {id:1,
@@ -50,7 +70,7 @@ const filters=[
                {
                 filters.map((e)=>{
                     return(
-                      <Dropdown key={e.id} name={e.name} items={e.items} type={e.type}/>   
+                      <Dropdown key={e.id} name={e.name} items={e.items} type={e.type}  products={products} setprodutes={setprodutes} />   
 
                     )
                 })
@@ -62,11 +82,11 @@ const filters=[
             <div className="col-9">
                 <div className="product-list " >
                 {
-                    cards.map((item,key)=>{
+                    products.map((item,id)=>{
                     return(
                         
                         <div onClick={()=>nav(`./${item.id}`)}  key={item.id}>
-                        <Card img={item.img} title={item.title}
+                        <Card img={item.key_img} title={item.model}
                         category={item.category} price={item.price} delprice={item.delprice}
                         colors={item.colors}/>
                         </div>
@@ -77,24 +97,7 @@ const filters=[
                 }
 
                 </div>
-                <hr></hr>
-                <div className="product-list " >
-                {
-                    cards.map((item,key)=>{
-                    return(
-                        
-                        <div onClick={()=>nav(`./${item.id}`)}  key={item.id}>
-                        <Card img={item.img} title={item.title}
-                        category={item.category} price={item.price} delprice={item.delprice}
-                        colors={item.colors}/>
-                        </div>
-                         
-                    )
-
-                    })
-                }
-
-                </div>
+               
             </div>
                 
                 
@@ -112,56 +115,6 @@ const filters=[
 
 
 
-//left part filters
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
-import Checkbox from './checkbox/checkbox';
-import { useRef ,useState} from 'react';
 
 
-function Dropdown({name,items,type})
-{
-    const r=useRef(null);
-    const[flag,setflag]=useState(false);
-
-    function drop()
-    {
-        console.log("Dropdown")
-       !flag?(r.current.style.display="none"):(r.current.style.display="block");
-       setflag(!flag);   
-    }
-
-    return(
-        <div className="dropdown-items">
-
-            <div className="d-flex 
-            justify-content-between
-            align-items-baseline">
-                <h3>{name}</h3>
-                <div className="fs-3" onClick={drop}>
-                    {
-                        flag?(<IoIosArrowDown />):(<IoIosArrowUp />)
-                    
-                    }
-                </div>
-            </div>
-
-            <div ref={r} style={{display:"block"}} className='dropdown-list' >
-               {
-                items.map((item,index)=>{
-                    return(
-                        <div className="check" key={index}>
-                        <input  type={type} /><span>{item}</span>
-
-                        </div>
-                    )
-                })
-                 
-               }                
-               
-            </div>
-           
-        </div>
-    )
-}
 

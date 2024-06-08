@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import './product.css'
 import { CiStar } from "react-icons/ci";
@@ -8,43 +8,52 @@ import { Product1 } from './ProductDetails/ProductDetails';
 import SimilarProducts from './ProductDetails/SimilarProducts';
 import FrequentlyBroughtTogether from './ProductDetails/frequentlyBroughtTogether';
 import { successfunction } from '../../tostify';
+import {data} from '../../../Data/Mobile_data.js';
+import { smart_tv } from '../../../Data/Smart_tv.js';
+
+export default function Product()
+{
+
+const [product,setproduct]=useState([]);
+const [img,setimg]=useState('');
+const [images,setimages]=useState([]);
+const {name,id}=useParams();
 
 
-export default function Product() {
-  const {name,id}=useParams()
-  const [img,setimg]=useState('https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257');
-  
-  const images=[
-    {id:1,
-      img:"https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257"
-    },
-    {id:2,
-      img:"https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257"
-    },
-    {id:3,
-      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqT6p3e4U2FukrzIvUSrjgYOpVfFVU1bCRjc7fJGQ6L4HmA9nELEoacgVLa0bwlm7kz9s&usqp=CAU"
-    },
-    {id:4,
-      img:"https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257"
-    },
-    {id:5,
-      img:"https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257"
-    },
-    {id:6,
-      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqT6p3e4U2FukrzIvUSrjgYOpVfFVU1bCRjc7fJGQ6L4HmA9nELEoacgVLa0bwlm7kz9s&usqp=CAU"
-    },
-    {id:7,
-      img:"https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257"
-    },
-    {id:8,
-      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtgovoaRv0fCgvJ_Gg7sXnibMplaFtYzQ9riV_xBtkf-RDL8-Gq1E8fn2B9tGzZTb5aGE&usqp=CAU"
-    }
-  ]
 
+useEffect(()=>{
+  var temp;
+  switch(name){
+    case "Mobile":
+      temp=(data);
+        break;
+    case "Tv":
+      temp=(smart_tv);
+        break;
+    default:
+      temp=(data);
+        break;
+}
+
+const t=temp.filter(item=>{
+    return item.id==id;
+  })
+  setproduct(t[0])
+  setimg(t[0].key_img);
+  setimages(t[0].images);
+
+
+
+},[]);
+
+
+
+ 
   return (
     <>
     <div className="containe">
     <h5 className='mt-4 mb-5'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{id}</h5>
+
 
         <div className="Product-card">
 
@@ -54,16 +63,17 @@ export default function Product() {
             </div>
             <div className="product-other-images d-flex gap-2 mt-2">
               {
-                images.map((i)=>{
-                  return(<img key={i.id} src={i.img}
-                  onClick={()=>setimg(i.img)} />)
+                images.map((i,index)=>{
+                  return(<img key={index} src={i}
+                  onClick={()=>setimg(i)} />)
                 })
               }
             </div>
           </div>
           
           <div className="Product-card-right">
-            <h4>Noise ColorFit Ultra 3 Bluetooth Calling Smart Watch with Biggest 1.96" AMOLED Display, Premium Metallic Build,...</h4>
+            
+            <h4>{product.brand} | {product.model}| {product.ram} |{product.storage} |{product.processor}</h4>
            
             <div className="d-flex gap-3 align-items-baseline">
               <div className="">
@@ -75,7 +85,7 @@ export default function Product() {
               </div>
               <div className=""><h6>(112 ratings)</h6></div>
             </div>
-            <div className="d-flex gap-2"><h6><del>₹4999</del></h6><h6>₹2999</h6><h6>(saved 70%)</h6></div>
+            <div className="d-flex gap-2"><h6><del>₹ {product.price+5000}</del></h6><h6>₹ {product.price}</h6><h6>(saved 70%)</h6></div>
             <div className="">
               <label htmlFor="sel1" className="form-label">Models</label>
               <select className="form-select" id="sel1" name="sellist1">
@@ -104,9 +114,12 @@ export default function Product() {
           </div>
         </div>
 
-        <Product1/>
+        <Product1 pdata={product}/>
         <SimilarProducts/>
         <FrequentlyBroughtTogether/>
+
+
+
     </div>
 
     </>

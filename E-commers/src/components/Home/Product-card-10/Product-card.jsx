@@ -15,11 +15,11 @@ export default function ProductCard({data}) {
 
             <div className="cards row">
             {
-            data.map((item,key)=>{
+            data.map((item,index)=>{
             return(
                 <Card img={item.img} title={item.title}
                 category={item.category} price={item.price} delprice={item.delprice}
-                colors={item.colors}/>
+                colors={item.colors} key={index}/>
             )
 
             })

@@ -11,7 +11,7 @@ export default function Card({img,title,category,price,delprice}) {
     <div className="product-card-container">
 
           <div className="card-img">
-              <img src="https://th.bing.com/th/id/OIG2.GgBge09xvlJo5fUN7Ybj?w=270&h=270&c=6&r=0&o=5&dpr=1.1&pid=ImgGn" alt="img"/>
+              <img src={img} alt="img"/>
 
           </div>
           <div className="card-content d-flex flex-column ">

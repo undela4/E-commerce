@@ -15,8 +15,8 @@ export default function Card({img,title,category,price,delprice,colors}) {
                         <div className="d-flex justify-content-between">
                             <div className="">
                                 {
-                                    [1,2,3,4,5].map((item)=>{
-                                        return(<CiStar className='fs-5'/>)
+                                    [1,2,3,4,5].map((i,index)=>{
+                                        return(<CiStar className='fs-5' key={index}/>)
                                     })
                                 }
                             </div>
@@ -36,8 +36,8 @@ export default function Card({img,title,category,price,delprice,colors}) {
                             colors.map((color,index)=>{
                                 return(
 
-                                   
-                                    <div className="rounded-circle" 
+                                    
+                                    <div className="rounded-circle" key={index}
                                      style={{backgroundColor:color}}>
                                       
                                     </div>

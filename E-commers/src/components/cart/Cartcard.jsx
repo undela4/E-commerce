@@ -1,12 +1,13 @@
 import React from 'react';
 
-export default function Cartcard({img, title, description,quantity,price,del_price,method}){
-    return (
+
+export default function Cartcard({img, title, description,quantity,price,del_price,method,Increment,decrement,flag}){
+  return (
   
       <>
       
       <hr></hr>
-      <div className="cart-card">
+      <div className="cart-card" >
   
         <div className="cart-card-left">
           <img src={img} />
@@ -22,7 +23,7 @@ export default function Cartcard({img, title, description,quantity,price,del_pri
   
             </del>
           <h5>₹ {price}</h5>
-          <input type="checkbox" />
+          <input type="checkbox" style={flag}/>
   
           </div>
   
@@ -35,17 +36,25 @@ export default function Cartcard({img, title, description,quantity,price,del_pri
           <p>Colours</p>
           <p>Spec</p>
   
-          <div className="d-flex gap-3  align-items-baseline">
+        
+           <div  style={flag}>
+           <div className="d-flex gap-3  align-items-baseline cart-quantity ">
               <h6>Quantity:</h6>
-              <div className="d-flex gap-3 fs-6 me-5">
-                  <span> -</span>               
-                  <span>1</span>
-                  <span>+</span>
+              <div className="d-flex gap-1 fs-6 me-5 align-items-baseline">
+                
+                  <button className='btn' onClick={()=>decrement()}>-</button>               
+                  <span>{quantity}</span>
+                  <button className='btn' onClick={()=>Increment()}>+</button>
   
   
               </div>
               <button className='btn btn-outline-danger' onClick={()=>method()}>Delete</button>
-              </div>
+            </div>
+           
+           </div>
+           
+        
+          
   
         </div>
       </div>

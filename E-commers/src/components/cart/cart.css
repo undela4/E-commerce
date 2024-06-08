@@ -42,6 +42,15 @@
     width: 180px;
 
 }
+.cart-quantity{
+    cursor: pointer;
+}
+.cart-quantity div{
+
+    padding-left: 1%;
+    border: 3px solid rgb(213, 206, 206);
+    border-radius:8px;
+}
 
 .cart-right{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

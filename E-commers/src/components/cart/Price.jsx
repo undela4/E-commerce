@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
-export default function Price({price}){
-
+export default function Price({price,items})
+{
+ const nav=useNavigate();
 
   return(
   <>
-  
   <div className="price">
     <div className="flex">
     <h6>Subtotal</h6>
@@ -25,10 +26,11 @@ export default function Price({price}){
     <h6>₹ {price}</h6>
     </div>
     <div className="proceed">
-      <button className='btn btn-warning w-100 fw-bold'>Proceed to checkout</button>
+      <button className='btn btn-warning w-100 fw-bold' onClick={()=>nav(`/checkout/${price}`)}>Proceed to checkout</button>
     </div>
 
   </div>
   </>
   )
 }
+

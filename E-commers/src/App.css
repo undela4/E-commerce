@@ -23,3 +23,12 @@ box-sizing: border-box;
   }
 
 }
+
+.Ai{
+  position: fixed;
+  right:10px;
+  top:85%;
+  font-size:80px;
+
+
+}

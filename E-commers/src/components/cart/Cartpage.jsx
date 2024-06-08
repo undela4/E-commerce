@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './cart.css';
 import  Cartcard  from './Cartcard';
 import Price from './Price';
+import { errorfunction } from '../../tostify';
 
-export default function Cartpage() {
-
-const data=[
+export const data=[
   {
     "id": 1,
     "img":"https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257",
@@ -13,7 +12,7 @@ const data=[
     "description": "The latest model of the iPhone with advanced features and improvements.",
     "price":2899,
     "del_price":3199,
-    "quantity": "3"
+    "quantity":1
   },
   {
     "id": 2,
@@ -23,7 +22,7 @@ const data=[
     "description": "A high-end smartphone with an impressive camera and performance.",
     "price": 2599,
     "del_price":3199,
-    "quantity": "5"
+    "quantity": 1
   },
   {
     "id": 3,
@@ -33,7 +32,7 @@ const data=[
     "description": "Google's flagship smartphone with exceptional camera quality and stock Android experience.",
     "price": 2399,
     "del_price": 3199,
-    "quantity": "2"
+    "quantity":1
   },
   {
     "id": 4,
@@ -43,7 +42,7 @@ const data=[
     "description": "A powerful smartphone with fast charging and smooth performance.",
     "price": 1999,
     "del_price":3199,
-    "quantity": "4"
+    "quantity": 1
   },
   {
     "id": 5,
@@ -53,9 +52,12 @@ const data=[
     "description": "A budget-friendly smartphone with great features and battery life.",
     "price": 1499,
     "del_price":3199,
-    "quantity": "6"
+    "quantity": 1
   }
-]
+];
+export default function Cartpage() {
+
+
 
 const [items,setitems]=useState(data);
 const [price,setprice]=useState(0);
@@ -64,7 +66,7 @@ var t=0;
 
 useEffect(()=>{
   for(var i=0;i<items.length;i++){
-    t+=items[i].price;
+    t+=items[i].price*items[i].quantity;
   }
   setprice(t)
 
@@ -77,9 +79,36 @@ setitems(items.filter((item)=>{
 }));
 
 }
+function Increment(id){
+
+  setitems(items.filter((item)=>{
+  if (item.quantity===10){
+    errorfunction("More than 10 items not possible at a time")
+    return item;
+  }
+
+    if (item.id===id)
+    return item.quantity=item.quantity+1;
+  else
+  return item;
+
+  }));
+  
+}
+function decrement(id){
+    setitems(items.filter((item)=>{
+      if (item.id===id){
+      return item.quantity=item.quantity-1;
+      }
+      else
+  return item;
+    }));
+    
+}
+   
 
 
-  return items.length!=0 ? (
+return items.length!=0 ? (
     <>
       <div className="containe">
 
@@ -96,7 +125,9 @@ setitems(items.filter((item)=>{
             items.map((item)=>{
               return(
                 <Cartcard key={item.id} img={item.img} title={item.title} description={item.description}
-                quantity={item.quantity} price={item.price} del_price={item.del_price} method={()=>ondelete(item.id)}/>
+                quantity={item.quantity} price={item.price} del_price={item.del_price} method={()=>ondelete(item.id)}
+                Increment={()=>Increment(item.id)} decrement={()=>decrement(item.id)} flag={{display:'block'}}
+                />
               )
             })
           }
@@ -107,7 +138,8 @@ setitems(items.filter((item)=>{
 
 
           <div className="cart-right col-sm-3">
-            <Price price={price} />
+            <Price price={price} items={items}/>
+            
           </div>
 
         </div>
@@ -115,6 +147,8 @@ setitems(items.filter((item)=>{
     </>
   ) :(<Emptycart/>)
 }
+
+
 
 
 function Emptycart(){

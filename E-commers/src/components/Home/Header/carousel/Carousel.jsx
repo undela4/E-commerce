@@ -17,15 +17,15 @@ export default function Carousel({data,imgonly}) {
 return (
     <div  className='containe'>
       
-<div id="demo" class="carousel slide " data-bs-ride="carousel">
+<div id="demo" className="carousel slide " data-bs-ride="carousel">
 
-<div class="carousel-indicators">
-  <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+<div className="carousel-indicators">
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="0" className="active"></button>
   <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
   <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
 </div>
 
-<div class="carousel-inner">
+<div className="carousel-inner">
   
   {
     d.map((item,index)=>{
@@ -33,13 +33,13 @@ return (
       if(imgonly)
         {
           return(
-            <CouroselItem img={item.img}/>  
+            <CouroselItem img={item.img} key={index}/>  
           )
 
       }else
       {
         return(
-          <CutomeCarousel img={item.img}/>
+          <CutomeCarousel img={item.img} key={index}/>
           
         )
 
@@ -52,11 +52,11 @@ return (
   
 </div>
 
-<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-  <span class="carousel-control-prev-icon"></span>
+<button className="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+  <span className="carousel-control-prev-icon"></span>
 </button>
-<button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-  <span class="carousel-control-next-icon"></span>
+<button className="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+  <span className="carousel-control-next-icon"></span>
 </button>
 </div>
 
@@ -85,7 +85,7 @@ function CutomeCarousel({img}){
 
   return(
 
-    <div class="carousel-item active">
+    <div className="carousel-item active">
 
     <div className="hero-section d-flex pt-5 h-100
 justify-content-around align-items-center bg-success">

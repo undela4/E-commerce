@@ -1,0 +1,17 @@
+.left-modal {
+
+    position: fixed;
+    top:0;
+    right:0;
+    transform: translateY(-50%);
+    width: auto;
+    max-width: 500px; /* Adjust width as needed */
+  }
+
+  .model{
+    position: fixed;
+    right: 0;
+    top: 0;
+    
+
+  }

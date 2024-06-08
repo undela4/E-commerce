@@ -1,13 +1,22 @@
 
 .product-card-container{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    width:239px;
+    width:300px;
     height:max-content;
     transition:transform 1s;
+    padding: 2%;
+}
+.card-img{
+    background-position: center;
+    background-size: cover;
 }
 .card-img img{
+    padding:3%;
     width:239px;
+    height:300px ;
     border-radius: 8px;
+    background-position: center;
+    background-size: cover;
 
 
 }

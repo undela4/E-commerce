@@ -1,31 +1,51 @@
+import {useState} from 'react';
+
 
 export const Overview = ({ product }) => {
+  
     return (
+
       <div>
-        <h1>{product.name}</h1>
+        <h1>{product.model}</h1>
+        <div className="fs-4">
         <p>{product.description}</p>
-        <p>Price: {product.currency} {product.price}</p>
-        <p>Category: {product.category}</p>
-        <p>Brand: {product.brand}</p>
-        <img src={product.image_url} alt={product.name} />
+        <p>Price: <span className='fw-bold'>₹ {product.price}</span></p>
+        <p>Brand: <span className='fw-bold'>{product.brand}</span></p>
+        </div>
+        <div className="d-flex align-items-center">
+          <div className="w-50">
+           <img className="w-75" src={product.key_img} alt={product.name} />
+
+          </div>
+          <div className="about">
+            <p>Operating_system  :  <span>{ product.operating_system}</span></p>
+            <p>Ram :  <span>{product.ram}</span></p>
+            <p>Storage : <span>{product.storage}</span></p>
+            <p> Battery :  <span>{product.battery_capacity}</span></p>
+            <p>Network :  <span>{product.network_technology}</span></p>
+          </div>
+        </div>
       </div>
     );
   };
   
   // Specifications Component
-  export const Specifications = ({ specs }) => {
+export const Specifications = ({ specs }) => {
     return (
-      <div>
+      <div className='fs-4'>
         <h2>Specifications</h2>
-        <p>Display: {specs.display}</p>
-        <p>Connectivity: {specs.connectivity}</p>
-        <p>Battery Life: {specs.battery_life}</p>
-        <p>Charging Time: {specs.charging_time}</p>
-        <p>Build Material: {specs.build_material}</p>
-        <p>Strap Material: {specs.strap_material}</p>
-        <p>Water Resistance: {specs.water_resistance}</p>
+        <p>Display: {specs.screen_size}</p>
+        <p>Resolution: {specs.resolution}</p>
+        <p>battery_capacity: {specs.battery_capacity}</p>
+        <p>processor: {specs.processor}</p>
+        <p>dimensions: {specs.dimensions}</p>
+        <p>weight: {specs.weight}</p>
+        <p>sim_type: {specs.sim_type}</p>
         <ul>
-          {specs.features.map((feature, index) => (
+          {specs.additional_features.map((feature, index) => (
+            <li key={index}>{feature}</li>
+          ))}
+           {specs.specifications.map((feature, index) => (
             <li key={index}>{feature}</li>
           ))}
         </ul>
@@ -70,13 +90,13 @@ export const Overview = ({ product }) => {
   };
 
 
-import {useState} from 'react';
 import data from '../data.js';
 
-export function Product1(){
+export function Product1({pdata}){
 
+  console.log(data)
   const [f,setf]=useState(0);
-  const compo=[<Overview product={data[0]}/>,<Specifications specs={data[1]}/>,<ReviewRatings ratings={data[2]}/>,<Questions faqs={data[3]} />]
+  const compo=[<Overview product={pdata}/>,<Specifications specs={pdata}/>,<ReviewRatings ratings={data[2]}/>,<Questions faqs={data[3]} />]
 
   return(
     <>

@@ -1,0 +1,40 @@
+.payment_success-cart{
+    width: 500px;
+    height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+
+}
+
+.description{
+    width: 290px;
+    text-align: justify;
+    text-align-last: center;
+    font-weight:500;
+
+}
+.payment_success-logo{
+    font-size:10rem;
+    animation: ani 3s linear infinite;
+}
+@keyframes ani {
+    0%{
+        transform: scale(1);
+
+    }
+    50%{
+        transform: scale(1.1);
+
+
+    }
+    100%{
+        transform: scale(1);
+
+    }
+    
+}
