@@ -131,7 +131,7 @@ export const Bot = () => {
                     <div className="d-block">
                       
                     { message.img &&
-                    <img src={message.img} alt={message.text} />
+                    <img src={message.img} alt={message.text} width={200} height={200}/>
                     }
                     {
                       message.audio &&

@@ -1140,3 +1140,14 @@ export const smart_tv=[
 
 
 
+// function convertToJSON(objectsArray) {
+//   return JSON.stringify(objectsArray, null, 2);
+// }
+
+// import fs from 'fs';
+// const jsonDocument = convertToJSON(data);
+
+// fs.writeFile('output.json', jsonDocument, (err) => {
+// if (err) throw err;
+// console.log('JSON document has been saved!');
+// });

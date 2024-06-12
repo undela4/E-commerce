@@ -14,11 +14,11 @@ export default function Summary({price})
             </div>
             <div className="flex">
                 <h5>Delivery:</h5>
-                <h5>₹{0}.00</h5>
+                <h5>₹{59}.00</h5>
             </div>
             <div className="flex">
                 <h5>Total:</h5>
-                <h5>₹{price}.00</h5>
+                <h5>₹{price+59}.00</h5>
             </div>
             <div className="flex">
                 <h5>Promotion Applied</h5>
@@ -30,7 +30,7 @@ export default function Summary({price})
             <hr></hr>
             <div className="flex text-danger fw-bold">
                 <h3>Order Total:</h3>
-                <h3>₹{price-160}.00</h3>
+                <h3>₹{price-160+59}.00</h3>
             </div>
             <hr></hr>
             <div className="">

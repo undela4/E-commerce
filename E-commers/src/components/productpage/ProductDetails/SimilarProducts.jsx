@@ -3,7 +3,8 @@ import './Product-details.css';
 import Card from '../../ProductListPage/ProductCart/Card';
 import { useNavigate } from 'react-router-dom';
 
-export default function SimilarProducts() {
+export default function SimilarProducts(){
+  
   const nav=useNavigate();
   return (
     <div className='similar-products'>

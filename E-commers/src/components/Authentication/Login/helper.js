@@ -1,4 +1,5 @@
 import { successfunction,errorfunction } from '../../../tostify';
+import axios from 'axios';
 
 
 
@@ -6,7 +7,6 @@ import { successfunction,errorfunction } from '../../../tostify';
 
 export function clientValidation(data)
 {
-       
         for (let key in data)
         {
             if (data.hasOwnProperty(key)) 
@@ -18,7 +18,12 @@ export function clientValidation(data)
                 }
             }
         }
-        
         return true;
+
+}
+
+export async function sign_up(use_data){
+    
+
 
 }

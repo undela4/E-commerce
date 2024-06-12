@@ -8,51 +8,31 @@ import { Product1 } from './ProductDetails/ProductDetails';
 import SimilarProducts from './ProductDetails/SimilarProducts';
 import FrequentlyBroughtTogether from './ProductDetails/frequentlyBroughtTogether';
 import { successfunction } from '../../tostify';
-import {data} from '../../../Data/Mobile_data.js';
-import { smart_tv } from '../../../Data/Smart_tv.js';
+import {fetch_by_id} from '../ProductListPage/fetch';
+import { add_item_to_cart } from './ProductDetails/helpers';
+
 
 export default function Product()
 {
 
-const [product,setproduct]=useState([]);
+
+const [product,setproduct]=useState(null);
 const [img,setimg]=useState('');
-const [images,setimages]=useState([]);
+
+
 const {name,id}=useParams();
 
-
-
 useEffect(()=>{
-  var temp;
-  switch(name){
-    case "Mobile":
-      temp=(data);
-        break;
-    case "Tv":
-      temp=(smart_tv);
-        break;
-    default:
-      temp=(data);
-        break;
-}
 
-const t=temp.filter(item=>{
-    return item.id==id;
-  })
-  setproduct(t[0])
-  setimg(t[0].key_img);
-  setimages(t[0].images);
+  fetch_by_id({_id:id},setproduct,setimg)
+
+  },[]);
 
 
-
-},[]);
-
-
-
- 
-  return (
+  return product?(
     <>
     <div className="containe">
-    <h5 className='mt-4 mb-5'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{id}</h5>
+    <h5 className='mt-4 mb-5'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{product.model}</h5>
 
 
         <div className="Product-card">
@@ -63,7 +43,7 @@ const t=temp.filter(item=>{
             </div>
             <div className="product-other-images d-flex gap-2 mt-2">
               {
-                images.map((i,index)=>{
+                product.images.map((i,index)=>{
                   return(<img key={index} src={i}
                   onClick={()=>setimg(i)} />)
                 })
@@ -106,7 +86,7 @@ const t=temp.filter(item=>{
 
             </div>
             <div className="d-flex gap-5">
-              <button className='btn btn-outline-info' onClick={()=>successfunction("Successfully add to Cart")}>Add To Cart</button>
+              <button className='btn btn-outline-info' onClick={()=>add_item_to_cart(product._id)}>Add To Cart</button>
               <button className='btn btn-info'>Buy Now</button>
               <CiHeart className='fs-1'/>
             </div>
@@ -123,7 +103,7 @@ const t=temp.filter(item=>{
     </div>
 
     </>
-  )
+  ):(<center><h1 className='text-danger'>Loading.....</h1></center>)
 }
 
 

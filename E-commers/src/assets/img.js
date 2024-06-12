@@ -18,6 +18,7 @@ import fluidcard from './img/fluidcard.png';
 import login1 from './img/login1.jpg';
 import login2 from './img/login2.jpg';
 import login3 from './img/login2.png';
+import avatar from './img/avatar.png';
 
 
 
@@ -32,5 +33,5 @@ import login3 from './img/login2.png';
 
 export {Bandage,carouselInner,filter,filterWomen,filterAccessories,carouselInner2,
     filterkids,productCoverImg,fh1,fh2,fh4,fh5,fh6,fh7,fh8,carouselInner1,fluidcard
-    ,login1,login2,login3
+    ,login1,login2,login3,avatar
 };

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {NavLink} from "react-router-dom"
+import React, { useState,useEffect } from 'react';
+import {NavLink,Link} from "react-router-dom"
 import './Navbar.css'
 
 
@@ -22,7 +22,8 @@ import { RxAvatar } from "react-icons/rx";
 import { IoIosSearch } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
-
+import userAuth from '../../customeHooks/userAuth';
+import Icon from '../UserProfile/Icon';
 
 const navlinks=[
   {
@@ -59,6 +60,10 @@ const navlinks=[
 
 
 function Nav() {
+
+  const [u,logout]=userAuth();
+
+
   return (
     <>
       <div className="containe ">
@@ -75,7 +80,7 @@ function Nav() {
               {
                 navlinks.map((item, index) => {
                   return (
-                    <NavLink  className="NavLink" to={item.path} key={item.id}>
+                    <NavLink  className="NavLink" to={item.path} key={index}>
                       {item.title}{item.Component}
                     </NavLink>
                   )
@@ -85,11 +90,11 @@ function Nav() {
             </div>
 
             <div className="nav-items-right">
-              <NavLink to="/login"  className="NavLink" ><RxAvatar />  Login /
-              </NavLink>
-              <NavLink to="/signup"  className="NavLink" >  Register</NavLink>
-
-              <NavLink to="/"  className="NavLink"><IoIosSearch className='nav-icons' /></NavLink>
+              {u?(<Link   className="NavLink" onClick={()=>nav('/account')}><Icon/></Link>):
+                (<NavLink to="/login"  className="NavLink" >  Login</NavLink>)
+               }
+           
+              <NavLink to=""  className="NavLink"><IoIosSearch className='nav-icons' /></NavLink>
               <NavLink to="/cart"  className="NavLink"><CiShoppingCart className='nav-icons'/><span> 1</span></NavLink>
               <NavLink to="/"  className="NavLink"><CiHeart className='nav-icons'/><span> 1</span></NavLink>
               

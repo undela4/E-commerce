@@ -94,7 +94,6 @@ import data from '../data.js';
 
 export function Product1({pdata}){
 
-  console.log(data)
   const [f,setf]=useState(0);
   const compo=[<Overview product={pdata}/>,<Specifications specs={pdata}/>,<ReviewRatings ratings={data[2]}/>,<Questions faqs={data[3]} />]
 

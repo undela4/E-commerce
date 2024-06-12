@@ -1,12 +1,16 @@
 import React from 'react'
 import './payment_success.css'
 import { FcOk } from "react-icons/fc";
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 
 export default function Payment_success() {
+
+    const nav=useNavigate();
+
   return (
     <div className='payment_success-cart'>
         <div className="payment_success-logo">
@@ -21,8 +25,10 @@ export default function Payment_success() {
         <div className="description">
             <p>Thank you for your order at our site. Your product is delivered securely</p>
         </div>
-        <div className="mt-3">
-            <button className="btn btn-warning">Return to Myorders</button>
+        <div className="mt-3 d-flex gap-5">
+            <button className="btn btn-warning" onClick={()=>nav('/')}>Home</button>
+            <button className="btn btn-warning" onClick={()=>nav('/')} >Myorders</button>
+
         </div>
       
     </div>

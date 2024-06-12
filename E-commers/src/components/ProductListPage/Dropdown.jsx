@@ -2,25 +2,25 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import Checkbox from './checkbox/checkbox';
 import { useEffect, useRef ,useState} from 'react';
-import { data } from "../../../Data/Mobile_data";
-export function Dropdown({name,items,type,products,setprodutes})
+import { useSelector } from "react-redux";
+export function Dropdown({name,items,type,pl,setpl})
 {
 
     const r=useRef(null);
     const[flag,setflag]=useState(false);
     const [brand,setbrand]=useState([]);
-    // const [cproducts,setcproducts]=useState(data);
+    const {products}=useSelector(state=>state.productSlice);
+
     
 
  useEffect(()=>{
     if (brand.length==0){
-        setprodutes(data);
         return;
     }
-    const t=data.filter(item=>{
+    const t=products.filter(item=>{
         return brand.includes(item.brand);
       })
-    setprodutes(t)
+    setpl(t)
  },[brand])   
 
 function onchangeBrand(e)

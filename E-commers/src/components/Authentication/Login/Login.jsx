@@ -4,28 +4,46 @@ import { login2} from '../../../assets/img';
 
 import {Button} from 'react-bootstrap';
 import InputFeild from './InputFeild';
-import { successfunction } from '../../../tostify';
+import { errorfunction, successfunction } from '../../../tostify';
 import { clientValidation } from './helper';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import {useDispatch} from 'react-redux';
+import { login } from '../../../Redux-Store/userSlice';
 
 
 export default function Login() {
 
 const [userdata,setuserdata]=useState({email:"",password:""});
 const nav=useNavigate();
+const dispatch = useDispatch();
 
 function onchange(e)
 {
-    console.log(userdata);
     setuserdata({...userdata,[e.target.name]:e.target.value});
-
 }
 
-function onsubmit(){
+async function onsubmit(){
     if(clientValidation(userdata))
-    {
-        successfunction("Login successfully Done");
-        nav('/')
+    {   
+        try{
+            const result=await axios.post('http://localhost:5000/v1/sign_in',userdata);
+            if(result.data.status)
+            {
+                Cookies.set('token',result.data.token);
+                dispatch(login())
+                successfunction('Login Successfull');
+
+                nav('/',{replace:true});
+            }else{
+                errorfunction(result.data.msg);
+            }
+        }
+        catch(err){
+            errorfunction(err.message);
+            console.log(err.message);
+        }
     }
     setuserdata({email:"",password:""})
 

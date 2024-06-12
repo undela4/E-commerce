@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function Cartcard({img, title, description,quantity,price,del_price,method,Increment,decrement,flag}){
+export default function Cartcard({img, title, description,quantity,price,del_price,method,Increment,decrement,colors,spec,adf,flag}){
   return (
   
       <>
@@ -12,6 +12,7 @@ export default function Cartcard({img, title, description,quantity,price,del_pri
         <div className="cart-card-left">
           <img src={img} />
         </div>
+
         <div className="cart-card-right w-100">
           
           <div className="d-flex justify-content-between heading">
@@ -30,13 +31,35 @@ export default function Cartcard({img, title, description,quantity,price,del_pri
   
           </div>
   
-          <p>In Stock</p>
+          <p style={flag} className='text-danger'>In Stock</p>
           <p>{description}</p>
+
           <p>Eligible For Free Delivery</p>
-          <p>Colours</p>
-          <p>Spec</p>
+
+          {
+            colors&&(<div className="d-flex gap-3">
+
+          <p className='fw-bold'>Colours:</p>
+
+            {
+              colors.map((item)=>{
+                return(
   
-        
+                  <div className="d-flex" key={item}
+                   style={{backgroundColor:item}}>
+                   <p style={flag}>{item}</p>
+  
+                    </div>
+                )
+            
+            
+          })
+        }
+            </div>)
+          }
+          
+          <p><span className='fw-bold'>Specifications</span>{spec} {adf}</p>
+    
            <div  style={flag}>
            <div className="d-flex gap-3  align-items-baseline cart-quantity ">
               <h6>Quantity:</h6>
@@ -57,6 +80,8 @@ export default function Cartcard({img, title, description,quantity,price,del_pri
           
   
         </div>
+
+
       </div>
   
   

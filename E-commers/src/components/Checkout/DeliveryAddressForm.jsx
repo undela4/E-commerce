@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputFeild from '../Authentication/Login/InputFeild';
+import { add_address ,get_address} from './helpers';
 
 export default function DeliveryAddressForm({flag,address,setaddress}){
   
 const data={
   firstName: '',
   lastName: '',
-  company:'',
+  email:'',
   country: '',
   street: '',
   houseNumber: '',
@@ -19,7 +20,7 @@ const data={
 
 const [formData, setFormData] = useState(data);
   
-  const { firstName, lastName,company, country, street, houseNumber, city, state, postcode, phoneNumber } = formData;
+  const { firstName, lastName,email, country, street, houseNumber, city, state, postcode, phoneNumber } = formData;
 
   const handleChange = (e) => {
     
@@ -31,16 +32,20 @@ const [formData, setFormData] = useState(data);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
+    add_address(formData);
     flag[1]({display:'none'});
-    var v=`${firstName},${street},${houseNumber},${city},${state},${postcode}`;
-    setaddress([...address,{id:4,fullAddress:v}]);
-    setFormData(data);
+
+    // setFormData(data);
     
   };
 
+  useEffect(()=>{
+    get_address(setaddress);
 
-  return (
+  },[])
+
+  
+  return  (
     <div className="container mt-5 p-3">
         <div className="mb-4">
         <h2>Shipping Address</h2>
@@ -53,7 +58,7 @@ const [formData, setFormData] = useState(data);
        <InputFeild label="Last Name" type="text" method={handleChange} name="lastName" value={lastName} className="In"/>
       </div>
       <div className="address">
-       <InputFeild label="Company Name (optional)" type="text"  method={handleChange} name="company" value={company} className="In"/>
+       <InputFeild label="Email Address" type="text"  method={handleChange} name="email" value={email} className="In"/>
        <InputFeild label="Country / Region " type="text" method={handleChange} name="country" value={country} className="In"/>
       </div>
       <div className="address">

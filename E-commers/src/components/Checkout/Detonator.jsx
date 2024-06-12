@@ -11,7 +11,7 @@ export default function Detonator({name,drop,f}) {
     <div className="d-flex 
             justify-content-between
             align-items-baseline" onClick={drop}>
-            <h4>{name}</h4>
+            <h4 >{name}</h4>
               <div className="fs-3" >
                     {
                         f?(<FcOk />):(<FaMinusCircle />)

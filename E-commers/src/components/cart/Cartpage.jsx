@@ -3,6 +3,8 @@ import './cart.css';
 import  Cartcard  from './Cartcard';
 import Price from './Price';
 import { errorfunction } from '../../tostify';
+import axios from 'axios';
+import { get_cart_items,ondelete,Increment,decrement } from './methods';
 
 export const data=[
   {
@@ -13,6 +15,7 @@ export const data=[
     "price":2899,
     "del_price":3199,
     "quantity":1
+
   },
   {
     "id": 2,
@@ -55,57 +58,45 @@ export const data=[
     "quantity": 1
   }
 ];
+
+
+
+export function Fun(){
+  const [items,setitems]=useState([]);
+  const [count,setcount]=useState([]);
+  const [price,setprice]=useState(0);
+
+return {items,setitems,count,setcount,price,setprice}
+
+
+}
+
+
 export default function Cartpage() {
 
 
+const {items,setitems,count,setcount,price,setprice}=Fun();
+console.log(items)
 
-const [items,setitems]=useState(data);
-const [price,setprice]=useState(0);
-var t=0;
+const [f,setf]=useState(0);
 
 
 useEffect(()=>{
-  for(var i=0;i<items.length;i++){
-    t+=items[i].price*items[i].quantity;
-  }
-  setprice(t)
 
-},[items])
+  get_cart_items(setitems,setcount,setprice);
 
 
-function ondelete(id){
-setitems(items.filter((item)=>{
-  return item.id!==id;
-}));
+},[f]);
 
-}
-function Increment(id){
 
-  setitems(items.filter((item)=>{
-  if (item.quantity===10){
-    errorfunction("More than 10 items not possible at a time")
-    return item;
-  }
 
-    if (item.id===id)
-    return item.quantity=item.quantity+1;
-  else
-  return item;
 
-  }));
-  
-}
-function decrement(id){
-    setitems(items.filter((item)=>{
-      if (item.id===id){
-      return item.quantity=item.quantity-1;
-      }
-      else
-  return item;
-    }));
-    
-}
-   
+
+
+
+
+
+ 
 
 
 return items.length!=0 ? (
@@ -122,11 +113,16 @@ return items.length!=0 ? (
             </article>
 
           {
-            items.map((item)=>{
+            items.map((item,index)=>{
               return(
-                <Cartcard key={item.id} img={item.img} title={item.title} description={item.description}
-                quantity={item.quantity} price={item.price} del_price={item.del_price} method={()=>ondelete(item.id)}
-                Increment={()=>Increment(item.id)} decrement={()=>decrement(item.id)} flag={{display:'block'}}
+                <Cartcard key={index} img={item.key_img} title={item.model} description={item.description}
+                quantity={count[index]} price={Math.round(item.price)} del_price={Math.round(item.price)+5000} 
+
+                spec={`${item.ram} | ${item.storage} | ${item.processor}`}
+                adf={item.additional_features} 
+                colors={item.color_options}
+                method={()=>ondelete(item._id,f,setf)}
+                Increment={()=>Increment(item._id,count[index],f,setf)} decrement={()=>decrement(item._id,count[index],f,setf)} flag={{display:'block'}}
                 />
               )
             })

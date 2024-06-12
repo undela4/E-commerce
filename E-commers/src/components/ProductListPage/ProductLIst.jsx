@@ -7,31 +7,24 @@ import Card from './ProductCart/Card';
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Outlet } from 'react-router-dom';
 import { Dropdown } from './Dropdown';
-import {data} from '../../../Data/Mobile_data.js';
-import { smart_tv } from '../../../Data/Smart_tv.js';
-
-
+import { useSelector,useDispatch } from 'react-redux';
+import { add_products } from '../../Redux-Store/products';
+// import {fetch} from './fetch';
+import useFetch_products from '../../customeHooks/fetch_products';
 
 export default function ProductLIst() 
 {
-const [products,setprodutes]=useState([]);
+
+const [pl,setpl]=useState(null);
 const nav=useNavigate();
 const {name}=useParams();
+const [fetch]=useFetch_products();
 
 useEffect(()=>{
-    switch(name){
-        case "Mobile":
-            setprodutes(data);
-            break;
-        case "Tv":
-            setprodutes(smart_tv);
-            break;
-        default:
-            setprodutes(data);
-            break;
-    }
+    fetch(name,setpl);
 
-},[]);
+},[])
+
 
 
 const filters=[
@@ -58,8 +51,9 @@ const filters=[
     },
 
 ]
+  
 
-  return (
+  return  pl ?(
     <>
     <div className='containe mb-5'>
       <h5 className='mt-4 mb-5'>Home <RiArrowRightSLine /> {name}</h5>
@@ -70,7 +64,7 @@ const filters=[
                {
                 filters.map((e)=>{
                     return(
-                      <Dropdown key={e.id} name={e.name} items={e.items} type={e.type}  products={products} setprodutes={setprodutes} />   
+                      <Dropdown key={e._id} name={e.name} items={e.items} type={e.type}  pl={pl} seatpl={setpl} />   
 
                     )
                 })
@@ -82,10 +76,10 @@ const filters=[
             <div className="col-9">
                 <div className="product-list " >
                 {
-                    products.map((item,id)=>{
+                    pl.map((item,id)=>{
                     return(
                         
-                        <div onClick={()=>nav(`./${item.id}`)}  key={item.id}>
+                        <div onClick={()=>nav(`./${item._id}`)}  key={id}>
                         <Card img={item.key_img} title={item.model}
                         category={item.category} price={item.price} delprice={item.delprice}
                         colors={item.colors}/>
@@ -109,7 +103,8 @@ const filters=[
 <Outlet/>
 
     </>
-  )
+  ):(<center><h1 className='text-danger'>Loading.........</h1></center>)
+
 
 }
 

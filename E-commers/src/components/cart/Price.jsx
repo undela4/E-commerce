@@ -26,7 +26,7 @@ export default function Price({price,items})
     <h6>₹ {price}</h6>
     </div>
     <div className="proceed">
-      <button className='btn btn-warning w-100 fw-bold' onClick={()=>nav(`/checkout/${price}`)}>Proceed to checkout</button>
+      <button className='btn btn-warning w-100 fw-bold' onClick={()=>nav(`/checkout/`)}>Proceed to checkout</button>
     </div>
 
   </div>

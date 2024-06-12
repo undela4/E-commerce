@@ -5,29 +5,48 @@ import {Button} from 'react-bootstrap';
 import { FaGoogle } from "react-icons/fa";
 import { login3 } from '../../../assets/img';
 import { successfunction,errorfunction } from '../../../tostify';
-import { clientValidation } from '../Login/helper';
-
+import { clientValidation,sign_up } from '../Login/helper';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export default function Signup(){
 
-
+const nav=useNavigate();
 const init={username:"",email:"",password:"",confirmpassword:""};
 const [userdata,setuserdata]=useState(init);
 
 
 function onchange(e)
 {
-    setuserdata({...userdata,[e.target.name]:e.target.value});
+  setuserdata({...userdata,[e.target.name]:e.target.value});
 }
 
-function onsubmit(){
-  if(clientValidation(userdata)){
-    successfunction("Sign Up successfully Done");
+async function onsubmit()
+{
+  if(clientValidation(userdata))
+    {
+      try{
+        const result=await axios.post('http://localhost:5000/v1/sign_up',userdata);
+        if(result.data.status)
+        { 
+        successfunction("Signup Success");
+        nav('/login')  
+        }
+        else{
+          errorfunction(result.data.msg);
+        }
 
-
+    }
+    catch(err){
+        console.log(err);
+        errorfunction('Something went wrong');
+    }
+     
+   }
+      
   }
-  setuserdata(init)
-}
+
+
 
 
   return (
