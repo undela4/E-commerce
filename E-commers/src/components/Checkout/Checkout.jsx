@@ -4,13 +4,13 @@ import DeliveryAddressForm  from './DeliveryAddressForm';
 import Summary from './Summary';
 import Payment from './Payment';
 import { Address } from './Address';
-import { useParams } from 'react-router-dom';
 import Cartcard from '../cart/Cartcard';
 import { useNavigate } from 'react-router-dom';
 import Detonator from './Detonator';
 import { get_cart_items } from '../cart/methods';
 import { Fun } from '../cart/Cartpage';
-
+import { errorfunction } from '../../tostify';
+import { create_order } from './helpers';
 const addres=[
   {
     "id": 1,
@@ -28,13 +28,17 @@ const addres=[
 
 export default function Checkout(){
 
+  
 const [flag,setflag]=useState({display:'none'});
 const [f,setf]=useState(false);
-const [f1,setf1]=useState(false);
 
+const [f1,setf1]=useState(false);
 const nav=useNavigate();
 
 const [address,setaddress]=useState(addres);
+const [selectedAddressId, setSelectedAddressId] = useState('');
+
+
 
 const r=useRef();
 const r1=useRef();
@@ -54,10 +58,45 @@ useEffect(()=>{
 
 
 
+
+async function place_order()
+{
+
+  if(selectedAddressId!==''){
+    const orders=[];
+    items.map((item)=>{
+      const data={
+        "product_id":item._id,
+        "product_name":item.model,
+        "amount":item.price,
+        "img":item.key_img,
+        "Address_id":selectedAddressId,
+        "category":item.category
+      }
+      orders.push(data);
+  
+    })
+    create_order(orders)
+    nav('/payment_success')
+
+
+
+  }else{
+    errorfunction("Please select address")
+  }
+  
+
+
+}
+
 function drop()
     {
+      if(selectedAddressId!==''){
        !f?(r.current.style.display="none"):(r.current.style.display="block");
        setf(!f);   
+      }else{
+        errorfunction("Please select address")
+      }
 }
 
 function drop2()
@@ -65,6 +104,7 @@ function drop2()
        !f1?(r1.current.style.display="none"):(r1.current.style.display="block");
        setf1(!f1);   
 }
+
 
 return (
     <>
@@ -75,6 +115,7 @@ return (
         <div className="checkout-left col-sm-7">
 
             <div className="Address mb-5">
+
              <Detonator name="Your addresses" drop={drop} f={f}/>
 
               <div ref={r} style={{display:"block"}}  >
@@ -86,13 +127,13 @@ return (
                       ${item.street},${item.city},${item.state},${item.postcode}`
                         return(
                             <div key={index}>
-                              <Address fullAddress={ad} id={item._id}/>
+                              <Address fullAddress={ad} id={item._id}  flag={true} setSelectedAddressId={setSelectedAddressId}/>
                             </div>
                         )
                     })
                 }
             </div>
-      }
+           }
 
 
                 <div className="mt-3 d-flex justify-content-between">
@@ -100,9 +141,11 @@ return (
                 <button className='btn btn-outline-warning' onClick={drop}>Delivery To this address</button>
                 </div>
 
-                 <div className="add" style={flag}>
+                 <div className="add" style={flag} >
                   <DeliveryAddressForm flag={[flag,setflag]} address={address} setaddress={setaddress} />
                  </div>
+
+
               </div>
             </div>
 
@@ -117,7 +160,7 @@ return (
               return(
                 <Cartcard key={index} img={item.key_img} title={item.model} description={item.description}
                 quantity={count[index]} price={Math.round(item.price)} del_price={Math.round(item.price)+5000}
-                 spec={`${item.ram} | ${item.storage} | ${item.processor} | Front : ${item.camera.front} | Rear : ${item.camera.rear}`}   flag={{display:'none'}}
+                 spec={`${item.ram} | ${item.storage} | ${item.processor} `} asf={item.additional_features}   flag={{display:'none'}}
 
 
 
@@ -135,7 +178,7 @@ return (
              <h2 className='text-danger'>Order total::</h2>
              <h2 className='text-danger'>₹ {price}.00</h2>
              </div>
-              <button className='btn btn-warning' onClick={()=>nav('/payment_success')} >Place your order</button>
+              <button className='btn btn-warning' onClick={place_order} >Place your order</button>
 
 
             </div>

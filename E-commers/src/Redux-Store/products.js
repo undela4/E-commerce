@@ -7,6 +7,7 @@ const productSlice=createSlice({
         flag:false
     },
     reducers:{
+        
         add_products:(state,action)=>{
             state.products=action.payload
             state.flag=true

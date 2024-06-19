@@ -18,11 +18,11 @@ export default function Baner() {
 
         <div className="d-flex gap-5 align-items-baseline">
        <div className="fs-5">
-       <IoCallOutline /><span> +91 8688569070  </span>
+       <IoCallOutline /><span> +91 9951058416</span>
 
        </div>
        <div className="fs-5">
-       <MdAttachEmail /><span> muraliundela143@gmail.com</span>
+       <MdAttachEmail /><span> Example143@gmail.com</span>
 
        </div>
    

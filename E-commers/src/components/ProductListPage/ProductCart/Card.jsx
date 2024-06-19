@@ -1,37 +1,50 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import './card.css'
-import { CiStar } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
-import { cards } from '../../Home/HomePage';
+import Heart from '../../Review&Rating/Heart';
+import { useNavigate } from 'react-router-dom';
+import Rating from '../../Review&Rating/Rating';
+import { UserContext } from '../../../Usecontext';
 
-export default function Card({img,title,category,price,delprice}) {
+
+
+export default function Card({img,title,price,delprice,id}) 
+
+{
+
+
+  const nav=useNavigate();
+  const {ud}=useContext(UserContext);
+
 
   return (
     <>
     <div className="product-card-container">
 
-          <div className="card-img">
-              <img src={img} alt="img"/>
+          <div className="card-img" >
+              <img src={img} alt="img" onClick={()=>nav(`./${id}`)} style={{cursor:"pointer"}}/>
 
           </div>
           <div className="card-content d-flex flex-column ">
+
                       <div className="d-flex justify-content-between">
+                          <Rating />
                           <div className="">
-                              {
-                                  [1,2,3,4,5].map((item ,index)=>{
-                                      return(<CiStar className='fs-5' key={index}/>)
-                                  })
-                              }
+                            {
+                           
+                           ud &&(<Heart product_id={id} ud={ud}/>)
+
+                            }
+
                           </div>
-                          <div className=""><CiHeart className='fs-5' /> </div>
                          
                           </div>
-                      <h5 className='fw-bold' >{title}</h5>
+                      <h5 className='fw-bold' style={{cursor:"pointer"}}  onClick={()=>nav(`./${id}`)}  >{title}</h5>
                       <p className=''>Save 60%</p>
                       <div className="prices d-flex  gap-3">
-                          <h5 className='text-secondry'><del>₹{delprice}</del></h5>
-                          <h5 className='text-dark'>₹{price}</h5>
+                          <h5 className='text-secondry'><del>₹ {delprice}</del></h5>
+                          <h5 className='text-dark'>₹ {price}</h5>
                       </div>
+
 
                   </div>
               </div>

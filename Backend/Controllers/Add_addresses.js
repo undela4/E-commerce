@@ -1,12 +1,11 @@
-const users =require('../Models/users');
+const users=require('../Models/users.js');
 
 exports.add_address = async(req,res) => {
     try{
-        const email = req.body.email;
-        const address = req.body.address;
+        const {_id,address}= req.body;
 
-        const user= await users.updateOne({email},{$push:{'addressList':address}});
-        console.log(user);
+        const user= await users.updateOne({_id},{$push:{'addressList':address}});
+        // console.log(user);
         res.status(200).send({status:true,'msg':'Address added successfully'});
         
     }
@@ -19,10 +18,10 @@ exports.add_address = async(req,res) => {
 
 exports.get_address = async(req,res) => {
     try{
-        const email = req.body.email;
+        const _id = req.body._id;
 
-        const user= await users.findOne({email});
-        console.log(user.addressList);
+        const user= await users.findOne({_id});
+        // console.log(user.addressList);
         res.status(200).send({status:true,'data':user.addressList});
         
     }
@@ -34,9 +33,9 @@ exports.get_address = async(req,res) => {
 
 exports.del_address = async(req,res) => {
     try{
-        const {email,id} = req.body;
+        const {_id,id} = req.body;
 
-        const user= await users.updateOne({email},{$pull:{'addressList':{_id:id } } });
+        const user= await users.updateOne({_id},{$pull:{'addressList':{_id:id } } });
         res.status(200).send({status:true,'msg':'Address deleted'});
         
     }

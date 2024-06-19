@@ -3,6 +3,7 @@ import './cart.css';
 import  Cartcard  from './Cartcard';
 import Price from './Price';
 import { errorfunction } from '../../tostify';
+
 import axios from 'axios';
 import { get_cart_items,ondelete,Increment,decrement } from './methods';
 
@@ -62,6 +63,7 @@ export const data=[
 
 
 export function Fun(){
+
   const [items,setitems]=useState([]);
   const [count,setcount]=useState([]);
   const [price,setprice]=useState(0);
@@ -76,9 +78,8 @@ export default function Cartpage() {
 
 
 const {items,setitems,count,setcount,price,setprice}=Fun();
-console.log(items)
 
-const [f,setf]=useState(0);
+const [f,setf]=useState(false);
 
 
 useEffect(()=>{
@@ -105,7 +106,7 @@ return items.length!=0 ? (
 
         <div className="cart mt-5 row">
 
-          <div className="cart-left col-sm-8">
+          <div className="cart-left col-sm-8 p-4">
 
             <article className="title">
             <h4>Shopping Cart</h4>

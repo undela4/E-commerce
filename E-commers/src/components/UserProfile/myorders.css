@@ -1,0 +1,48 @@
+
+.orders{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2%;
+    height: 700px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+}
+.order_item{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: max-content;
+    padding: 4%;
+    display: flex;
+    gap: 2rem;
+
+}
+.image{
+    cursor: pointer;
+}
+.image img{
+    width: 150px;
+    height: 150px;
+}
+.image h5{
+    font-size:16px;
+    font-weight: bold;
+    max-width: 250px;
+    margin-top: 2%;
+}
+.details span{
+    color: black;
+    font-weight: bold;
+}
+
+.p3 span{
+    color: black;
+    font-weight: bold;
+
+}
+.cancel{
+    position: relative;
+    left:70%;
+    top:40%;
+}

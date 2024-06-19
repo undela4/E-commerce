@@ -28,6 +28,7 @@ export default function RoutesC() {
         <Route  path="/cart" element={<PrivateRoute><Cartpage/></PrivateRoute>} />
         <Route  path="/checkout/" element={<PrivateRoute><Checkout/></PrivateRoute>} />
         <Route  path="/payment_success" element={<PrivateRoute><Payment_success/></PrivateRoute>} />
+        
         <Route  path="/account" element={<PrivateRoute><Profile/></PrivateRoute>} />
 
 

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useRef} from 'react';
 import './login.css';
 import { login2} from '../../../assets/img';
 
@@ -11,13 +11,18 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import {useDispatch} from 'react-redux';
 import { login } from '../../../Redux-Store/userSlice';
+import { Forget_password } from './Forget_password';
 
 
 export default function Login() {
 
 const [userdata,setuserdata]=useState({email:"",password:""});
+const [forget_password_flag,set_forget_password_flag]=useState(false);
+
+
 const nav=useNavigate();
 const dispatch = useDispatch();
+
 
 function onchange(e)
 {
@@ -25,6 +30,7 @@ function onchange(e)
 }
 
 async function onsubmit(){
+
     if(clientValidation(userdata))
     {   
         try{
@@ -32,10 +38,13 @@ async function onsubmit(){
             if(result.data.status)
             {
                 Cookies.set('token',result.data.token);
-                dispatch(login())
-                successfunction('Login Successfull');
+                Cookies.set('uId',result.data.data._id);
 
+                dispatch(login());
+
+                successfunction('Login Successfull');
                 nav('/',{replace:true});
+
             }else{
                 errorfunction(result.data.msg);
             }
@@ -53,8 +62,8 @@ async function onsubmit(){
     <>
     <div className="login-section containe">
         <img src={login2} id="login-img" />
-
-        <div className="login-right">
+    {
+        !forget_password_flag ? (<div className="login-right">
             <div className="mb-4">
             <h1>Login in to Exclusive</h1>
             <h6>Enter your details below</h6>
@@ -67,16 +76,24 @@ async function onsubmit(){
                 method={onchange} name="password" value={userdata.password} />
 
                <div className="d-flex gap-5 mt-4 align-items-baseline">
-               <Button variant='danger' onClick={onsubmit}>Login</Button> 
-                <a href="#" className='text-danger text-decoration-none '> Forget Password ?</a>
+               <Button variant='danger' 
+               
+               onClick={onsubmit}>Login</Button> 
+                <a href="#" className='text-danger text-decoration-none ' onClick={()=>set_forget_password_flag(true)}> Forget Password ?</a>
+                <a href="/signup" className='text-danger text-decoration-none '>Dont have account ?</a>
+
                </div>
 
             </div>
-        </div>
+        </div>):(<Forget_password userdata={userdata} set={onchange} />)
+
+    }
     </div>
     </>
   )
 }
+
+
 
 
 

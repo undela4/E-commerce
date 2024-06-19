@@ -9,17 +9,20 @@
 }
 
 
-.category-item >img{
-    width: 200px;
+.category-iteM >img{
+    width: 270px;
     border-radius: 50%;
-    transition:all 2s;
 
 }
-.category-item >h3{
+.category-iteM {
+    transition:transform 2s;
+
+}
+.category-iteM >h3{
     text-align: center;
     margin-top: 1rem;
 }
-.category-item>img:hover{
+.category-iteM:hover{
     transform: scale(1.1);
 
 }

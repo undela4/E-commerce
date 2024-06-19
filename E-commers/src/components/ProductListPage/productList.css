@@ -38,6 +38,9 @@ input[type="checkbox"] {
 .check{
     margin-top:1rem;
 }
-/* .dropdown-list{
 
-} */
+.not_found{
+
+    margin: 20%;
+    margin-left:30%;
+}

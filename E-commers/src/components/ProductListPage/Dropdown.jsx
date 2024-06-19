@@ -1,30 +1,73 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
-import Checkbox from './checkbox/checkbox';
 import { useEffect, useRef ,useState} from 'react';
 import { useSelector } from "react-redux";
-export function Dropdown({name,items,type,pl,setpl})
+export function Dropdown({Key,name,items,type,pl,setpl})
 {
 
     const r=useRef(null);
-    const[flag,setflag]=useState(false);
+    const[flag,setflag]=useState(true);
     const [brand,setbrand]=useState([]);
+    const [price,setprice]=useState([]);
+
     const {products}=useSelector(state=>state.productSlice);
 
     
 
  useEffect(()=>{
+
     if (brand.length==0){
+        setpl(products)
         return;
     }
+
     const t=products.filter(item=>{
         return brand.includes(item.brand);
       })
+    
     setpl(t)
+
  },[brand])   
 
-function onchangeBrand(e)
-{
+
+ 
+ useEffect(()=>{
+
+
+    if (price.length==0){
+        setpl(products)
+        return;
+    }
+
+    var t=pl.filter(item=>{
+
+        if(item.price<=price[price.length-1])
+            return item
+        })
+
+    setpl(t)
+
+ },[price])   
+
+
+ function Price(e){
+
+    let updatedPrice;
+    const d=e.target.name.match(/\d+/g).map(Number);
+
+    if (e.target.checked) 
+        updatedPrice = [...price, d[0],d[1]]
+    else 
+        updatedPrice=[]
+    
+    setprice(updatedPrice);
+
+    }
+  
+
+
+function Brand(e){
+
     let updatedBrand;
     if (e.target.checked) {
         updatedBrand = [...brand, e.target.name];
@@ -33,6 +76,25 @@ function onchangeBrand(e)
     }
     setbrand(updatedBrand);
 }
+
+function onchange(e)
+{
+    switch(Key){
+        case 0: Price(e)
+                 break;
+        case 1: Brand(e)
+                break;
+
+        case 2: break;
+
+    }
+
+
+}
+
+
+
+
 
 function drop()
     {
@@ -56,12 +118,12 @@ function drop()
                 </div>
             </div>
 
-            <div ref={r} style={{display:"block"}} className='dropdown-list' >
+            <div ref={r} style={{display:"none"}} className='dropdown-list' >
                {
                 items.map((item,index)=>{
                     return(
-                        <div className="check" key={index}>
-                        <input  type={type}  name={item} onChange={onchangeBrand} /><span>{item}</span>
+                        <div className="check" key={index} >
+                        <input  type={type}  name={item} onChange={onchange} /><span>{item}</span>
                         </div>
                     )
                 })

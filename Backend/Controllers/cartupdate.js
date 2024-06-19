@@ -4,9 +4,9 @@ const products=require('../Models/product.js');
 exports.cartupdate= async (req,res)=>{
     try{
 
-        const {email,data}=req.body; 
-        console.log(req.body);
-        const user=await users.findOne({email});
+        const {_id,data}=req.body; 
+        // console.log(req.body);
+        const user=await users.findOne({_id});
         
         if (!user) {
             return res.status(404).send({ status: false, message: 'User not found' });
@@ -28,11 +28,14 @@ exports.cartupdate= async (req,res)=>{
         if (itemIndex !== -1) {
             console.log("Current count:", user.cartList[itemIndex].count);
             user.cartList[itemIndex].count = data.count;
+            await user.save();
         } else {
             user.cartList.push(data);
+            await user.save();
         }
 
-        console.log("Updated cartList:", user.cartList);
+        // console.log("Updated cartList:", user.cartList);
+
         await user.save();
 
         res.status(200).send({status:true,data:user,msg:"Cart Updated"});
@@ -47,18 +50,17 @@ exports.cartupdate= async (req,res)=>{
 }
 
 
-
 exports.get_cart_items= async(req,res)=>{
     try{
 
-        const {email}=req.body;
-        const user=await users.findOne({email});
+        const {_id}=req.body;
+        const user=await users.findOne({_id});
         if(!user)
             {
             return res.status(404).send({status:false,msg:"User not found"});
         }
         const cartList=user.cartList;
-        console.log(cartList);
+        // console.log(cartList);
         
         const a=[];
         const b=[];
@@ -77,3 +79,16 @@ exports.get_cart_items= async(req,res)=>{
 
 
 } 
+
+exports.ClearCart = async(req,res)=>{
+    try{
+        const _id=req.body._id
+        const u= await users.updateOne({_id:_id},{$set:{'cartList':[]}});
+        console.log(u)
+        res.status(200).send({status:true,msg:"Cart Cleared"});
+
+    }catch(err){
+        console.log(err.message);
+        res.status(500).send({status:false,Error:err.message});
+    }
+}

@@ -7,35 +7,43 @@ import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';
 import { login } from './Redux-Store/userSlice.js';
 import Cookies from 'js-cookie';
+import ContextProvider from './Usecontext.jsx';
 
 export default function App() {
 
   const dispatch = useDispatch();
   const [modalShow, setModalShow] =useState(false);
 
+
   useEffect(()=>{
     const  token=Cookies.get('token');
      if(token)
        dispatch(login())
    
-     },[])
+  },[])
 
   return (
-    <> 
+    <ContextProvider>
 
-      <Start/>
-      <div className="Ai" >
 
-      <FcAssistant  onClick={() => setModalShow(true)}/>
-      </div>
-    
-      <Model
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      /> 
-     
+<> 
 
-    </>
+<Start/>
+
+<div className="Ai" >
+
+<FcAssistant  onClick={() => setModalShow(true)}/>
+</div>
+
+<Model
+  show={modalShow}
+  onHide={() => setModalShow(false)}
+/> 
+
+
+</>
+    </ContextProvider>
+
   )
 }
 
@@ -52,8 +60,7 @@ function Start() {
     <RoutesC/>
     <Footer/>
     <Toaster
-        position="bottom-left"
-        reverseOrder={true}
+        position="top-right"
       />
       </>
   )

@@ -26,8 +26,8 @@ export default function Payment_success() {
             <p>Thank you for your order at our site. Your product is delivered securely</p>
         </div>
         <div className="mt-3 d-flex gap-5">
-            <button className="btn btn-warning" onClick={()=>nav('/')}>Home</button>
-            <button className="btn btn-warning" onClick={()=>nav('/')} >Myorders</button>
+            <button className="btn btn-warning" onClick={()=>nav('/',{replace:true}) }>Home</button>
+            <button className="btn btn-warning" onClick={()=>nav('/account',{replace:true})} >Myorders</button>
 
         </div>
       

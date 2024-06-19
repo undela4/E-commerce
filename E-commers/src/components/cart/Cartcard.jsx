@@ -37,7 +37,7 @@ export default function Cartcard({img, title, description,quantity,price,del_pri
           <p>Eligible For Free Delivery</p>
 
           {
-            colors&&(<div className="d-flex gap-3">
+            colors&&(<div className="d-flex gap-3 ">
 
           <p className='fw-bold'>Colours:</p>
 
@@ -45,11 +45,12 @@ export default function Cartcard({img, title, description,quantity,price,del_pri
               colors.map((item)=>{
                 return(
   
-                  <div className="d-flex" key={item}
-                   style={{backgroundColor:item}}>
-                   <p style={flag}>{item}</p>
-  
+                 <div className="">
+                   <div className="d-flex rounded-circle " key={item}
+                   style={{backgroundColor:item,width:"30px",height:"30px",border:"2px solid black "}}>
                     </div>
+                    <p>{item}</p>
+                 </div>
                 )
             
             

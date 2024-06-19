@@ -23,6 +23,8 @@ app.use('/v1',router);
 
 const MongooDB=require("./Configurations/mongoDB.js")
 MongooDB();
+const {firebase} = require("./Configurations/Firebase.js")
+firebase();
 
 app.get('/',(req,res)=>{
     res.send('Hello World');

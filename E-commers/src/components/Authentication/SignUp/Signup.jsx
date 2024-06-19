@@ -5,55 +5,113 @@ import {Button} from 'react-bootstrap';
 import { FaGoogle } from "react-icons/fa";
 import { login3 } from '../../../assets/img';
 import { successfunction,errorfunction } from '../../../tostify';
-import { clientValidation,sign_up } from '../Login/helper';
+import { clientValidation} from '../Login/helper';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export default function Signup(){
 
 const nav=useNavigate();
+
 const init={username:"",email:"",password:"",confirmpassword:""};
 const [userdata,setuserdata]=useState(init);
 
+const [cotp,set_cotp]=useState('');
+const [sotp,set_sotp]=useState('');
+
+const [otpflag,setotpflag]=useState(false);
 
 function onchange(e)
 {
   setuserdata({...userdata,[e.target.name]:e.target.value});
 }
 
+
+async function getotp(){
+
+  try{
+
+   await axios.post('http://localhost:5000/v1/mail',{email:userdata.email,"type":true,"name":userdata.username}).then((r)=>{
+
+    if(r.data.status)
+      {
+        set_sotp(r.data.otp);
+        successfunction("Otp sent successfully");
+        return true;
+      }
+      else{
+        errorfunction(r.data.msg);
+        nav('/login')
+        return false;
+      }
+
+   })
+ 
+  }
+  catch(err)
+  {
+    console.log(err);
+  }
+
+}
+
+async function otp_check(){
+
+  if(cotp===sotp){
+    await axios.post('http://localhost:5000/v1/sign_up',userdata).then((result)=>{
+      if(result.data.status)
+      { 
+      successfunction("Signup Success");
+      nav('/login')  
+
+      }
+      else{
+        errorfunction(result.data.msg);
+        set_cotp('');
+      }
+     })
+  }
+  else{
+    errorfunction('OTP not match');
+    return false
+  }
+
+}
+
+function otp_resend(){
+  
+  successfunction("Otp Resended check your Email Inbox ");
+  getotp();
+
+}
+
+
 async function onsubmit()
 {
-  if(clientValidation(userdata))
-    {
-      try{
-        const result=await axios.post('http://localhost:5000/v1/sign_up',userdata);
-        if(result.data.status)
-        { 
-        successfunction("Signup Success");
-        nav('/login')  
-        }
-        else{
-          errorfunction(result.data.msg);
-        }
 
-    }
-    catch(err){
-        console.log(err);
-        errorfunction('Something went wrong');
-    }
+  if(userdata.password!=userdata.confirmpassword){
+    errorfunction('Password and Confirm Password not match');
+    return;
+  }
+
+  if(clientValidation(userdata))
+  {
+     
+    getotp();
+    setotpflag(true);
      
    }
       
-  }
+
+}
 
 
-
-
-  return (
+return (
     <div className="login-section signup containe align-items-start mt-5">
     <img src={login3} id="sign-img" />
 
-    <div className="login-right">
+{
+   !otpflag ? (<div className="login-right">
         <div className="mb-4">
         <h1>Create An Account</h1>
         <h6>Enter your details below</h6>
@@ -63,7 +121,7 @@ async function onsubmit()
             <InputFeild type="text" className="textFields" label="Enter your name" 
             method={onchange} name="username" value={userdata.username}/> 
 
-            <InputFeild type="password" className="textFields" label="Enter your email"
+            <InputFeild type="email" className="textFields" label="Enter your email"
             method={onchange} name="email" value={userdata.email} />
 
             <InputFeild type="password" className="textFields" label="Password"
@@ -83,9 +141,34 @@ async function onsubmit()
            </div>
 
         </div>
-    </div>
+    </div> ): (<Otpcart otp={cotp} setotp={set_cotp} otp_check={otp_check} otp_resend={otp_resend} />)
+
+}
+
 </div>
   )
 
-  
+}
+
+
+
+function Otpcart({otp,setotp,otp_check,otp_resend})
+{
+
+
+
+  return (
+
+    <div className="otp-card">
+
+        <div className="mb-3">
+          <h3>OTP Sent To Your Mail</h3>
+        </div>
+      <InputFeild label="Enter OTP"  value={otp} method={(e)=>setotp(e.target.value)}  />
+      <button className='btn btn-outline-success mt-2 ' onClick={otp_check} >Submit</button>
+      <button className='btn btn-outline-danger mt-2 ' onClick={otp_resend} >Resend</button>
+
+    </div>
+
+    )
 }

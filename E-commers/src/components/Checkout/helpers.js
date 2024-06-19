@@ -1,14 +1,18 @@
 import axios from 'axios';
-import { successfunction } from '../../tostify';
+import { successfunction,errorfunction } from '../../tostify';
+import Cookies from 'js-cookie';
+import { clear_cart } from '../cart/methods';
 
+const uId=Cookies.get('uId');
 
-export async function add_address(address){
+export async function add_address(address)
+{
 
-    const data={"email":"muraliundela369@gmail.com",
-        "address":address}
+    const data={"_id":uId, "address":address }
     
     try{
-        console.log(address);
+
+        
         const res=await axios.post('http://localhost:5000/v1/address/add',data);
         if(res.data.status)
         {
@@ -25,7 +29,7 @@ export async function add_address(address){
 
 export async function get_address(setaddress){
 
-    const data={"email":"muraliundela369@gmail.com"}
+    const data={"_id":uId}
     
     try{
         const res=await axios.post('http://localhost:5000/v1/address/get',data);
@@ -42,7 +46,7 @@ export async function get_address(setaddress){
 
 export async function del_address(id){
 
-    const data={"email":"muraliundela369@gmail.com",'id':id } 
+    const data={"_id":uId,'id':id } 
     
     try{
         const res=await axios.post('http://localhost:5000/v1/address/del',data);
@@ -56,3 +60,25 @@ export async function del_address(id){
         console.log(err);
     }
 }
+
+
+export async function create_order(data){
+    
+        data.map((item)=>{
+
+            axios.post('http://localhost:5000/v1/orders/create',{"_id":uId,"data":item}).then((r)=>{
+                if(r.data.status){
+                    clear_cart(uId);
+                    successfunction(r.data.msg);
+                }
+                else{
+                    errorfunction(r.data.msg);
+                }
+            })
+
+        }).catch(()=>{console.log(err)})
+    
+
+
+}
+

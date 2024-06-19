@@ -20,6 +20,7 @@ const users = new mongoose.Schema({
         type:Number,
         length:10
     },
+    photo:{type:String},
     addressList:[
         {
         firstName:{type:String},
@@ -36,18 +37,35 @@ const users = new mongoose.Schema({
       
       ]
     ,        
-    watchList:{
-        type:Array,
-        default:[]
-    },
-    myorders:{
-        type:Array,
-        default:[]
-    },
-    cartList: [{
-        id: { type: String, required: true,unique:true },
-        count: { type: Number, required: true }
+    wishList:[String],
+
+    myorders:[
+        {
+            order_id:{type:String,default:"ORD0000369"},
+            product_id:{type:String},
+            product_name:{type:String},
+            amount:{type:Number},
+            img:{type:String},
+            category:{type:String},
+            date_of_order:{type:Date,default:Date.now},
+            delivery_date: { 
+                type: Date, 
+                default: function() {
+                    return new Date(Date.now() + 8 * 24 * 60 * 60 * 1000); // 8 days after date_of_order
+                }
+            },
+            delivery_status:{type:String,default:"pending"},
+            Address_id:{type:String}
+
+        }
+    ],
+    cartList:[{
+        id:{type:String},
+        count:{type:Number}
     }]
+
+
+
 })
 
 

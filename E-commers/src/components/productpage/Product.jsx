@@ -1,35 +1,61 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import { useParams } from 'react-router-dom';
 import './product.css'
-import { CiStar } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Product1 } from './ProductDetails/ProductDetails';
 import SimilarProducts from './ProductDetails/SimilarProducts';
 import FrequentlyBroughtTogether from './ProductDetails/frequentlyBroughtTogether';
-import { successfunction } from '../../tostify';
+import { errorfunction, successfunction } from '../../tostify';
+import { useNavigate } from 'react-router-dom';
 import {fetch_by_id} from '../ProductListPage/fetch';
 import { add_item_to_cart } from './ProductDetails/helpers';
+import Rating from '../Review&Rating/Rating';
+import Heart from '../Review&Rating/Heart';
+import { UserContext } from '../../Usecontext';
+import Cookies from 'js-cookie'
+
 
 
 export default function Product()
 {
 
-
-const [product,setproduct]=useState(null);
+const [product,setproduct]=useState();
 const [img,setimg]=useState('');
-
-
+const {ud,fun}=useContext(UserContext);
 const {name,id}=useParams();
+const nav=useNavigate();
+
+
+
+
+function add_to_cart(flag)
+{
+ 
+ 
+  const id=Cookies.get('uId');
+  if(id){
+    add_item_to_cart(product._id)
+    if(!flag)
+      setTimeout(()=>nav('/cart'),1000)
+  }
+  else
+    errorfunction("Please Login To Access All Features")
+
+}
+
+
+
 
 useEffect(()=>{
 
   fetch_by_id({_id:id},setproduct,setimg)
+  fun();
+  
 
-  },[]);
+},[]);
 
 
-  return product?(
+  return product ? (
     <>
     <div className="containe">
     <h5 className='mt-4 mb-5'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{product.model}</h5>
@@ -56,14 +82,8 @@ useEffect(()=>{
             <h4>{product.brand} | {product.model}| {product.ram} |{product.storage} |{product.processor}</h4>
            
             <div className="d-flex gap-3 align-items-baseline">
-              <div className="">
-              {
-                  [1,2,3,4,5].map((item,index)=>{
-                      return(<CiStar key={index} className='fs-4'/>)
-                  })
-              }
-              </div>
-              <div className=""><h6>(112 ratings)</h6></div>
+             <Rating/>
+              <div className=""><h6>(112)</h6></div>
             </div>
             <div className="d-flex gap-2"><h6><del>₹ {product.price+5000}</del></h6><h6>₹ {product.price}</h6><h6>(saved 70%)</h6></div>
             <div className="">
@@ -74,27 +94,45 @@ useEffect(()=>{
                
               </select>
             </div>
-            <div className="d-flex gap-2  align-items-baseline">
-            <h4>Quantity:</h4>
-            <div className="d-flex gap-3 fs-4 quantity">
-                <span>-</span>               
-                <span>1</span>
-                <span>+</span>
 
+            {
+            product&&(
+            
+            <div className="d-flex gap-3 align-items-center mt-3">
 
-            </div>
+          <p className='fw-bold fs-3'>Colours:</p>
 
-            </div>
+            {
+              product.color_options.map((item)=>{
+                return(
+  
+                 <div className="">
+                   <div className="d-flex rounded-circle " key={item}
+                   style={{backgroundColor:item,width:"30px",height:"30px",border:"2px solid black "}}>
+                    </div>
+                    <p>{item}</p>
+                 </div>
+                )
+            
+            
+          })
+        }
+            </div>)
+          }
+          
             <div className="d-flex gap-5">
-              <button className='btn btn-outline-info' onClick={()=>add_item_to_cart(product._id)}>Add To Cart</button>
-              <button className='btn btn-info'>Buy Now</button>
-              <CiHeart className='fs-1'/>
+              <button className='btn btn-outline-info' onClick={()=>add_to_cart(true)}>Add To Cart</button>
+              <button className='btn btn-info' onClick={()=>add_to_cart(false)}>Buy Now</button>
+             {
+              ud&&(<Heart product_id={id} ud={ud} />)
+             }
             </div>
           
           </div>
         </div>
 
         <Product1 pdata={product}/>
+
         <SimilarProducts/>
         <FrequentlyBroughtTogether/>
 

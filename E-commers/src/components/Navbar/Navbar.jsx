@@ -24,6 +24,9 @@ import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import userAuth from '../../customeHooks/userAuth';
 import Icon from '../UserProfile/Icon';
+import { useSelector } from 'react-redux';
+import Cookies from 'js-cookie';
+import { RiContactsBookLine } from 'react-icons/ri';
 
 const navlinks=[
   {
@@ -61,7 +64,10 @@ const navlinks=[
 
 function Nav() {
 
-  const [u,logout]=userAuth();
+  const [u]=userAuth();
+  const [cc,setcc]=useState();
+  
+
 
 
   return (
@@ -90,13 +96,12 @@ function Nav() {
             </div>
 
             <div className="nav-items-right">
-              {u?(<Link   className="NavLink" onClick={()=>nav('/account')}><Icon/></Link>):
-                (<NavLink to="/login"  className="NavLink" >  Login</NavLink>)
+              {u ?(<Link   className="NavLink" onClick={()=>nav('/account')}><Icon/></Link>):
+                (<NavLink to="/login"  className="NavLink" >Login</NavLink>)
                }
            
               <NavLink to=""  className="NavLink"><IoIosSearch className='nav-icons' /></NavLink>
-              <NavLink to="/cart"  className="NavLink"><CiShoppingCart className='nav-icons'/><span> 1</span></NavLink>
-              <NavLink to="/"  className="NavLink"><CiHeart className='nav-icons'/><span> 1</span></NavLink>
+              <NavLink to="/cart"  className="NavLink"><CiShoppingCart className='nav-icons'/><span>{cc}</span></NavLink>
               
               </div>
 

@@ -43,7 +43,6 @@ export default function Footer() {
             aria-label="Recipient's username" aria-describedby="basic-addon2"/>
 
             <span className="input-group-text btn btn-primary text-center pt-2" id="basic-addon2">subscribe</span>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit
             </div>
 
             </div>
@@ -51,7 +50,7 @@ export default function Footer() {
         </div>
 
         <div className="tail">
-        Made With Love By Undela All Right Reserved 
+        Made With Love By Undela All @Right Reserved 
 
         </div>
     </div>

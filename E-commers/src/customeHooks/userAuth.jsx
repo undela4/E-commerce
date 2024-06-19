@@ -10,20 +10,23 @@ export default function userAuth() {
     const nav = useNavigate();
 
     const user=useSelector(state=>state.userSlice.user);
+
     const [u,setuser]=useState(user);
 
     useEffect(() => {
-        setuser(user);
-      },[user]); 
+            setuser(user);
 
-    function logout(){
+    },[user]); 
+
+    function Logout(){
 
         Cookies.remove('token');
+        Cookies.remove('uId');
         dispatch(logout());
         nav('/')
         
         
     }
 
-    return [u,logout]
+    return [u,Logout]
 }

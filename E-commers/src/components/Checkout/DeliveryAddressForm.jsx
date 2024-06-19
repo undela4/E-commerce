@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputFeild from '../Authentication/Login/InputFeild';
 import { add_address ,get_address} from './helpers';
-
+import { clientValidation } from '../Authentication/Login/helper';
 export default function DeliveryAddressForm({flag,address,setaddress}){
   
 const data={
@@ -31,12 +31,15 @@ const [formData, setFormData] = useState(data);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    add_address(formData);
-    flag[1]({display:'none'});
 
+    e.preventDefault();
+    if(clientValidation(formData)){
+      add_address(formData);
+      flag[1]({display:'none'});
+
+    }
     // setFormData(data);
-    
+
   };
 
   useEffect(()=>{
