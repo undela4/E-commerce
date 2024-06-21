@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useContext} from 'react';
-import { useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import './product.css'
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Product1 } from './ProductDetails/ProductDetails';
@@ -12,28 +12,43 @@ import { add_item_to_cart } from './ProductDetails/helpers';
 import Rating from '../Review&Rating/Rating';
 import Heart from '../Review&Rating/Heart';
 import { UserContext } from '../../Usecontext';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
+import { useSelector } from 'react-redux';
+import Review from '../Review&Rating/Review';
 
 
 
 export default function Product()
 {
 
-const [product,setproduct]=useState();
-const [img,setimg]=useState('');
-const {ud,fun}=useContext(UserContext);
+
+const {products}=useSelector(state=>state.productSlice);
 const {name,id}=useParams();
+
+const [product,setproduct]=useState(null);
+const [img,setimg]=useState('');
+
+const {ud}=useContext(UserContext);
+const [r,setr]=useState(false);
+const uid=Cookies.get('uId');
+
+
 const nav=useNavigate();
 
+function review(){
+  if(uid){
+    setr(true);
+
+  }else
+  errorfunction("Please Login to review");
 
 
+}
 
 function add_to_cart(flag)
 {
  
- 
-  const id=Cookies.get('uId');
-  if(id){
+  if(uid){
     add_item_to_cart(product._id)
     if(!flag)
       setTimeout(()=>nav('/cart'),1000)
@@ -44,15 +59,11 @@ function add_to_cart(flag)
 }
 
 
-
-
 useEffect(()=>{
 
-  fetch_by_id({_id:id},setproduct,setimg)
-  fun();
-  
+  fetch_by_id(products,setproduct,setimg,id)
 
-},[]);
+},[id]);
 
 
   return product ? (
@@ -60,8 +71,8 @@ useEffect(()=>{
     <div className="containe">
     <h5 className='mt-4 mb-5'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{product.model}</h5>
 
-
-        <div className="Product-card">
+      {
+        !r ? (<div className="Product-card">
 
           <div className="Product-card-left">
             <div className="product-image">
@@ -103,11 +114,11 @@ useEffect(()=>{
           <p className='fw-bold fs-3'>Colours:</p>
 
             {
-              product.color_options.map((item)=>{
+              product.color_options.map((item,index)=>{
                 return(
   
-                 <div className="">
-                   <div className="d-flex rounded-circle " key={item}
+                 <div className=""  key={index}>
+                   <div className="d-flex rounded-circle "
                    style={{backgroundColor:item,width:"30px",height:"30px",border:"2px solid black "}}>
                     </div>
                     <p>{item}</p>
@@ -121,20 +132,24 @@ useEffect(()=>{
           }
           
             <div className="d-flex gap-5">
-              <button className='btn btn-outline-info' onClick={()=>add_to_cart(true)}>Add To Cart</button>
-              <button className='btn btn-info' onClick={()=>add_to_cart(false)}>Buy Now</button>
+              <button className='btn btn-outline-success' onClick={()=>add_to_cart(true)}>Add To Cart</button>
+              <button className='btn btn-outline-success' onClick={()=>add_to_cart(false)}>Buy Now</button>
              {
               ud&&(<Heart product_id={id} ud={ud} />)
              }
+              <button className='ms-5 btn btn-outline-success' onClick={review}>Review</button>
+
             </div>
           
           </div>
-        </div>
+        </div>):(<Review ud={ud} setr={setr} product={product}/>)
+      }
 
-        <Product1 pdata={product}/>
 
-        <SimilarProducts/>
-        <FrequentlyBroughtTogether/>
+        <Product1 pdata={product} />
+
+        <SimilarProducts name={name} />
+        <FrequentlyBroughtTogether name={name} />
 
 
 

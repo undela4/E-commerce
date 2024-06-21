@@ -1,0 +1,22 @@
+.reviews{
+
+    max-height: 700px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.user-icon{
+    display: flex;
+    gap:1rem;
+    align-items: baseline;
+    margin-bottom: 1%;
+}
+.user-logo{
+    width: 28px;
+    height:28px;
+    background-color: rgb(160, 154, 154);
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 0.9px;
+}

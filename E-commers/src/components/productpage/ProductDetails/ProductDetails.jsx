@@ -53,25 +53,7 @@ export const Specifications = ({ specs }) => {
     );
   };
   
-  // ReviewRatings Component
-  export const ReviewRatings = ({ ratings }) => {
-    return (
-      <div>
-        <h2>Reviews & Ratings</h2>
-        <p>Average Rating: {ratings.average_rating}</p>
-        <p>Total Reviews: {ratings.total_reviews}</p>
-        <ul>
-          {ratings.reviews.map((review, index) => (
-            <li key={index}>
-              <p><strong>{review.username}</strong> (Rating: {review.rating})</p>
-              <p>{review.review}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  };
-  
+
   // Questions Component
  export const Questions = ({ faqs }) => {
     return (
@@ -91,11 +73,11 @@ export const Specifications = ({ specs }) => {
 
 
 import data from '../data.js';
-
+import { ReviewRatings } from './Ratings&Revies.jsx';
 export function Product1({pdata}){
 
   const [f,setf]=useState(0);
-  const compo=[<Overview product={pdata}/>,<Specifications specs={pdata}/>,<ReviewRatings ratings={data[2]}/>,<Questions faqs={data[3]} />]
+  const compo=[<Overview product={pdata}/>,<Specifications specs={pdata}/>,<ReviewRatings product_id={pdata._id}/>,<Questions faqs={data[1]} />]
 
   return(
     <>

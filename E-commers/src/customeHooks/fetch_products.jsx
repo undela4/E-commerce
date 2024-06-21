@@ -1,4 +1,3 @@
-import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { add_products } from '../Redux-Store/products';

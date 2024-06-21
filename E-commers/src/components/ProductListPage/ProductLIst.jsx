@@ -1,4 +1,5 @@
 import React, { useEffect, useState,useContext } from 'react';
+import { Outlet } from 'react-router-dom';
 import './productList.css'
 import { useParams } from 'react-router-dom';
 import Card from './ProductCart/Card';
@@ -14,7 +15,7 @@ export default function ProductLIst()
 const [pl,setpl]=useState();
 
 
-const {name}=useParams();
+const {name,id}=useParams();
 const [fetch]=useFetch_products();
 
 const {fun}=useContext(UserContext);
@@ -24,9 +25,8 @@ useEffect(()=>{
 
     fetch(name,setpl);
     fun();
-    
-},[])
 
+},[])
 
 
 
@@ -72,7 +72,8 @@ const filters=[
 
   return  pl ?( 
     <>
-     <div className='containe mb-5'>
+    {
+        !id ? (<div className='containe mb-5'>
             <h5 className='mt-4 mb-5'>Home <RiArrowRightSLine /> {name}</h5>
 
             <div className="product-layout row">
@@ -116,8 +117,9 @@ const filters=[
             </div>
 
 
-            </div>
-    
+     </div>) :<Outlet/>
+
+    }
     </>
   ):(<center><Loder/></center>)
 

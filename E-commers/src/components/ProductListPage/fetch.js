@@ -1,13 +1,11 @@
-import axios from "axios";
-export  async function fetch_by_id(name,state,setimg){
-    
-    try{
-        const result= await axios.post(`http://localhost:5000/v1/products/`,name);
-        if(result.data.status){
-          state(result.data.data[0]);
-          setimg(result.data.data[0].key_img)
-        }
+export  async function fetch_by_id(products,state,setimg,id){
+        try{
+        {
+         const t=products.filter((i)=>i._id===id);
+         state(t[0]);
+        setimg(t[0].key_img);
 
+        }
     }
     catch(err){
         console.log(err);

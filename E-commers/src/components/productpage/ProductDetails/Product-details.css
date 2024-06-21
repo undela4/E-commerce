@@ -1,10 +1,9 @@
 .similar-products{
     width: 1439px;
     height: max-content;
-    height:400px;
     margin: 0 auto;
     margin-top: 3rem;
-    margin-bottom: 7rem;
+    margin-bottom:5%;
 }
 .similar-products-list{
     margin-top: 3rem;

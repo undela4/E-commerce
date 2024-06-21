@@ -4,9 +4,7 @@ const admin = require('firebase-admin');
 exports.upload_image = async(req,res) => {
     try{
         const _id = req.params.id;
-
         const file = req.files.file;
-        // console.log(id,file);
 
 
         const bucket = admin.storage().bucket();

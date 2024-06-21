@@ -1,37 +1,4 @@
 export default[
- 
-      
-     {
-        "name": "Noise ColorFit Ultra 3 Bluetooth Calling Smart Watch",
-        "description": "The Noise ColorFit Ultra 3 is a premium smart watch designed for modern lifestyles. It features the largest 1.96\" AMOLED display in its category, offering vibrant and clear visuals. The watch boasts a sleek, metallic build with a functional crown for easy navigation. With gesture control and a comfortable silicon strap, it seamlessly blends style and functionality. Perfect for fitness enthusiasts and tech-savvy users, this smartwatch supports Bluetooth calling, heart rate monitoring, sleep tracking, and multiple sports modes. It is water-resistant (IP68) and offers up to 10 days of battery life on a single charge.",
-        "price": 4999.00,
-        "currency": "INR",
-        "category": "Smart Watches",
-        "brand": "Noise",
-        "image_url": "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/70/1776922/1.jpg?9257"
-        },
-
-     {
-        "display": "1.96\" AMOLED",
-        "connectivity": "Bluetooth 5.0",
-        "battery_life": "Up to 10 days",
-        "charging_time": "2 hours",
-        "build_material": "Metallic",
-        "strap_material": "Silicon",
-        "water_resistance": "IP68",
-        "features": [
-          "Bluetooth Calling",
-          "Functional Crown",
-          "Gesture Control",
-          "Heart Rate Monitoring",
-          "Sleep Tracking",
-          "Multiple Sports Modes",
-          "Customizable Watch Faces"
-        ]
-      },
-
-
-
 
       
    {

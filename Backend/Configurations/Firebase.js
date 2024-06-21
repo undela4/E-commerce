@@ -14,8 +14,6 @@ const firebaseConfig={
     "universe_domain": "googleapis.com"
   }
 
-
-
 exports.firebase=()=>{
 
     admin.initializeApp({

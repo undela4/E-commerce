@@ -4,7 +4,8 @@ import axios from 'axios';
 import './wishlist.css';
 import { useNavigate } from 'react-router-dom';
 import { Empty } from './Myorders';
-
+import { RxCross1 } from "react-icons/rx";
+import { fetch,remove } from './helpers';
 export default function Wishlist() 
 {
 
@@ -15,33 +16,12 @@ export default function Wishlist()
 
 
 
- async function fetch(){
-  try{
-
-    const result=await axios.get('http://localhost:5000/v1/products');
-    if(result.data.status){
-
-      const r=result.data.data;
-      const p= await ud.wishList;
-
-      const t=r.filter((item)=>p.includes(item._id) )
-      setdata(t);
-
-    }
-    
-  }
-  catch(err){
-    console.log(err);
-  }
-
- } 
 
 useEffect(()=>{
-    if(!data)fetch()
+    fetch(setdata,ud)
   },[])
     
 
-console.log(data)
 
   return data ?  (
 <>
@@ -79,6 +59,9 @@ console.log(data)
               }
             </div>
 
+              <div className="">
+                <RxCross1 className='fs-3 text-danger ' onClick={()=>remove(ud,e._id)}/>
+              </div>
             </div>
 
 

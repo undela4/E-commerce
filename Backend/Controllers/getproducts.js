@@ -3,7 +3,7 @@ const products =require('../Models/product.js')
 exports.getproducts= async(req,res)=>{
     
     try{
-        // console.log("hello");
+        
         const p= await products.find();
         res.status(200).send({status:true,data:p});
 
@@ -17,7 +17,6 @@ exports.get_by_category= async(req,res)=>{
     
     try{
         const category=req.body;
-        // console.log(category);
 
         const p= await products.find(category);
         res.status(200).send({status:true,data:p});

@@ -61,3 +61,39 @@ export async function cancel_order(oid){
 }
 
 
+//wish list items 
+export async function fetch(setdata,ud){
+  try{
+
+    const result=await axios.get('http://localhost:5000/v1/products');
+    if(result.data.status){
+
+      const r=result.data.data;
+      const p= await ud.wishList;
+
+      const t=r.filter((item)=>p.includes(item._id) )
+      setdata(t);
+
+    }
+    
+  }
+  catch(err){
+    console.log(err);
+  }
+
+ } 
+
+//remove items from wish list
+export async function remove(ud,product_id){
+  try{
+
+    await axios.post('http://localhost:5000/v1/wishList/del',{"_id":ud._id,"pid":product_id} ).then((r)=>{
+      successfunction(r.data.msg)
+      
+    })
+
+  }
+  catch(err){
+    console.log(err);
+  }
+}

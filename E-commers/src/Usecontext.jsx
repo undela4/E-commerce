@@ -30,6 +30,8 @@ const fun=async ()=>{
             console.log(result.data.msg);
             errorfunction("Your secssion expaired Login again");
             Cookies.remove('token');
+            Cookies.remove('uId');
+
             nav('/login');
 
           }

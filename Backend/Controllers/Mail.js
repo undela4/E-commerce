@@ -129,7 +129,7 @@ exports.Mail=async(req,res)=>{
     const message={
         from:'muraliundela29@gmail.com', 
         to:email,
-        subject:"RecipeShare",
+        subject:"Electronic Mart Authentiion",
         html:info
     }
 

@@ -1,7 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
-export default function Cartcard({img, title, description,quantity,price,del_price,method,Increment,decrement,colors,spec,adf,flag}){
+export default function Cartcard({id,category,img, title, description,quantity,price,del_price,method,Increment,decrement,colors,spec,adf,flag}){
+  
+  const nav=useNavigate();
+  
   return (
   
       <>
@@ -9,7 +13,8 @@ export default function Cartcard({img, title, description,quantity,price,del_pri
       <hr></hr>
       <div className="cart-card" >
   
-        <div className="cart-card-left">
+        <div className="cart-card-left" onClick={()=>nav(`/product/${category}/${id}`)}
+          style={{cursor:"pointer"}}>
           <img src={img} />
         </div>
 

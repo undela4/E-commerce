@@ -90,14 +90,11 @@ useEffect(()=>{
 },[f]);
 
 
+console.log(count)
 
 
 
 
-
-
-
- 
 
 
 return items.length!=0 ? (
@@ -118,11 +115,12 @@ return items.length!=0 ? (
               return(
                 <Cartcard key={index} img={item.key_img} title={item.model} description={item.description}
                 quantity={count[index]} price={Math.round(item.price)} del_price={Math.round(item.price)+5000} 
-
+                id={item._id} category={item.category}
                 spec={`${item.ram} | ${item.storage} | ${item.processor}`}
                 adf={item.additional_features} 
                 colors={item.color_options}
                 method={()=>ondelete(item._id,f,setf)}
+
                 Increment={()=>Increment(item._id,count[index],f,setf)} decrement={()=>decrement(item._id,count[index],f,setf)} flag={{display:'block'}}
                 />
               )

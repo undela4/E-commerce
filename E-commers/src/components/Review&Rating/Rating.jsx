@@ -2,7 +2,7 @@ import React from 'react'
 import { AiFillStar } from "react-icons/ai";
 
 
-export default function Rating() {
+export default function Rating({rate}) {
 
   return (
     <div>
@@ -11,7 +11,7 @@ export default function Rating() {
                     [1,2,3,4,5].map((item ,index)=>{
                         return(<span    key={index} 
                         
-                        style={{ cursor: 'pointer',color: item <= 3? 'gold' : 'gray' }} >
+                        style={{ cursor: 'pointer',color: item <= rate? 'gold' : 'gray' }} >
                         <AiFillStar className='fs-3'/>
 
                         </span>)
@@ -26,17 +26,17 @@ export default function Rating() {
 
 
 
-export  function Rating_to() {
+export  function Rating_to({r_data,setr_data}) {
     
     return (
-      <div>
+      <div> 
         <div className="">
               {
                       [1,2,3,4,5].map((item ,index)=>{
                           return(<span    key={index} 
-                          
-                          style={{ cursor: 'pointer',color: item <= 3? 'gold' : 'gray' }} >
-                          <AiFillStar className='fs-3'/>
+                          onClick={()=>setr_data({...r_data,['rating']:item})}
+                          style={{ cursor: 'pointer',color: item <= r_data.rating? 'gold' : 'gray' }} >
+                          <AiFillStar className='fs-2'/>
   
                           </span>)
                       })

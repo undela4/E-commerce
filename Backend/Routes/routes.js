@@ -12,7 +12,7 @@ const  {add_address,get_address,del_address} = require('../Controllers/Add_addre
 const {upload_image} =require('../Controllers/upload_image.js')
 const {add_item,del_item}=require('../Controllers/wishlist.js')
 const {createOrder,getOrders,cancelOrder} = require('../Controllers/orders.js');
-
+const {addReview,upload,getReviews} = require('../Controllers/review.js')
 
 //http://localhost:5000/v1/products
 router.get('/products',getproducts);
@@ -20,6 +20,8 @@ router.get('/products',getproducts);
 //http://localhost:5000/v1/products/:category
 router.get('/products/:category',get_by_id);
 
+//http://localhost:5000/v1/review/:product_id
+router.get('/review/:product_id',getReviews);
 
 
 
@@ -69,6 +71,16 @@ router.post('/orders/get',getOrders);
 
 //http://localhost:5000/v1/orders/cancel
 router.post('/orders/cancel',cancelOrder);
+
+//http://localhost:5000/v1/review/add
+router.post('/review/add',addReview);
+
+//http://localhost:5000/v1/review/upload
+router.post('/review/upload',upload);
+
+
+
+
 
 
 

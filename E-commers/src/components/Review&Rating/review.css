@@ -1,0 +1,47 @@
+.review{
+    gap:5rem;
+    margin-bottom: 5%;
+
+}
+
+.review-left{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding:3%;
+
+}
+.p-img img{
+    width: 150px;
+    height:150px;
+}
+.review-right{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    height: max-content;
+
+}
+.review-right span{
+
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+
+
+}
+.review_product{
+margin-top: 2%;
+}
+
+.box{
+    box-sizing: border-box;
+    margin-top: 2%;
+    border: 2px dotted rgb(96, 94, 94);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top:3%;
+
+}
+.box p{
+    font-size:16px;
+   
+}
