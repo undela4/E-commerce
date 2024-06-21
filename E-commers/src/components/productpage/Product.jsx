@@ -23,11 +23,14 @@ export default function Product()
 
 
 const {products}=useSelector(state=>state.productSlice);
+const {reviews}=useSelector(state=>state.review_slice);
+
+
 const {name,id}=useParams();
 
 const [product,setproduct]=useState(null);
 const [img,setimg]=useState('');
-
+const [avgr,setavgr]=useState(0);
 const {ud}=useContext(UserContext);
 const [r,setr]=useState(false);
 const uid=Cookies.get('uId');
@@ -38,7 +41,6 @@ const nav=useNavigate();
 function review(){
   if(uid){
     setr(true);
-
   }else
   errorfunction("Please Login to review");
 
@@ -58,10 +60,21 @@ function add_to_cart(flag)
 
 }
 
+function filter(){
+
+  const temp=reviews.filter((i)=>i.product_id === id)
+  let a=0;
+  temp.map((i)=>{
+    a+=i.rating;
+  })    
+  setavgr(Math.floor(a/temp.length));
+
+
+}
 
 useEffect(()=>{
-
   fetch_by_id(products,setproduct,setimg,id)
+  filter();
 
 },[id]);
 
@@ -93,7 +106,7 @@ useEffect(()=>{
             <h4>{product.brand} | {product.model}| {product.ram} |{product.storage} |{product.processor}</h4>
            
             <div className="d-flex gap-3 align-items-baseline">
-             <Rating/>
+             <Rating rate={avgr}/>
               <div className=""><h6>(112)</h6></div>
             </div>
             <div className="d-flex gap-2"><h6><del>₹ {product.price+5000}</del></h6><h6>₹ {product.price}</h6><h6>(saved 70%)</h6></div>

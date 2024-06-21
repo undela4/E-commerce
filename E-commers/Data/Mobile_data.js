@@ -1203,5 +1203,439 @@ export  var data=
 // fs.writeFile('output.json', jsonDocument, (err) => {
 //   if (err) throw err;
 //   console.log('JSON document has been saved!');
+
 // });
+
+
+
+{
+   [
+    {
+      "key_img": "https://m.media-amazon.com/images/I/712JKlXXJ5L._SX569_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/71ChLWTLXqL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71eHewKz2qL._SY741_.jpg",
+        "https://m.media-amazon.com/images/I/714qMpUmFwL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61L5ZODp8DL._SY741_.jpg",
+        "https://m.media-amazon.com/images/I/61e10AW5A5L._SX679_.jpg"
+      ],
+      "category": "mobile",
+      "brand": "Nothing",
+      "model": "Phone (2)",
+      "price": 27999,
+      "description": "The Nothing Phone (2) offers a unique design with transparent elements, powerful performance, and advanced camera capabilities.",
+      "operating_system": "Android 12",
+      "screen_size": "6.55 inches",
+      "resolution": "1080x2400 pixels",
+      "ram": "12 GB",
+      "storage": "256 GB",
+      "battery_capacity": "4500 mAh",
+      "camera": {
+        "front": "16 MP",
+        "rear": "50 MP + 50 MP"
+      },
+      "processor": "Snapdragon 8 Gen 1",
+      "dimensions": "159.2 x 75.8 x 8.3 mm",
+      "weight": "190 g",
+      "color_options": ["Black", "White"],
+      "network_technology": "5G",
+      "sim_type": "Dual SIM (nano-SIM and eSIM)",
+      "additional_features": ["Fingerprint sensor", "Water and Dust Resistant (IP53)"],
+      "specifications": ["Bluetooth 5.2", "Wi-Fi 6", "Fast charging", "Wireless charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/61RvCwjI7dL._SX679_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/61qpVPvghML._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/515dcOdKTgL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61jnXvSPXDL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61NCfOn3ONL._SX679_.jpg"
+      ],
+      "category": "mobile",
+      "brand": "Xiaomi",
+      "model": "13 Pro",
+      "price": 85999,
+      "description": "The Xiaomi 13 Pro features a premium design, exceptional camera system, and top-tier performance.",
+      "operating_system": "Android 13",
+      "screen_size": "6.73 inches",
+      "resolution": "1440x3200 pixels",
+      "ram": "12 GB",
+      "storage": "512 GB",
+      "battery_capacity": "5000 mAh",
+      "camera": {
+        "front": "32 MP",
+        "rear": "50 MP + 50 MP + 50 MP"
+      },
+      "processor": "Snapdragon 8 Gen 2",
+      "dimensions": "163.6 x 74.6 x 8.4 mm",
+      "weight": "210 g",
+      "color_options": ["Ceramic Black", "Ceramic White"],
+      "network_technology": "5G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Under-display fingerprint", "Water and Dust Resistant (IP68)"],
+      "specifications": ["Bluetooth 5.3", "Wi-Fi 6E", "Fast charging", "Reverse wireless charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/410921AT8WL._SX300_SY300_QL70_FMwebp_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/81A2lhvkNcL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/712Dsyug7+L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61Uv9BwOKeL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/6101hjrcZOL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71JcZDVyFEL._SX679_.jpg"
+
+      ],
+      "category": "mobile",
+      "brand": "Xiaomi",
+      "model": "13",
+      "price": 16999,
+      "description": "The Xiaomi 13 offers a sleek design, powerful hardware, and an impressive camera setup.",
+      "operating_system": "Android 13",
+      "screen_size": "6.36 inches",
+      "resolution": "1080x2400 pixels",
+      "ram": "8 GB",
+      "storage": "256 GB",
+      "battery_capacity": "4500 mAh",
+      "camera": {
+        "front": "32 MP",
+        "rear": "50 MP + 12 MP + 10 MP"
+      },
+      "processor": "Snapdragon 8 Gen 2",
+      "dimensions": "152.8 x 71.5 x 7.9 mm",
+      "weight": "185 g",
+      "color_options": ["Black", "Blue", "Green", "Pink"],
+      "network_technology": "5G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Under-display fingerprint", "Water and Dust Resistant (IP68)"],
+      "specifications": ["Bluetooth 5.3", "Wi-Fi 6E", "Fast charging", "Reverse wireless charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/312Y9YFTpML._SX300_SY300_QL70_FMwebp_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/81D6+-Hy-TL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61knlcUzNEL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71auHN6KFXL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61FmEvlLaEL._SX679_.jpg"
+      ],
+      "category": "mobile",
+      "brand": "Xiaomi",
+      "model": "Xiaomi 12 Pro | 5G (Opera Mauve, 12GB RAM, 256GB Storage) | Snapdragon 8 Gen 1 | 50MP+50MP+50MP Flagship",
+      "price": 32999,
+      "description": "The Xiaomi 13 Lite combines a lightweight design with strong performance and an excellent camera system.",
+      "operating_system": "Android 13",
+      "screen_size": "6.55 inches",
+      "resolution": "1080x2400 pixels",
+      "ram": "8 GB",
+      "storage": "128 GB",
+      "battery_capacity": "4300 mAh",
+      "camera": {
+        "front": "32 MP",
+        "rear": "64 MP + 8 MP + 5 MP"
+      },
+      "processor": "Snapdragon 7 Gen 1",
+      "dimensions": "159.2 x 72.7 x 7.3 mm",
+      "weight": "172 g",
+      "color_options": ["Black", "Blue", "Pink"],
+      "network_technology": "5G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Under-display fingerprint", "Water and Dust Resistant (IP53)"],
+      "specifications": ["Bluetooth 5.2", "Wi-Fi 6", "Fast charging"]
+    },
+    {
+      "key_img": "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/t/5/7/-original-imagh2jqwu6m6ksf.jpeg?q=70&crop=false",
+      "images": [
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/f/n/v/-original-imagh2jqdxretvjf.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/4/g/k/-original-imagh2jqbnznmhua.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/z/t/a/-original-imagh2jq3tfqgmmv.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/q/z/q/-original-imagh2jqayzg398k.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/7/q/n/-original-imagh2jq96ffr49t.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/v/e/k/-original-imagh2jqqmwycz2r.jpeg?q=70&crop=false",
+      ],
+      "category": "mobile",
+      "brand": "Infinix",
+      "model": "Infinix Zero Ultra (Coslight Silver, 256 GB)  (8 GB RAM)",
+      "price": 36999,
+      "description": "The Infinix Zero Ultra is a high-performance smartphone with a sleek design and advanced features.",
+      "operating_system": "Android 12",
+      "screen_size": "6.8 inches",
+      "resolution": "1080x2400 pixels",
+      "ram": "8 GB",
+      "storage": "256 GB",
+      "battery_capacity": "5000 mAh",
+      "camera": {
+        "front": "32 MP",
+        "rear": "108 MP + 13 MP + 2 MP"
+      },
+      "processor": "MediaTek Dimensity 920",
+      "dimensions": "165.5 x 75.9 x 8.8 mm",
+      "weight": "207 g",
+      "color_options": ["Coslight Silver", "Genesis Noir"],
+      "network_technology": "5G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Side-mounted fingerprint", "Water and Dust Resistant (IP53)"],
+      "specifications": ["Bluetooth 5.2", "Wi-Fi 6", "Fast charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/616BYxu8ynL._SX569_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/61TwcdJ1-0L._SY741_.jpg",
+        "https://m.media-amazon.com/images/I/71UXbHUzzrL._SY741_.jpg",
+        "https://m.media-amazon.com/images/I/61lpva7YBOL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/41xllFxks8L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/41sC-MOOoML._SX679_.jpg"
+      ],
+      "category": "mobile",
+      "brand": "Infinix",
+      "model": "Infinix Zero 30 5G (Rome Green, 256 GB) (12 GB RAM)",
+      "price": 24999.99,
+      "description": "The Infinix Zero 30 5G offers a large display, powerful battery, and versatile camera system.",
+      "operating_system": "Android 11",
+      "screen_size": "6.7 inches",
+      "resolution": "1080x2400 pixels",
+      "ram": "8 GB",
+      "storage": "128 GB",
+      "battery_capacity": "4500 mAh",
+      "camera": {
+        "front": "16 MP",
+        "rear": "108 MP + 13 MP + 2 MP"
+      },
+      "processor": "MediaTek Helio G96",
+      "dimensions": "163.5 x 76.7 x 7.8 mm",
+      "weight": "198 g",
+      "color_options": ["Cayenne Grey", "Force Black"],
+      "network_technology": "4G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Side-mounted fingerprint", "Water and Dust Resistant (IP52)"],
+      "specifications": ["Bluetooth 5.0", "Wi-Fi 5", "Fast charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/71lUv9MDFaL._SY741_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/610-fyS8uTL._SY741_.jpg",
+        "https://m.media-amazon.com/images/I/614jQVzS+VL._SY741_.jpg",
+        "https://m.media-amazon.com/images/I/71Iv6RAs2mL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/616VpBabprL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61Fkvcm4pOL._SX679_.jpg"
+      ],
+      "category": "mobile",
+      "brand": "Infinix",
+      "model": "Infinix HOT 20 5G (64 GB) (4 GB RAM) (Blue)",
+      "price": 12999,
+      "description": "The Infinix Hot 20 is a budget-friendly smartphone with a good performance and battery life.",
+      "operating_system": "Android 12",
+      "screen_size": "6.82 inches",
+      "resolution": "720x1640 pixels",
+      "ram": "6 GB",
+      "storage": "128 GB",
+      "battery_capacity": "5000 mAh",
+      "camera": {
+        "front": "8 MP",
+        "rear": "50 MP + 2 MP + AI Lens"
+      },
+      "processor": "MediaTek Helio G85",
+      "dimensions": "171.5 x 77.5 x 8.9 mm",
+      "weight": "210 g",
+      "color_options": ["Racing Black", "Legend White", "Origin Blue", "Lucky Green"],
+      "network_technology": "4G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Rear-mounted fingerprint", "Water and Dust Resistant (IP52)"],
+      "specifications": ["Bluetooth 5.0", "Wi-Fi 5", "Fast charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/31lVPE0YHPL.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/31lVPE0YHPL.jpg",
+        "https://m.media-amazon.com/images/I/41vmUS5SR3L.jpg",
+        "https://m.media-amazon.com/images/I/31Eb3Na7reL.jpg",
+        "https://m.media-amazon.com/images/I/31c+5xmDVzL.jpg"
+      ],
+      "category": "mobile",
+      "brand": "Poco",
+      "model": "POCO F5 5G (Snowstorm White, 256 GB) (8 GB RAM)",
+      "price": 23999.99,
+      "description": "The Poco F5 provides a flagship experience with high-end performance and a stunning display.",
+      "operating_system": "Android 12",
+      "screen_size": "6.67 inches",
+      "resolution": "1080x2400 pixels",
+      "ram": "8 GB",
+      "storage": "256 GB",
+      "battery_capacity": "4500 mAh",
+      "camera": {
+        "front": "20 MP",
+        "rear": "64 MP + 8 MP + 2 MP"
+      },
+      "processor": "Snapdragon 870",
+      "dimensions": "163.2 x 75.95 x 7.8 mm",
+      "weight": "195 g",
+      "color_options": ["Night Black", "Aurora Blue", "Moonlight Silver"],
+      "network_technology": "5G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Side-mounted fingerprint", "Water and Dust Resistant (IP53)"],
+      "specifications": ["Bluetooth 5.1", "Wi-Fi 6", "Fast charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/51X8PWp62NL._SY741_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/51bLmzjqk1L._SY741_.jpg",
+        "https://m.media-amazon.com/images/I/514Y3fRQu3L._SY741_.jpg",
+        "https://m.media-amazon.com/images/I/51SlobAnRtL.jpg",
+        "https://m.media-amazon.com/images/I/51QCzCYi8JL._SY741_.jpg",
+        "https://m.media-amazon.com/images/I/51NFYzjbWpL._SY741_.jpg"
+      ],
+      "category": "mobile",
+      "brand": "Poco",
+      "model": "POCO X5 Pro 5G (Yellow, 128 GB) (6 GB RAM)",
+      "price": 17999,
+      "description": "The Poco X5 Pro combines performance, design, and value, making it a great mid-range option.",
+      "operating_system": "Android 12",
+      "screen_size": "6.67 inches",
+      "resolution": "1080x2400 pixels",
+      "ram": "6 GB",
+      "storage": "128 GB",
+      "battery_capacity": "5000 mAh",
+      "camera": {
+        "front": "20 MP",
+        "rear": "108 MP + 8 MP + 2 MP"
+      },
+      "processor": "Snapdragon 778G",
+      "dimensions": "162.9 x 76 x 8.12 mm",
+      "weight": "202 g",
+      "color_options": ["Phantom Black", "Frost Blue", "Metallic Yellow"],
+      "network_technology": "5G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Side-mounted fingerprint", "Water and Dust Resistant (IP53)"],
+      "specifications": ["Bluetooth 5.2", "Wi-Fi 6", "Fast charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/81hOdv2u9VL._SY741_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/814L9g4L7cL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51kvFgNSLWL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71SXpvCdbVL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51EAWUSYVLL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/41fEzO0wR+L._SL1500_.jpg"
+
+      ],
+      "category": "mobile",
+      "brand": "Poco",
+      "model": "POCO M5 (Power Black, 64 GB) (4 GB RAM)",
+      "price": 7499,
+      "description": "The Poco M5 offers good performance and battery life at an affordable price.",
+      "operating_system": "Android 12",
+      "screen_size": "6.58 inches",
+      "resolution": "1080x2400 pixels",
+      "ram": "6 GB",
+      "storage": "128 GB",
+      "battery_capacity": "5000 mAh",
+      "camera": {
+        "front": "8 MP",
+        "rear": "50 MP + 2 MP + 2 MP"
+      },
+      "processor": "MediaTek Helio G99",
+      "dimensions": "163.99 x 76.09 x 8.9 mm",
+      "weight": "201 g",
+      "color_options": ["Power Black", "Cool Blue", "Poco Yellow"],
+      "network_technology": "4G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Side-mounted fingerprint", "Water and Dust Resistant (IP52)"],
+      "specifications": ["Bluetooth 5.0", "Wi-Fi 5", "Fast charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/61OBw+XUiuL._SX679_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/61xaZ69s-2L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51+90NyEM-L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51RJIMiGqfL._SX679_.jpg"
+      ],
+      "category": "mobile",
+      "brand": "Lava",
+      "model": "Lava Agni 2 5G (Glass Viridian, 8GB RAM, 256GB Storage) | India's First Dimensity 7050 Processor | 120 Hz Curved Amoled Display | 13 5G Bands | Superfast 66W Charging | Clean Android",
+      "price": 16999,
+      "description": "The Lava Agni 2 offers a solid performance, good battery life, and a clean software experience.",
+      "operating_system": "Android 12",
+      "screen_size": "6.78 inches",
+      "resolution": "1080x2460 pixels",
+      "ram": "8 GB",
+      "storage": "128 GB",
+      "battery_capacity": "5000 mAh",
+      "camera": {
+        "front": "16 MP",
+        "rear": "64 MP + 5 MP + 2 MP"
+      },
+      "processor": "Dimensity 7050 Processor ",
+      "dimensions": "168.8 x 76.8 x 8.9 mm",
+      "weight": "204 g",
+      "color_options": ["Fiery Blue", "Blazing Red"],
+      "network_technology": "5G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Side-mounted fingerprint", "Water and Dust Resistant (IP52)"],
+      "specifications": ["Bluetooth 5.1", "Wi-Fi 6", "Fast charging"]
+    },
+    {
+      "key_img": "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/s/v/u/blaze-2-5g-blaze-2-5g-lava-original-imaguztehxagmsxh.jpeg?q=70&crop=false",
+      "images": [
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/j/9/8/blaze-2-5g-blaze-2-5g-lava-original-imaguzte2aqymgkh.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/q/l/q/blaze-2-5g-blaze-2-5g-lava-original-imaguztegnhrg5n5.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/s/s/v/blaze-2-5g-blaze-2-5g-lava-original-imaguzteangb42qh.jpeg?q=70&crop=false",
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/o/h/k/blaze-2-5g-blaze-2-5g-lava-original-imaguztezhnftzhb.jpeg?q=70&crop=false"
+      ],
+      "category": "mobile",
+      "brand": "Lava",
+      "model": "LAVA Blaze 2 5G with Dual Sim|50MP Rear Camera|5000 mAh Battery|Expandable Upto 1 TB (Glass Blue, 64 GB)  (4 GB RAM)",
+      "price": 10190,
+      "description": "The Lava Blaze 2 is a budget smartphone that offers a good display, decent performance, and long battery life.",
+      "operating_system": "Android 11",
+      "screen_size": "6.5 inches",
+      "resolution": "720x1600 pixels",
+      "ram": "4 GB",
+      "storage": "64 GB",
+      "battery_capacity": "5000 mAh",
+      "camera": {
+        "front": "8 MP",
+        "rear": "13 MP + 2 MP + 2 MP"
+      },
+      "processor": "MediaTek Helio A22",
+      "dimensions": "164.6 x 75.9 x 9 mm",
+      "weight": "190 g",
+      "color_options": ["Black", "Red", "Blue"],
+      "network_technology": "4G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Rear-mounted fingerprint", "Water and Dust Resistant (IP52)"],
+      "specifications": ["Bluetooth 5.0", "Wi-Fi 4", "Fast charging"]
+    },
+    {
+      "key_img": "https://m.media-amazon.com/images/I/51j7RQr+whL._SX679_.jpg",
+      "images": [
+        "https://m.media-amazon.com/images/I/6167MTXmdoL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51Ygtw49qtL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51TjC2-T+ZL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/418UIgwLP7L._SX679_.jpg"
+      ],
+      "category": "mobile",
+      "brand": "Lava",
+      "model": "Lava Yuva 2 Pro (Glass White, 4GB RAM, 64GB Storage)| 2.3 Ghz Octa Core Helio G37| 13 MP AI Triple Camera |FingerPrint Sensor| 5000 mAh Battery| Upto 7GB Expandable RAM",
+      "price": 7998,
+      "description": "The Lava Yuva 2 Pro is an entry-level smartphone with essential features and a good battery life.",
+      "operating_system": "Android 11",
+      "screen_size": "6.3 inches",
+      "resolution": "720x1520 pixels",
+      "ram": "3 GB",
+      "storage": "32 GB",
+      "battery_capacity": "4000 mAh",
+      "camera": {
+        "front": "5 MP",
+        "rear": "8 MP + 2 MP"
+      },
+      "processor": "MediaTek Helio A22",
+      "dimensions": "155.3 x 73.5 x 8.9 mm",
+      "weight": "164 g",
+      "color_options": ["Black", "Blue", "White"],
+      "network_technology": "4G",
+      "sim_type": "Dual SIM (nano-SIM)",
+      "additional_features": ["Rear-mounted fingerprint", "Water and Dust Resistant (IP52)"],
+      "specifications": ["Bluetooth 5.0", "Wi-Fi 4", "Fast charging"]
+    }
+  ]
+}
+
 

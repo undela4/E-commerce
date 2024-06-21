@@ -26,14 +26,11 @@ exports.addReview = async (req,res)=>{
     }
 }
 
-
 exports.upload = async (req,res)=>{
 
 try{
 
     const file=req.files.file
-    console.log(file);
-
     const bucket = admin.storage().bucket();
     const filename = `${`review_photos`}/${Date.now()}`;
     const fileUpload = bucket.file(filename);
@@ -74,8 +71,7 @@ try{
 exports.getReviews= async(req, res)=>{
     try{
         
-        const product_id=req.params.product_id;
-        const reviews=await review.find({product_id});
+        const reviews=await review.find();
         res.status(200).send({status:true,data:reviews});
 
     }

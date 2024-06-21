@@ -14,11 +14,13 @@ import PrivateRoute from './PrivateRoute.jsx';
 import Profile from './components/UserProfile/Profile.jsx';
 import Review from './components/Review&Rating/Review.jsx';
 import ThankU from './components/Review&Rating/ThankU.jsx';
+import ScrollToTop from './ScollTotop.jsx';
 
 export default function RoutesC() {
   return (
     <>
       <Navbar/>
+      <ScrollToTop/>
       <Routes>
         <Route  path="/" element={<HomePage/>} />
         <Route  path="/login" element={<Login />} />

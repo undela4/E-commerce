@@ -25,17 +25,3 @@ console.log(e);
 
 }
 
-export  async function get_reviews(setreviews,setf,product_id){
-    try{
-        const res = await axios.get(`http://localhost:5000/v1/review/${product_id}`);
-        if(res.data.status)
-        {
-            setreviews(res.data.data);
-            setf(true);
-        }
-
-    }catch(err){
-        console.log(err);
-    }
-
-}

@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useState, useEffect,useContext} from 'react';
 import './card.css'
 import Heart from '../../Review&Rating/Heart';
 import { useNavigate } from 'react-router-dom';
@@ -7,10 +7,24 @@ import { UserContext } from '../../../Usecontext';
 
 
 
-export default function Card({img,title,price,delprice,id}) 
-
+export default function Card({img,title,price,delprice,id,reviews}) 
 {
 
+const [avgr,setavgr]=useState(0);
+function filter(){
+
+  let a=0;
+  reviews.map((i)=>{
+    a+=i.rating;
+  })    
+  setavgr(Math.floor(a/reviews.length));
+
+}
+
+useEffect(()=>{
+  if(reviews)
+    filter();
+},[reviews])
 
   const nav=useNavigate();
   const {ud}=useContext(UserContext);
@@ -27,7 +41,7 @@ export default function Card({img,title,price,delprice,id})
           <div className="card-content d-flex flex-column ">
 
                       <div className="d-flex justify-content-between">
-                          <Rating />
+                          <Rating rate={avgr} />
                           <div className="">
                             {
                            

@@ -20,8 +20,8 @@ router.get('/products',getproducts);
 //http://localhost:5000/v1/products/:category
 router.get('/products/:category',get_by_id);
 
-//http://localhost:5000/v1/review/:product_id
-router.get('/review/:product_id',getReviews);
+//http://localhost:5000/v1/review/get
+router.get('/review/get',getReviews);
 
 
 

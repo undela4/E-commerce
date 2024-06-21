@@ -6,8 +6,11 @@ import Card from './ProductCart/Card';
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Dropdown } from './Dropdown';
 import useFetch_products from '../../customeHooks/fetch_products';
+import useFetchReview from '../../customeHooks/FetchReview';
 import { UserContext } from '../../Usecontext';
 import Loder from '../loder/Loder';
+import { useSelector } from 'react-redux';
+
 
 export default function ProductLIst() 
 {
@@ -15,17 +18,20 @@ export default function ProductLIst()
 const [pl,setpl]=useState();
 
 
+
 const {name,id}=useParams();
 const [fetch]=useFetch_products();
+const [Fetch_reviews]=useFetchReview();
+const {reviews}=useSelector(state=>state.review_slice);
+
 
 const {fun}=useContext(UserContext);
 
 
 useEffect(()=>{
-
     fetch(name,setpl);
     fun();
-
+    Fetch_reviews();
 },[])
 
 
@@ -95,12 +101,16 @@ const filters=[
                         <div className="product-list" >
                         {
                            pl.length!=0 ? pl.map((item,index)=>{
+
+                                const t=reviews.filter((i)=>i.product_id===item._id);
+
                             return(
                                 
                                 <div   key={index}> 
-                                <Card img={item.key_img} title={item.model} id={item._id}
+                                <Card img={item.key_img} title={item.model} id={item._id} reviews={t}
                                 category={item.category} price={item.price} delprice={item.delprice}
                                 colors={item.colors}/>
+
                                 </div>
                                 
                             )

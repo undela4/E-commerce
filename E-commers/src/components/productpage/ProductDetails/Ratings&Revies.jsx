@@ -1,45 +1,52 @@
 import React,{useState,useEffect} from 'react';
-import { get_reviews } from './helpers';
 import Loder from '../../loder/Loder';  
 import Rating from '../../Review&Rating/Rating';
 import './review.css'
-
+import { useSelector } from 'react-redux';
 
 export const ReviewRatings = ({ product_id}) => {
 
-const [reviews,setreviews]=useState([]);
 const [avgr,setavgr]=useState(0);
-const [f,setf]=useState(false);
-
-useEffect(()=>{
-
-  get_reviews(setreviews,setf,product_id);
-  let avg_rating=0;
-  reviews.map((i)=>{
-    avg_rating=avg_rating+i.rating;
-  })    
-  setavgr(Math.round(avg_rating/reviews.length));
-
-},[f]);
+const {reviews,flag}=useSelector(state=>state.review_slice);
+const [r,setr]=useState(null)
 
 
-return f ?  (
+
+function filter(){
+    const temp=reviews.filter((i)=>i.product_id === product_id)
+    setr(temp)
+    console.log(temp)
+    let a=0;
+    temp.map((i)=>{
+      a+=i.rating;
+    })    
+    setavgr(Math.floor(a/temp.length));
+  
+  }
+
+
+useEffect(()=>{ 
+    filter();
+},[flag]);
+
+
+return r ?  (
     <>
         <h2 className='mb-5'>Reviews & Ratings</h2>
       <div className='reviews' >
         {
-             reviews.length!=0 ?  ( <div>
+             r.length!=0 ?  ( <div>
              <div className="d-flex gap-5 mb-5">
              <div className="">
              <h4>Average Rating: {avgr}</h4>
              <Rating rate={avgr}/>
              </div>
-             <h4>Total Reviews: {reviews.length}</h4>
+             <h4>Total Reviews: {r.length}</h4>
      
              </div>
              <hr></hr>
              {
-                reviews.map((item,index)=>{
+                r.map((item,index)=>{
                      return(
                          <div className="p-3" key={index}>
                              <div className="user-icon">
@@ -73,7 +80,7 @@ return f ?  (
     ):(<Loder/>);
   };
   
-  
+
 function EmptyReviews(){
     return(
         <div>
