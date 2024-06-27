@@ -1,11 +1,9 @@
 .categories{
-    height: 250px;
-    margin-top: 5rem;
-    margin-bottom:  5rem;
+    margin-top:5%;
+    margin-bottom:10%;
     display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
-    gap:5rem;
+    justify-content: space-around;
+    gap:2rem;
     cursor: pointer;
 }
 
@@ -13,17 +11,31 @@
 .category-iteM >img{
     width: 270px;
     border-radius: 50%;
+    object-fit: contain;
 
 }
 .category-iteM {
     transition:transform 2s;
-
 }
-.category-iteM >h3{
+.category-iteM ~h4{
     text-align: center;
     margin-top: 1rem;
+    text-transform: capitalize;
 }
 .category-iteM:hover{
     transform: scale(1.1);
 
+}
+
+@media screen and (max-width:650px) {
+    .categories{
+        gap: 1em;
+
+    }
+    .category-iteM >img{
+        width:80%;
+    }
+    .category-iteM ~h4{
+        font-size: 16px;
+    }
 }

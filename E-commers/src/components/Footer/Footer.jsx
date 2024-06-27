@@ -8,13 +8,12 @@ import { FaCcVisa } from "react-icons/fa";
 import { FaCcMastercard } from "react-icons/fa6";
 import { FaGooglePay } from "react-icons/fa";
 import { FaAmazonPay } from "react-icons/fa";
-import { FaCcPaypal } from "react-icons/fa6";
 
 
 export default function Footer() {
   return (
     <>
-    <div className="footer containe">
+    <div className="footer container-sm">
 
         <div className="head d-flex justify-content-around">
             <div className="logo">
@@ -33,9 +32,9 @@ export default function Footer() {
                 <Items title="Company Info" linkes={['About Us',"Carrier","We are hiring","Blog"]}/>
                 <Items title="Customer Service" linkes={['Delivery Information',"Returns Policy","Pricacy Policy","Cookie Policy","Secure Shopping"]}/>
                 <Items title="Order & Purchase" linkes={['Check Order Status',"Shipping,Delivery & Pickup"," Returns & Exchange","Gift Cards"]}/>
-                <Items title="Payment Methods" linkes={[<FaCcVisa  style={{fontSize:"30px"}}/>,<FaCcMastercard style={{fontSize:"30px"}}/>,<FaGooglePay style={{fontSize:"30px"}}/>,<FaAmazonPay style={{fontSize:"30px"}} />,]}/>
+                <Items title="Payment Methods" className="d-flex gap-3" linkes={[<FaCcVisa  style={{fontSize:"30px"}}/>,<FaCcMastercard style={{fontSize:"30px"}}/>,<FaGooglePay style={{fontSize:"30px"}}/>,<FaAmazonPay style={{fontSize:"30px"}} />,]}/>
               
-            <div className="col-4">
+            <div className="col-sm-4">
             <h4>Get In Touch</h4>
                 
             <div className="input-group mb-3">
@@ -60,24 +59,27 @@ export default function Footer() {
 }
 
 
-function Items({title,linkes})
+function Items({title,linkes,className})
 {
     return(
-        <div className="col-2">
-        <h5 className='fw-bold'>{title}</h5>
+        <div className="col-sm-2 mb-4">
+        <h6 className='fw-bold'>{title}</h6>
 
-      
-               {
+            <div className={className}>
+            {
                 linkes.map((link,index)=>{
                     return(
-                        <div className="mt-3 " key={index}>
-                        <a href="#" className="text-dark text-decoration-none" >{link}</a>
-
-                        </div>
+                        <div className="mt-3" key={index}>
+                            <a href="#" className="text-dark text-decoration-none" >{link}</a>
+                        </div> 
                     )
                 })
                }
          
+            </div>
+               
     </div>
     )
 }
+
+

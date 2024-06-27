@@ -19,14 +19,12 @@ return(
             <div  className="address-item">
               <div className="">
                 { flag&&<input type="radio" onChange={()=>onchange(id)} name="i" />}
-            
-
+          
               </div>
-              <div className="w-100">
-            <p>{fullAddress}</p>
-
+              <div>
+              <p>{fullAddress}</p>
               </div>
-            <div className="justify-self-end p-3">
+            <div className="justify-self-end p-3 cross">
 
             <RxCross1 className='fs-3 text-danger fw-bold' onClick={()=>del_address(id)}/>
 

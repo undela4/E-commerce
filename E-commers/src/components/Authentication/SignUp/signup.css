@@ -17,3 +17,12 @@
     flex-direction: column;
 
 }
+
+@media(max-width:789px){
+    #sign-img{
+       display: none;
+    }
+    .controls {
+        width: 100%;
+    }
+}

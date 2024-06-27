@@ -14,7 +14,6 @@ scrollbar-width: none;
 
 
 .wl-cart{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 3%;
     display: flex;
     gap: 3rem;
@@ -40,4 +39,13 @@ scrollbar-width: none;
     font-size: 20px;
     font-weight: bold;
     color: black;
+}
+@media (max-width:789px){
+    .wl-cart{
+        flex-direction: column;
+        padding: 5%;
+        align-items: center;
+
+    }
+
 }

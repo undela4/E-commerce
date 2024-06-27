@@ -30,15 +30,16 @@ useEffect(()=>{
   return f ? (
     <>
     <h4 className='ms-5 fw-bold fs-1'>My Orders</h4>
+    <hr></hr>
+
 
     <div className="orders">
 
     { 
      orders.length!==0 ? ( orders.map((i,index)=>{
         return(
-          
+          <>
       <div className="order_item" key={index}>
-
       <div className="image" onClick={()=>nav(`/product/${i.category}/${i.product_id}`)}>
         <img src={i.img}/>
         <h5>{i.product_name}</h5>
@@ -58,9 +59,14 @@ useEffect(()=>{
         <button className='btn btn-outline-danger' onClick={()=>cancelorder(i._id)}>Cancel</button>
       </div>
       </div>
+    
 
-    </div>
-      
+
+    
+      </div>
+    <hr></hr>
+
+    </>
         )
      })):(<Empty text="No Orders yet"/>)
 

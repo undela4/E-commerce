@@ -5,11 +5,10 @@
 }
 .profile-right{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    /* height: max-content; */
+    width: 50px;
 
     
 }
-
 
 
 .profile-pic{
@@ -50,4 +49,11 @@
     color: black;
     /* transform: scale(1.05); */
 
+}
+
+@media (max-width:789px){
+    .options{
+        /* flex-direction: row; */
+    }
+    
 }

@@ -7,7 +7,7 @@ import { UserContext } from '../../../Usecontext';
 
 
 
-export default function Card({img,title,price,delprice,id,reviews}) 
+export default function Card({img,title,price,delprice,id,reviews,style}) 
 {
 
 const [avgr,setavgr]=useState(0);
@@ -32,36 +32,34 @@ useEffect(()=>{
 
   return (
     <>
-    <div className="product-card-container">
+    <div className="product-card-container"  style={style}>
 
-          <div className="card-img" >
+          <div className="image_list" >
               <img src={img} alt="img" onClick={()=>nav(`./${id}`)} style={{cursor:"pointer"}}/>
-
           </div>
-          <div className="card-content d-flex flex-column ">
-
-                      <div className="d-flex justify-content-between">
+          
+          <div className="card-content">
+                      <div className="pName">
+                      <h4 className='fw-500' style={{cursor:"pointer"}}  onClick={()=>nav(`./${id}`)}  >{title}</h4>
+                      
+                      </div>
+                      <div className="d-flex gap-4">
                           <Rating rate={avgr} />
-                          <div className="">
-                            {
-                           
-                           ud &&(<Heart product_id={id} ud={ud}/>)
-
-                            }
-
+                          <div>
+                            { ud &&(<Heart product_id={id} ud={ud}/>)}                    
                           </div>
                          
-                          </div>
-                      <h5 className='fw-bold' style={{cursor:"pointer"}}  onClick={()=>nav(`./${id}`)}  >{title}</h5>
+                      </div>
                       <p className=''>Save 60%</p>
                       <div className="prices d-flex  gap-3">
-                          <h5 className='text-secondry'><del>₹ {delprice}</del></h5>
+                          <h5 className='text-secondry'><del>₹ {Math.floor(price+5000)}</del></h5>
                           <h5 className='text-dark'>₹ {price}</h5>
                       </div>
 
 
-                  </div>
-              </div>
+          </div>
+
+          </div>
   </>
 
 

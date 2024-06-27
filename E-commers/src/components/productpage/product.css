@@ -1,7 +1,5 @@
 .Product-card{
-    width:1300px;
-    height:max-content;   
-    margin: 0 auto;
+    width:100%;
     margin-top:5%;
     margin-bottom:5%;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -20,23 +18,29 @@
     padding-left:25%;
     
 }
+.colors{
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(12, 12, 12);
+}
+
 .product-image img{
     width: 350px;
     height: 390px;
 }
 
 .product-other-images{
-    background-color: rgb(92, 94, 94);
+    background-color: rgb(221, 224, 224);
     overflow: auto;
-    padding-left:5%;
-    margin-left: 10%;
+    padding-left:2%;
+    margin-left:5%;
 }
 .product-other-images img{
     width: 100px;
     height: 100px;
     display: inline-block;
-    margin-right: 2%;
-    border-radius: 8px;
+    margin-right: 1%;
+    border-radius: 5px;
 }
 
 .Product-card-right{
@@ -47,35 +51,72 @@
     gap: 1rem;
 
 }
-.quantity{
-    
-    padding-left:3%;
-    width: 120px;
-    border: 2px solid rgb(229, 226, 226);
-    border-radius:50px;
-    cursor: pointer;
+.Butttons{
+    width: max-content;
+    gap:2rem;
 }
 
 /* ---------------> */
-.Product-details{
-    width: 1439px;
-    margin: 0 auto;
 
-}
+
 .Product-details-index{
     display: flex;
     gap: 5rem;
 }
-.Product-details-index h5:hover{
+.Product-details-index h6{
+    font-weight:450;
+    font-size:25px;
+}
+.Product-details-index h6:hover{
     color: blueviolet;
-
 }
 .under-line{
     width: max-content;
     cursor: pointer;
-
 }
+
 .product-content{
     height: max-content;
     margin-top: 2rem;
+}
+
+@media screen and (max-width:800px){ 
+    .Product-card{
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        flex-direction: column;
+        padding:8%;
+        gap: 0rem;
+    }
+    .Product-card-left{
+        width:100%;
+        margin-bottom:5%;
+    }
+    .Product-card-right{
+        width: 100%;
+
+    }
+    .product-image{
+        padding:9%;
+        margin: 0;
+
+    }
+    .product-image img{
+        width:250px;
+        height:250px;
+    }
+    .product-other-images img{
+        width:80px;
+        height:80px;
+    }
+    .Product-details-index{
+        gap:20px;
+    }
+    .Product-details-index h6{
+        font-size: 18px;
+    }
+  
+    .Product-details{
+        margin-top:10%;
+    }
+    
 }

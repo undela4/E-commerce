@@ -35,13 +35,13 @@
     gap:5rem;
     transition: all 2s;
 }
+ 
 .add{
-margin:5%;
+margin:2%;
 box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .In{
     width:100%;
-   
 
 }
 input[type='number']::-webkit-outer-spin-button,
@@ -59,9 +59,14 @@ input[type='number']::-webkit-inner-spin-button {
     display: flex;
     align-items: baseline;
     justify-content:flex-start;
-    gap:2rem;
+    gap:20px;
     cursor: pointer;
     background-color: rgb(246, 246, 246);
+}
+.cross{
+    position: relative;
+    right: 0;
+
 }
 
 .address-item:hover{
@@ -82,4 +87,14 @@ input[type='number']::-webkit-inner-spin-button {
 }
 .review-items{
     padding: 2%;
+}
+@media (max-width:780px) {
+
+    .address {
+        display:block;
+    }
+    .add{
+        margin: 0;
+    }
+    
 }

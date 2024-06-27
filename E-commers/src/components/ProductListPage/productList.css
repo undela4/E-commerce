@@ -4,9 +4,12 @@
 .product-list{
     margin-left: 4rem;
     display: flex;
-    justify-content: space-between;
-    gap:15px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding: 1%;
+
 }
 .product-filters
 {
@@ -40,7 +43,20 @@ input[type="checkbox"] {
 }
 
 .not_found{
-
     margin: 20%;
     margin-left:30%;
 }
+@media screen and (max-width: 768px){
+
+    .dropdown-items{
+        margin-left: 1%;
+        margin-bottom:10px;
+        width: 100%;
+
+    }
+    .product-list{
+        margin:1%;
+    
+    }
+} 
+    

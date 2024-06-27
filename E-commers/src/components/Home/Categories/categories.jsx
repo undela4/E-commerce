@@ -12,7 +12,7 @@ const catadata=[
     },
     {
         id:2,
-        name:'Laptop',
+        name:'laptop',
         img:"https://th.bing.com/th/id/OIG4.Tj5DS9KDQPskBHJt63tJ?w=270&h=270&c=6&r=0&o=5&dpr=1.1&pid=ImgGn"
     },
     {
@@ -37,18 +37,24 @@ export default function Categories() {
 
 
   return (
-    < div className="containe">
-    <h2 className='mt-5'>Categories</h2>
-    <h5>Electronics</h5>
+    < div className="container-fluid-sm">
+   <div className="ps-3 mt-5">
+   <h2>Categories</h2>
+   <h5 className='ms-3'>Electronics</h5>
+   </div>
 
-    <div className="categories ">
+    <div className="categories">
         {
             catadata.map((item,index)=>{
                 return(
+                    <div>
                     <div className="category-iteM" key={index} onClick={()=>{ nav(`/product/${item.name}`);}}>
-                        <img src={item.img} alt={item.name} />
-                        <h3>{item.name}</h3>
+                        <img src={item.img}  />
                     </div>
+                    <h4 className='text-center'>{item.name}</h4>
+                    </div>
+                    
+
                 )
             })
         }

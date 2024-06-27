@@ -1,36 +1,33 @@
 #root {
   --red:black;
 
-  
 }
+
 *{
 margin: 0;
 padding: 0;
 box-sizing: border-box;
 user-select: none;
 
-
-
 }
 .containe{
-  width: 1439px;
-  margin: 0 auto;
+  width: 100%;
 }
 
-@media(max-width:1200px) {
 
-  .containe{
-    width:100%;
-    margin: 0 auto;
-  }
-
-}
 
 .Ai{
   position: fixed;
   right:10px;
-  top:85%;
+  bottom:5%;
   font-size:80px;
+}
 
+@media (max-width:650px) {
 
+  .Ai{
+    font-size:60px;
+
+  }
+  
 }

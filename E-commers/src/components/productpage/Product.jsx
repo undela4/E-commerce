@@ -81,17 +81,22 @@ useEffect(()=>{
 
   return product ? (
     <>
-    <div className="containe">
-    <h5 className='mt-4 mb-5'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{product.model}</h5>
+    <div className="container">
+    <h5 className='m-3 text-capitalize'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{product.model}</h5>
 
       {
         !r ? (<div className="Product-card">
 
           <div className="Product-card-left">
             <div className="product-image">
+           <div className="">
+           {
+              ud&&(<Heart product_id={id} ud={ud} />)
+           }
+           </div>
             <img src={img} alt="img"/>
             </div>
-            <div className="product-other-images d-flex gap-2 mt-2">
+            <div className="product-other-images d-flex gap-1 mt-2">
               {
                 product.images.map((i,index)=>{
                   return(<img key={index} src={i}
@@ -122,17 +127,17 @@ useEffect(()=>{
             {
             product&&(
             
-            <div className="d-flex gap-3 align-items-center mt-3">
+          <div className="d-flex gap-3 align-baseline mt-3">
 
-          <p className='fw-bold fs-3'>Colours:</p>
+          <p className='fw-600 fs-3'>Colours:</p>
 
             {
               product.color_options.map((item,index)=>{
                 return(
   
                  <div className=""  key={index}>
-                   <div className="d-flex rounded-circle "
-                   style={{backgroundColor:item,width:"30px",height:"30px",border:"2px solid black "}}>
+                   <div className="rounded-circle colors"
+                   style={{backgroundColor:item}}>
                     </div>
                     <p>{item}</p>
                  </div>
@@ -144,15 +149,14 @@ useEffect(()=>{
             </div>)
           }
           
-            <div className="d-flex gap-5">
+            <div className="d-flex  Butttons">
               <button className='btn btn-outline-success' onClick={()=>add_to_cart(true)}>Add To Cart</button>
               <button className='btn btn-outline-success' onClick={()=>add_to_cart(false)}>Buy Now</button>
-             {
-              ud&&(<Heart product_id={id} ud={ud} />)
-             }
-              <button className='ms-5 btn btn-outline-success' onClick={review}>Review</button>
+             
+              <button className='ms-lg-5 btn btn-outline-success' onClick={review}>Review</button>
 
             </div>
+
           
           </div>
         </div>):(<Review ud={ud} setr={setr} product={product}/>)

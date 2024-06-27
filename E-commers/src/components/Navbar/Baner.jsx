@@ -12,16 +12,17 @@ export default function Baner() {
   const r=useRef(null);
   
   return (
-    <div className='banner containe text-light' ref={r} style={{display:"block"}} >
+    <div className='banner text-light container-fluid' ref={r} style={{display:"block"}} >
 
       <div className="content">
 
         <div className="d-flex gap-5 align-items-baseline">
-       <div className="fs-5">
-       <IoCallOutline /><span> +91 9951058416</span>
+       <div className="fs-6">
+       <IoCallOutline />
+       <span> +91 9951058416</span>
 
        </div>
-       <div className="fs-5">
+       <div className="fs-6">
        <MdAttachEmail /><span> Example143@gmail.com</span>
 
        </div>

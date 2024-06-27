@@ -6,7 +6,7 @@ export function Dropdown({Key,name,items,type,pl,setpl})
 {
 
     const r=useRef(null);
-    const[flag,setflag]=useState(true);
+    const [flag,setflag]=useState(true);
     const [brand,setbrand]=useState([]);
     const [price,setprice]=useState([]);
 
@@ -20,7 +20,6 @@ export function Dropdown({Key,name,items,type,pl,setpl})
         setpl(products)
         return;
     }
-
     const t=products.filter(item=>{
         return brand.includes(item.brand);
       })
@@ -32,8 +31,6 @@ export function Dropdown({Key,name,items,type,pl,setpl})
 
  
  useEffect(()=>{
-
-
     if (price.length==0){
         setpl(products)
         return;
@@ -64,7 +61,6 @@ export function Dropdown({Key,name,items,type,pl,setpl})
 
     }
   
-
 
 function Brand(e){
 

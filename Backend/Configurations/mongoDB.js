@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const MongooDB=()=>{
     try{
-    mongoose.connect('mongodb://localhost:27017/E-commers')
+    mongoose.connect('mongodb+srv://muraliundela369:Murali%402004@cluster0.onsel64.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/test')
         .then(()=>{console.log("MongoDb connected.")});
     
     }

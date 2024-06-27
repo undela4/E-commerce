@@ -11,18 +11,12 @@ export default function Model(props) {
             <Modal
       {...props}
       size="lg"
-      backdrop="static"
-     
-      
-    >
+      backdrop="static">
       <Modal.Header closeButton >
       <Modal.Title >Personal Assistance</Modal.Title>
       </Modal.Header>
       <Bot/>
 
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
 
     </Modal>
     </div>

@@ -1,22 +1,16 @@
 .footer{
-    height: 500px;
-    margin-bottom: 5%;
+    margin-top: 5%;
 }
 .logo img{
-    width:108;
     height: 32px;
 }
 .icon{
     font-size: 40px;
-
 }
 .head{
     background-color: #FAFAFA;
     height: 145px;
     align-items: center;
-}
-.body{
-    height: 272px;
 }
 
 .links{
@@ -31,4 +25,16 @@
     padding-left: 195px;
     padding-top: 25px;
 
+}
+@media (max-width: 768px)
+{
+    .head{
+        height: 100px;
+    }
+    .tail{
+    padding-left: 0;
+    }
+    .icon{
+        font-size:30px;
+    }
 }

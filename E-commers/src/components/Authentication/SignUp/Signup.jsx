@@ -107,7 +107,7 @@ async function onsubmit()
 
 
 return (
-    <div className="login-section signup containe align-items-start mt-5">
+    <div className="login-section signup container align-items-start mt-5">
     <img src={login3} id="sign-img" />
 
 {
@@ -130,13 +130,13 @@ return (
             <InputFeild type="password" className="textFields" label="ConfirmPassword"
             method={onchange} name="confirmpassword" value={userdata.confirmpassword} />
 
-           <div className="w-100 d-flex flex-column gap-2">
-           <Button variant='danger' className="w-50" onClick={onsubmit}>Sign Up</Button> 
-           <Button  variant="outline-light" className="w-50 text-dark border-dark"><FaGoogle />    Sign Up with google</Button> 
+           <div className="w-100 d-flex flex-column gap-3 mt-5 controls">
+
+           <Button variant='danger' className="w-100" onClick={onsubmit}>Sign Up</Button> 
+           <Button  variant="outline-light" className="w-100 text-dark border-dark"><FaGoogle />    Sign Up with google</Button> 
 
             <a href="/login" className='text-danger text-decoration-none '>
             <span>Alredy have account ? Login</span>
-
             </a>
            </div>
 

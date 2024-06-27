@@ -155,7 +155,7 @@ export const Bot = () => {
 
         <div className="chat-input">
           <input type='file' ref={r} onChange={handleImageChange} style={{display:"none"}}></input>
-        <FaImage  className='fs-2' onClick={()=>{r.current.click()}}/>
+        <FaImage  className='fs-3' onClick={()=>{r.current.click()}}/>
         <AudioRecorder messages={messages} setMessages={setMessages} />
           <input
             type="text"

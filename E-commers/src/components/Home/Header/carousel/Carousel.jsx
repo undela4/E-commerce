@@ -15,7 +15,7 @@ export default function Carousel({data,imgonly}) {
 
 
 return (
-    <div  className='containe'>
+    <div  style={{marginTop:"4.49%"}}>
       
 <div id="demo" className="carousel slide " data-bs-ride="carousel">
 
@@ -70,7 +70,7 @@ function CouroselItem({img}){
 return(
   <div className="carousel-item active">
     
- <img src={img} alt="..."/> 
+ <img src={img}  className="w-100" alt="..."/> 
   </div>
   
 )

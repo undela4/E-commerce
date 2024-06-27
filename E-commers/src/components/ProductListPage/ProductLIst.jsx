@@ -80,11 +80,11 @@ const filters=[
     <>
     {
         !id ? (<div className='containe mb-5'>
-            <h5 className='mt-4 mb-5'>Home <RiArrowRightSLine /> {name}</h5>
+            <h5 className='mt-4 mb-5 text-capitalize'>Home <RiArrowRightSLine /> {name}</h5>
 
             <div className="product-layout row">
 
-                    <div className="product-filters col-3">
+                    <div className="product-filters col-sm-3">
                     {
                         filters.map((e,index)=>{
                             return(
@@ -97,7 +97,7 @@ const filters=[
 
                     </div>
 
-                    <div className="col-9">
+                    <div className="col-sm-9">
                         <div className="product-list" >
                         {
                            pl.length!=0 ? pl.map((item,index)=>{
@@ -108,8 +108,8 @@ const filters=[
                                 
                                 <div   key={index}> 
                                 <Card img={item.key_img} title={item.model} id={item._id} reviews={t}
-                                category={item.category} price={item.price} delprice={item.delprice}
-                                colors={item.colors}/>
+                                category={item.category} price={item.price}
+                                colors={item.colors} />
 
                                 </div>
                                 

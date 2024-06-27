@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Cartcard({id,category,img, title, description,quantity,price,del_price,method,Increment,decrement,colors,spec,adf,flag}){
+export default function Cartcard({id,category,img, title,quantity,price,method,Increment,decrement,colors,spec,adf,flag}){
   
   const nav=useNavigate();
   
@@ -11,7 +11,7 @@ export default function Cartcard({id,category,img, title, description,quantity,p
       <>
       
       <hr></hr>
-      <div className="cart-card" >
+      <div className="cart-card container" >
   
         <div className="cart-card-left" onClick={()=>nav(`/product/${category}/${id}`)}
           style={{cursor:"pointer"}}>
@@ -24,12 +24,9 @@ export default function Cartcard({id,category,img, title, description,quantity,p
           <h6>{title}</h6>
           
           <div className="d-flex gap-3">
-            <del>
-          <h5>₹ {del_price}</h5>
-  
-            </del>
+            
           <h5>₹ {price}</h5>
-          <input type="checkbox" style={flag}/>
+          {/* <input type="checkbox" style={flag}/> */}
   
           </div>
   
@@ -37,33 +34,8 @@ export default function Cartcard({id,category,img, title, description,quantity,p
           </div>
   
           <p style={flag} className='text-danger'>In Stock</p>
-          <p>{description}</p>
 
           <p>Eligible For Free Delivery</p>
-
-          {
-            colors&&(<div className="d-flex gap-3 ">
-
-          <p className='fw-bold'>Colours:</p>
-
-            {
-              colors.map((item)=>{
-                return(
-  
-                 <div className="">
-                   <div className="d-flex rounded-circle " key={item}
-                   style={{backgroundColor:item,width:"30px",height:"30px",border:"2px solid black "}}>
-                    </div>
-                    <p>{item}</p>
-                 </div>
-                )
-            
-            
-          })
-        }
-            </div>)
-          }
-          
           <p><span className='fw-bold'>Specifications</span>{spec} {adf}</p>
     
            <div  style={flag}>

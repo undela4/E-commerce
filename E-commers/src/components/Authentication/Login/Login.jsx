@@ -60,7 +60,7 @@ async function onsubmit(){
 
   return (
     <>
-    <div className="login-section containe">
+    <div className="login-section container">
         <img src={login2} id="login-img" />
     {
         !forget_password_flag ? (<div className="login-right">
@@ -75,12 +75,15 @@ async function onsubmit(){
                 <InputFeild type="password" className="textFields" label="Enter your Password"
                 method={onchange} name="password" value={userdata.password} />
 
-               <div className="d-flex gap-5 mt-4 align-items-baseline">
-               <Button variant='danger' 
-               
-               onClick={onsubmit}>Login</Button> 
+               <div className="controls">
+
+                <div className="d-flex gap-4 justify-content-start">
                 <a href="#" className='text-danger text-decoration-none ' onClick={()=>set_forget_password_flag(true)}> Forget Password ?</a>
                 <a href="/signup" className='text-danger text-decoration-none '>Dont have account ?</a>
+                </div>
+               <Button variant='danger' onClick={onsubmit}>Login</Button> 
+
+                
 
                </div>
 

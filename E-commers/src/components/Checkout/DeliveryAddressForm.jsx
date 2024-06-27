@@ -49,10 +49,10 @@ const [formData, setFormData] = useState(data);
 
   
   return  (
-    <div className="container mt-5 p-3">
+    <div className="container mt-5 p-4">
         <div className="mb-4">
         <h2>Shipping Address</h2>
-      <h6>Select the address that matches our card or payment</h6>
+      <h6>Fill the address details</h6>
 
         </div>
       
@@ -75,7 +75,7 @@ const [formData, setFormData] = useState(data);
       </div>
       <InputFeild label="phone" type="number" method={handleChange} name="phoneNumber" value={phoneNumber} className="w-50"/>
 
-      <button className='btn btn-info w-25' onClick={handleSubmit}>Continue to delivery</button>
+      <button className='btn btn-info w-100' onClick={handleSubmit}>Continue to delivery</button>
 
 
     </div>

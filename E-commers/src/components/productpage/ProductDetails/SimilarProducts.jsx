@@ -22,7 +22,7 @@ useEffect(()=>{
   return (
     <div className='similar-products'>
         <h2>Similar Products</h2>
-        <div className="similar-products-list">
+        <div className="similar-products-list p-3">
                 {
                     similardata.map((item,index) => {
 
@@ -33,7 +33,8 @@ useEffect(()=>{
 
                                 <Card img={item.key_img} title={item.model} id={item._id} reviews={t}
                                 category={item.category} price={item.price} delprice={item.delprice}
-                                colors={item.colors} />
+                                colors={item.colors}
+                                style={{flexDirection:"column"}} />
 
 
                           </div>

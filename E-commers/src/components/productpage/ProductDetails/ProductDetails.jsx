@@ -6,11 +6,11 @@ export const Overview = ({ product }) => {
     return (
 
       <div>
-        <h1>{product.model}</h1>
+        <h2>{product.model}</h2>
         <div className="fs-4">
         <p>{product.description}</p>
-        <p>Price: <span className='fw-bold'>₹ {product.price}</span></p>
-        <p>Brand: <span className='fw-bold'>{product.brand}</span></p>
+        <p >Price: <span className='fw-bold'>₹ {product.price}</span></p>
+        <p >Brand: <span className='fw-bold'>{product.brand}</span></p>
         </div>
         <div className="d-flex align-items-center">
           <div className="w-50">
@@ -23,6 +23,10 @@ export const Overview = ({ product }) => {
             <p>Storage : <span>{product.storage}</span></p>
             <p> Battery :  <span>{product.battery_capacity}</span></p>
             <p>Network :  <span>{product.network_technology}</span></p>
+            <p>weight:  <span>{product.weight}</span></p>
+
+    
+
           </div>
         </div>
       </div>
@@ -32,7 +36,7 @@ export const Overview = ({ product }) => {
   // Specifications Component
 export const Specifications = ({ specs }) => {
     return (
-      <div className='fs-4'>
+      <div className='fs-4 p-3'>
         <h2>Specifications</h2>
         <p>Display: {specs.screen_size}</p>
         <p>Resolution: {specs.resolution}</p>
@@ -40,7 +44,12 @@ export const Specifications = ({ specs }) => {
         <p>processor: {specs.processor}</p>
         <p>dimensions: {specs.dimensions}</p>
         <p>weight: {specs.weight}</p>
-        <p>sim_type: {specs.sim_type}</p>
+        <h4>Other </h4>
+
+        {
+        specs.sim_type&&  <p>sim_type: {specs.sim_type}</p>
+
+        }
         <ul>
           {specs.additional_features.map((feature, index) => (
             <li key={index}>{feature}</li>
@@ -85,10 +94,10 @@ export function Product1({pdata}){
 
       <div className="Product-details-index">
         {
-         ["Overview", "Specification","Review & Ratings","Quations"].map((i,index)=>{
+         ["Overview", "Specification","Reviews","Quations"].map((i,index)=>{
           return(
-            <div key={index} className='under-line' style={{borderBottom:f===index? "4px solid blue": "none" }} >
-            <h5 onClick={()=>{setf(index)}}>{i}</h5>
+            <div key={index} className='under-line' style={{borderBottom:f===index? "4px solid blue": "none"}} >
+            <h6 style={{fontWeight:f===index ? "bold":""}} className="p-index" onClick={()=>{setf(index)}}>{i}</h6>
 
             </div>
     )

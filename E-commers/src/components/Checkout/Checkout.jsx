@@ -11,20 +11,8 @@ import { get_cart_items } from '../cart/methods';
 import { Fun } from '../cart/Cartpage';
 import { errorfunction } from '../../tostify';
 import { create_order } from './helpers';
-const addres=[
-  {
-    "id": 1,
-    "fullAddress": "John Doe, 123 Main St Apt 4B, New York, NY 10001, USA, Phone: 555-1234"
-  },
-  {
-    "id": 2,
-    "fullAddress": "Jane Smith, 456 Maple Ave Unit 12, Toronto, ON M4B 1B4, Canada, Phone: 555-5678"
-  },
-  {
-    "id": 3,
-    "fullAddress": "Albert Einstein, 789 Science Blvd, Munich, Bavaria 80331, Germany, Phone: 555-9012"
-  }
-]
+
+
 
 export default function Checkout(){
 
@@ -35,7 +23,7 @@ const [f,setf]=useState(false);
 const [f1,setf1]=useState(false);
 const nav=useNavigate();
 
-const [address,setaddress]=useState(addres);
+const [address,setaddress]=useState([]);
 const [selectedAddressId, setSelectedAddressId] = useState('');
 
 
@@ -108,7 +96,7 @@ function drop2()
 
 return (
     <>
-    <div className="containe">
+    <div className="container">
 
     <div className="checkout mt-5 row">
 

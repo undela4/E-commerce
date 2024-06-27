@@ -1,5 +1,5 @@
 .similar-products{
-    width: 1439px;
+    width:100%;
     height: max-content;
     margin: 0 auto;
     margin-top: 3rem;
@@ -23,4 +23,12 @@
 }
 .about p{
 font-size: 30px;
+}
+
+@media screen and (max-width:800px){ 
+
+    .about p{
+        font-size:15px;
+        }
+        
 }

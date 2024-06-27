@@ -1,32 +1,24 @@
-import React, { useState,useEffect } from 'react';
-import {NavLink,Link} from "react-router-dom"
+import React, { useState } from 'react';
+import {NavLink,Link,useNavigate} from "react-router-dom"
 import './Navbar.css'
-
-
-
 import Baner from './Baner';
 
 export default function Navbar() {
   return (
-    <>
-    <Baner/>
+    <div>
+    {/* <Baner/> */}
     <Nav/>
-    </>
+    </div>
   )
 }
 
 
 import { Bandage } from '../../assets/img';
 import { IoIosArrowDown } from "react-icons/io";
-import { RxAvatar } from "react-icons/rx";
 import { IoIosSearch } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
 import userAuth from '../../customeHooks/userAuth';
 import Icon from '../UserProfile/Icon';
-import { useSelector } from 'react-redux';
-import Cookies from 'js-cookie';
-import { RiContactsBookLine } from 'react-icons/ri';
 
 const navlinks=[
   {
@@ -61,55 +53,58 @@ const navlinks=[
   }
 ]
 
-
 function Nav() {
 
-  const [u]=userAuth();
-  const [cc,setcc]=useState();
-  
-
-
+  const [u] = userAuth();
+  const [cc, setcc] = useState();
+  const nav = useNavigate();
 
   return (
     <>
-      <div className="containe ">
-
-        <div className="nav-bar">
-
-          <div className="logo">
-          <img src={Bandage} width={100} height={30} alt="logo" />
-
-          </div>
-
-          <div className="nav-items">
-            <div className="nav-items-left">
-              {
-                navlinks.map((item, index) => {
-                  return (
-                    <NavLink  className="NavLink" to={item.path} key={index}>
-                      {item.title}{item.Component}
+      <div className="container-sm-fluid Navig">
+        <nav className="navbar navbar-expand-lg navbar-light ">
+          <div className="container-fluid">
+            <NavLink className="navbar-brand me-5" to="/">
+              <img src={Bandage} width={100} height={30} alt="logo" />
+            </NavLink>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse align-baseline" id="navbarNav">
+              <ul className="navbar-nav me-auto me-5 mb-2 mb-lg-0">
+                {navlinks.map((item, index) => (
+                  <li className="nav-item" key={index}>
+                    <NavLink className="nav-link" to={item.path}>
+                     <h5 className='text-black'> {item.title}{item.Component}</h5>
                     </NavLink>
-                  )
-                })
-              }
-
-            </div>
-
-            <div className="nav-items-right">
-              {u ?(<Link   className="NavLink" onClick={()=>nav('/account')}><Icon/></Link>):
-                (<NavLink to="/login"  className="NavLink" >Login</NavLink>)
-               }
-           
-              <NavLink to=""  className="NavLink"><IoIosSearch className='nav-icons' /></NavLink>
-              <NavLink to="/cart"  className="NavLink"><CiShoppingCart className='nav-icons'/><span>{cc}</span></NavLink>
+                  </li>
+                ))}
+              </ul>
+              <ul className="navbar-nav ml-auto mb-lg-0">
+                {u ? (
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/account">
+                      <h5 className='text-dark'>Profile</h5>
+                    </Link>
+                  </li>
+                ) : (
+                  <li className="nav-item">
+                    <NavLink to="/login" className="nav-link"><h5 className='text-dark'>Login</h5></NavLink>
+                  </li>
+                )}
               
-              </div>
-
+                <li className="nav-item">
+                  <NavLink to="/cart" className="nav-link">
+                  <h5 className='text-dark'>Cart</h5>
+                    <span>{cc}</span>
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
           </div>
-
-
-        </div>
+        </nav>
       </div>
     </>
-  )
+  );
 }
+

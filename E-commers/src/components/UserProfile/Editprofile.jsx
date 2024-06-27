@@ -2,6 +2,7 @@ import React,{useEffect, useRef,useState,useContext} from 'react';
 import InputFeild from '../Authentication/Login/InputFeild';
 import { uploadimg } from './helpers';
 import { UserContext } from '../../Usecontext';
+import Loder from '../loder/Loder';
 
 export default function Editprofile() {
 
@@ -73,5 +74,5 @@ return loader ? (
 
 
         </div>
-      ):<center><h2 className='text-danger'>Loading .....</h2></center>
+      ):<center><Loder/></center>
 }
