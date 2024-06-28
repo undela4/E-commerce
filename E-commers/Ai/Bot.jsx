@@ -1,5 +1,7 @@
 import React, { useState,useRef } from 'react';
+import Webcam from 'react-webcam';
 import { FaImage } from "react-icons/fa6";
+import { FaCamera } from "react-icons/fa";
 import { IoSend } from "react-icons/io5";
 import { FaMicrophone } from "react-icons/fa";
 import './bot.css';
@@ -15,8 +17,10 @@ export const Bot = () => {
   const [image, setImage] = useState(null);
   const [imgurl,setimgurl]=useState('');
   const [flag,setflag]=useState(false);
+  const [web,setweb]=useState(false);
 
   const r=useRef(null);
+  const webcamRef = useRef(null);
 
   console.log(messages);
 
@@ -85,7 +89,13 @@ export const Bot = () => {
   const handleImageUpload = async () => {
 
     const formData = new FormData();
-    formData.append('file', image); 
+    if(typeof(image)==="string"){
+      const blob = await fetch(image).then(res => res.blob());
+      setimgurl(image);
+      formData.append('file', blob); 
+
+    }else
+      formData.append('file', image); 
 
     try {
        const result= await axios.post(`http://localhost:5000/v1/img/?question=${input}`,formData, {
@@ -111,6 +121,14 @@ export const Bot = () => {
 
   console.log(image)
 
+  const capture = () => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    successfunction("Image Clicked successfully")
+    setImage(imageSrc);
+    setweb(false);
+  };
+
+
 
   return (
 
@@ -123,8 +141,20 @@ export const Bot = () => {
         </div>
         
         <div className="chat-messages">
+       {
+        web&&( <div className="align-self-end ">
+          <Webcam
+          audio={false}
+          ref={webcamRef}
+          screenshotFormat="image/jpeg"
+          width={150}
+          height={150}
+        />
 
-          
+        <button className='btn btn-success' onClick={capture}>Capture</button>
+          </div>    
+            )
+       }
           {messages.map((message, index) => (
 
                   <div key={index} className={`chat-message ${message.sender}`}>
@@ -154,8 +184,10 @@ export const Bot = () => {
         </div>
 
         <div className="chat-input">
-          <input type='file' ref={r} onChange={handleImageChange} style={{display:"none"}}></input>
+      
+        <input type='file' ref={r} onChange={handleImageChange} style={{display:"none"}}></input>
         <FaImage  className='fs-3' onClick={()=>{r.current.click()}}/>
+        <FaCamera  className='fs-3' onClick={()=>setweb(true)}/>
         <AudioRecorder messages={messages} setMessages={setMessages} />
           <input
             type="text"

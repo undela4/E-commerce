@@ -52,7 +52,7 @@ exports.weather=async (req, res)=>{
           }
           else
           {
-          const result = await chatSession.sendMessage(message+' please do not give result with stars '*'');
+          const result = await chatSession.sendMessage(message);
           response=result.response.text();
           }
           res.send({data:response})
@@ -71,9 +71,7 @@ exports.gemini=async (req,res)=>{
     try{
 
         console.log(req.body.message);
-        const m=`expalin without unnecessary symbols like asterisks:'*' and in stuctured formate ${req.body.message}`
-        console.log(m);
-        const result= await chatSession.sendMessage(m);
+        const result= await chatSession.sendMessage(req.body.message);
         // console.log(result);
         res.status(200).send({'status':true,'data':result.response.text()});
 
