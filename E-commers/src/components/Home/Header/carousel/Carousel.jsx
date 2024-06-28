@@ -15,7 +15,7 @@ export default function Carousel({data,imgonly}) {
 
 
 return (
-    <div  style={{marginTop:"4.49%"}}>
+    <div >
       
 <div id="demo" className="carousel slide " data-bs-ride="carousel">
 

@@ -21,6 +21,7 @@ export default function RoutesC() {
     <>
       <Navbar/>
       <ScrollToTop/>
+    
       <Routes>
         <Route  path="/" element={<HomePage/>} />
         <Route  path="/login" element={<Login />} />

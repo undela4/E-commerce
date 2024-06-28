@@ -47,7 +47,7 @@ export default function Categories() {
         {
             catadata.map((item,index)=>{
                 return(
-                    <div>
+                    <div className='d-flex flex-column justify-content-center'>
                     <div className="category-iteM" key={index} onClick={()=>{ nav(`/product/${item.name}`);}}>
                         <img src={item.img}  />
                     </div>

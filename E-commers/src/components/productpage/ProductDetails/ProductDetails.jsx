@@ -6,8 +6,8 @@ export const Overview = ({ product }) => {
     return (
 
       <div>
-        <h2>{product.model}</h2>
-        <div className="fs-4">
+        <h2 className='name'>{product.model}</h2>
+        <div className="fs-4 name">
         <p>{product.description}</p>
         <p >Price: <span className='fw-bold'>₹ {product.price}</span></p>
         <p >Brand: <span className='fw-bold'>{product.brand}</span></p>

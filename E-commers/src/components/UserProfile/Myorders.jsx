@@ -75,7 +75,7 @@ useEffect(()=>{
     </div>
 
     </>
-  ):(<Loder/>)
+  ):(<center><Loder/></center>)
 }
 
 

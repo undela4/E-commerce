@@ -81,8 +81,8 @@ useEffect(()=>{
 
   return product ? (
     <>
-    <div className="container">
-    <h5 className='m-3 text-capitalize'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{product.model}</h5>
+    <div className="container name">
+    <h5 className='m-3 text-capitalize name'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{product.model}</h5>
 
       {
         !r ? (<div className="Product-card">

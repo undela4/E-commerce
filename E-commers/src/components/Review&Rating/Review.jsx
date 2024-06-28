@@ -59,13 +59,13 @@ function onsubmit(){
 
   return (
     <>
-    <div className="containe">
+    <div className="container">
         <div className="row review mt-4">
-            <div className="col-7 review-left p-5">
+            <div className="col-sm-7 review-left p-5">
 
-                <div className="p-img d-flex gap-3 mb-3">
+                <div className="p-img d-flex align-items-center gap-3 mb-3">
                     <img src={product.key_img}/>
-                           <h3>{product.model}</h3>
+                    <h3>{product.model}</h3>
                 </div>
                 <div className="">
                     <h4>Rate This product</h4>
@@ -75,9 +75,9 @@ function onsubmit(){
                 <div className="review_product">
                     <h4 className='mb-4'>Write a Review</h4>
 
-                   <div className="d-flex gap-5">
-                   <InputFeild label="Enter Your Name"  className="w-50" name="user_name" defaultValue={ud.username} method={onchange}/>
-                   <InputFeild label="Give a review title" className="w-50"  name="title" value={r_data.title} method={onchange}/>
+                   <div className="row">
+                   <InputFeild label="Enter Your Name"  className="col-sm-6 p-1" name="user_name" defaultValue={ud.username} method={onchange}/>
+                   <InputFeild label="Give a review title" className="col-sm-6 p-1"  name="title" value={r_data.title} method={onchange}/>
                    </div>
 
                     <div className="text-area form-floating mb-3">
@@ -106,7 +106,7 @@ function onsubmit(){
 
             </div>
 
-            <div className="col-4 review-right p-5">
+            <div className="col-sm-4 review-right p-5">
             <span className='fs-2'>Product Review Tips:</span>
 
                 <p>

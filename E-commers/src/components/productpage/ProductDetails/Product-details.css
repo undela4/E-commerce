@@ -30,5 +30,8 @@ font-size: 30px;
     .about p{
         font-size:15px;
         }
+        .name{
+            font-size: 16px;
+        }
         
 }

@@ -84,7 +84,6 @@
     .Product-card{
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         flex-direction: column;
-        padding:8%;
         gap: 0rem;
     }
     .Product-card-left{
@@ -118,5 +117,11 @@
     .Product-details{
         margin-top:10%;
     }
-    
+    .name{
+        font-size:16px;
+    }
+    .Product-card-right >h4{
+        font-size: 16px;
+    }
+  
 }

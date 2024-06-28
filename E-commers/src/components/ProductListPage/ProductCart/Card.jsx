@@ -7,7 +7,7 @@ import { UserContext } from '../../../Usecontext';
 
 
 
-export default function Card({img,title,price,delprice,id,reviews,style}) 
+export default function Card({img,title,price,id,reviews,style}) 
 {
 
 const [avgr,setavgr]=useState(0);

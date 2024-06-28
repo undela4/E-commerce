@@ -5,7 +5,7 @@
     transition:transform 1s;
     padding: 2%;
     display: flex;
-    gap: 2px;
+    gap:1rem;
 }
 
 .image_list img{
@@ -20,6 +20,13 @@
 .card-content{
     text-align: start;
     margin:1rem 1rem ;
+}
+.pName{
+    width:500px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow:ellipsis;
+    color: black;
 }
 
 @media screen and (max-width:650px){

@@ -79,7 +79,7 @@ const filters=[
   return  pl ?( 
     <>
     {
-        !id ? (<div className='containe mb-5'>
+        !id ? (<div className='container mb-5'>
             <h5 className='mt-4 mb-5 text-capitalize'>Home <RiArrowRightSLine /> {name}</h5>
 
             <div className="product-layout row">

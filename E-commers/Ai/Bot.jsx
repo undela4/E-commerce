@@ -142,7 +142,7 @@ export const Bot = () => {
         
         <div className="chat-messages">
        {
-        web&&( <div className="align-self-end ">
+        web&&( <div className="d-flex flex-column align-self-end">
           <Webcam
           audio={false}
           ref={webcamRef}
@@ -150,9 +150,9 @@ export const Bot = () => {
           width={150}
           height={150}
         />
-
         <button className='btn btn-success' onClick={capture}>Capture</button>
-          </div>    
+        </div>    
+
             )
        }
           {messages.map((message, index) => (
