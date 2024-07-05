@@ -27,10 +27,9 @@
 
 }
 
-@media screen and (max-width:650px) {
+@media screen and (max-width:800px) {
     .categories{
         gap: 1em;
-
     }
     .category-iteM >img{
         width:80%;

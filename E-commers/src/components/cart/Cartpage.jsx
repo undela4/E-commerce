@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './cart.css';
 import  Cartcard  from './Cartcard';
 import Price from './Price';
+import Loder from '../loder/Loder';
 
 import { get_cart_items,ondelete,Increment,decrement } from './methods';
 
@@ -25,26 +26,26 @@ export default function Cartpage() {
 const {items,setitems,count,setcount,price,setprice}=Fun();
 
 const [f,setf]=useState(false);
+const [loader,setloader]=useState(false);
 
 
 useEffect(()=>{
 
-  get_cart_items(setitems,setcount,setprice);
-
+  get_cart_items(setitems,setcount,setprice,setloader);
 
 },[f]);
 
 
-console.log(count)
 
 
 
 
 
 
-return items.length!=0 ? (
+return loader ? (
     <>
-      <div className="container">
+      {
+       items.length!=0 ? (<div className="container">
 
         <div className="cart mt-5 row gap-5">
 
@@ -83,9 +84,12 @@ return items.length!=0 ? (
           </div>
 
         </div>
-      </div>
+       </div>):(<Emptycart/>)
+      }
+
     </>
-  ) :(<Emptycart/>)
+  ) : (<center><Loder/></center>)
+  
 }
 
 

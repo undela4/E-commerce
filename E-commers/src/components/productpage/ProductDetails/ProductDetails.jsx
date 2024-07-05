@@ -1,5 +1,5 @@
 import {useState} from 'react';
-
+import { comma } from '../../ProductListPage/ProductCart/.js';
 
 export const Overview = ({ product }) => {
   
@@ -9,25 +9,33 @@ export const Overview = ({ product }) => {
         <h2 className='name'>{product.model}</h2>
         <div className="fs-4 name">
         <p>{product.description}</p>
-        <p >Price: <span className='fw-bold'>₹ {product.price}</span></p>
+        <p >Price: <span className='fw-bold'>₹ {comma(Math.floor(product.price))}</span></p>
         <p >Brand: <span className='fw-bold'>{product.brand}</span></p>
         </div>
         <div className="d-flex align-items-center">
-          <div className="w-50">
+          <div className="w-50"  data-aos="fade-up" data-aos-duration="1200" >
            <img className="w-75" src={product.key_img} alt={product.name} />
 
           </div>
-          <div className="about">
-            <p>Operating_system  :  <span>{ product.operating_system}</span></p>
-            <p>Ram :  <span>{product.ram}</span></p>
-            <p>Storage : <span>{product.storage}</span></p>
-            <p> Battery :  <span>{product.battery_capacity}</span></p>
-            <p>Network :  <span>{product.network_technology}</span></p>
-            <p>weight:  <span>{product.weight}</span></p>
+          {
+            product.operating_system ? (<div className="about">
+              <p>Operating_system  :  <span>{ product.operating_system}</span></p>
+              <p>Ram :  <span>{product.ram}</span></p>
+              <p>Storage : <span>{product.storage}</span></p>
+              <p> Battery :  <span>{product.battery_capacity}</span></p>
+              <p>Network :  <span>{product.network_technology}</span></p>
+              <p>weight:  <span>{product.weight}</span></p>
+  
+      
+  
+            </div>):( <ul>
+            {product.additional_features.map((feature, index) => (
+            <li key={index} className='fs-4'>{feature}</li>
+          ))}
+          </ul>)
 
-    
-
-          </div>
+          }
+       
         </div>
       </div>
     );
@@ -37,14 +45,20 @@ export const Overview = ({ product }) => {
 export const Specifications = ({ specs }) => {
     return (
       <div className='fs-4 p-3'>
+
         <h2>Specifications</h2>
-        <p>Display: {specs.screen_size}</p>
-        <p>Resolution: {specs.resolution}</p>
-        <p>battery_capacity: {specs.battery_capacity}</p>
-        <p>processor: {specs.processor}</p>
-        <p>dimensions: {specs.dimensions}</p>
-        <p>weight: {specs.weight}</p>
-        <h4>Other </h4>
+       {
+          specs.screen_size&&( <div className="">
+          <p>Display: {specs.screen_size}</p>
+          <p>Resolution: {specs.resolution}</p>
+          <p>battery_capacity: {specs.battery_capacity}</p>
+          <p>processor: {specs.processor}</p>
+          <p>dimensions: {specs.dimensions}</p>
+          <p>weight: {specs.weight}</p>
+          <h4>Other </h4>
+          </div>)
+       }
+       
 
         {
         specs.sim_type&&  <p>sim_type: {specs.sim_type}</p>

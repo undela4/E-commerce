@@ -11,7 +11,7 @@
 
 }
 .order_item{
-    height: max-content;
+    height:max-content;
     padding: 4%;
     display: flex;
     gap: 2rem;
@@ -44,6 +44,11 @@
     position: relative;
     left:70%;
     top:40%;
+}
+
+.order{
+    height: 500px;;
+    overflow-y: scroll;
 }
 @media (max-width:789px){
     .order_item{

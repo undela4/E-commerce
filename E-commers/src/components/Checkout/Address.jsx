@@ -16,7 +16,7 @@ function onchange(id)
 return(
         <div className="p-1">
 
-            <div  className="address-item">
+            <div  className="address-item d-flex align-items-baseline gap-4">
               <div className="">
                 { flag&&<input type="radio" onChange={()=>onchange(id)} name="i" />}
           

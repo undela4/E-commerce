@@ -8,7 +8,7 @@ try{
     const formData = new FormData();
     formData.append('file',file);
 
-    const r=await axios.post('http://localhost:5000/v1/review/upload',formData,{
+    const r=await axios.post('https://e-commers-application.onrender.com/v1/review/upload',formData,{
         headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -16,7 +16,7 @@ try{
     )
     if(r.data.status){
 
-        const res=await axios.post('http://localhost:5000/v1/review/add',{"data":data,"img":r.data.img[0]});
+        const res=await axios.post('https://e-commers-application.onrender.com/v1/review/add',{"data":data,"img":r.data.img[0]});
         console.log(res.data)
         if(res.data.status){
             successfunction(res.data.msg);

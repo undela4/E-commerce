@@ -10,7 +10,7 @@ export default function useFetchReview() {
     async function Fetch_reviews()
     {
         try{
-            const result= await axios.get(`http://localhost:5000/v1/review/get`);
+            const result= await axios.get(`https://e-commers-application.onrender.com/v1/review/get`);
             dispatch(set_review_data(result.data.data));
     
         }

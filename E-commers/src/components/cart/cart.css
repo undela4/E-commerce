@@ -1,6 +1,7 @@
 .cart{
     justify-content: space-around;
     margin-bottom: 10%;
+    height: max-content;
 
 }
 .cart-left{

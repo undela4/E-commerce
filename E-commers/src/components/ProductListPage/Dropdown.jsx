@@ -6,16 +6,15 @@ export function Dropdown({Key,name,items,type,pl,setpl})
 {
 
     const r=useRef(null);
+    
     const [flag,setflag]=useState(true);
     const [brand,setbrand]=useState([]);
     const [price,setprice]=useState([]);
-
     const {products}=useSelector(state=>state.productSlice);
 
     
 
  useEffect(()=>{
-
     if (brand.length==0){
         setpl(products)
         return;
@@ -46,6 +45,7 @@ export function Dropdown({Key,name,items,type,pl,setpl})
 
  },[price])   
 
+ 
 
  function Price(e){
 
@@ -73,6 +73,19 @@ function Brand(e){
     setbrand(updatedBrand);
 }
 
+function Sort(e){
+
+let mutableProducts = [...products]; 
+if (e.target.id === 'price--High to Low') {
+    mutableProducts.sort((a, b) => b.price - a.price);
+} else {
+    mutableProducts.sort((a, b) => a.price - b.price);
+}
+
+setpl(mutableProducts);
+
+}
+
 function onchange(e)
 {
     switch(Key){
@@ -80,8 +93,8 @@ function onchange(e)
                  break;
         case 1: Brand(e)
                 break;
-
-        case 2: break;
+        case 2: Sort(e)
+                break;
 
     }
 
@@ -119,7 +132,7 @@ function drop()
                 items.map((item,index)=>{
                     return(
                         <div className="check" key={index} >
-                        <input  type={type}  name={item} onChange={onchange} /><span>{item}</span>
+                        <input  type={type}  name={ type!=='radio' ? item :"i"} id={item} onChange={onchange} /><span>{item}</span>
                         </div>
                     )
                 })

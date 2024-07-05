@@ -1,13 +1,12 @@
 import React,{useState,useEffect, useContext} from 'react';
 import { UserContext } from '../../Usecontext';
-import axios from 'axios';
 import './wishlist.css';
 import { useNavigate } from 'react-router-dom';
 import { Empty } from './Myorders';
 import { RxCross1 } from "react-icons/rx";
 import { fetch,remove } from './helpers';
 import Loder from '../loder/Loder';
-
+import { comma } from '../ProductListPage/ProductCart/.js';
 export default function Wishlist() 
 {
 
@@ -46,7 +45,7 @@ useEffect(()=>{
             </div>
 
               <div className="details w-100">
-                <h5><span>Price : </span>₹ {e.price}</h5>
+                <h5><span>Price : </span>₹ {comma(Math.floor(e.price))}</h5>
                 <h5><span>O.s : </span>{e.operating_system}</h5>
                 <h5><span>Ram : </span>{e.ram}</h5>
                 <h5><span>Storage : </span>{e.storage}</h5>

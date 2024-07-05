@@ -1,4 +1,6 @@
 import Bandage from './img/Bandage.png';
+// import Bandage from './img/undela.png';
+
 import carouselInner from './img/carousel-inner.png';
 import filter from './img/filter.png';
 import filterWomen from './img/filter-women.png';

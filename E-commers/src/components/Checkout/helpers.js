@@ -13,7 +13,7 @@ export async function add_address(address)
     try{
 
         
-        const res=await axios.post('http://localhost:5000/v1/address/add',data);
+        const res=await axios.post('https://e-commers-application.onrender.com/v1/address/add',data);
         if(res.data.status)
         {
           console.log(res.data);
@@ -32,7 +32,7 @@ export async function get_address(setaddress){
     const data={"_id":uId}
     
     try{
-        const res=await axios.post('http://localhost:5000/v1/address/get',data);
+        const res=await axios.post('https://e-commers-application.onrender.com/v1/address/get',data);
         if(res.data.status)
         {
           setaddress(res.data.data);
@@ -49,7 +49,7 @@ export async function del_address(id){
     const data={"_id":uId,'id':id } 
     
     try{
-        const res=await axios.post('http://localhost:5000/v1/address/del',data);
+        const res=await axios.post('https://e-commers-application.onrender.com/v1/address/del',data);
         if(res.data.status)
         {
          successfunction("Address Deleted")
@@ -66,7 +66,7 @@ export async function create_order(data){
     
         data.map((item)=>{
 
-            axios.post('http://localhost:5000/v1/orders/create',{"_id":uId,"data":item}).then((r)=>{
+            axios.post('https://e-commers-application.onrender.com/v1/orders/create',{"_id":uId,"data":item}).then((r)=>{
                 if(r.data.status){
                     clear_cart(uId);
                     successfunction(r.data.msg);

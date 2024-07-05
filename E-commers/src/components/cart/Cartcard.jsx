@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { comma } from '../ProductListPage/ProductCart/.js';
 
 export default function Cartcard({id,category,img, title,quantity,price,method,Increment,decrement,colors,spec,adf,flag}){
   
@@ -18,19 +18,11 @@ export default function Cartcard({id,category,img, title,quantity,price,method,I
           <img src={img} />
         </div>
 
-        <div className="cart-card-right w-100">
+        <div className="cart-card-right">
           
           <div className="d-flex justify-content-between heading">
           <h6>{title}</h6>
-          
-          <div className="d-flex gap-3">
-            
-          <h5>₹ {price}</h5>
-          {/* <input type="checkbox" style={flag}/> */}
-  
-          </div>
-  
-  
+          <h5>₹ {comma(price)}</h5>
           </div>
   
           <p style={flag} className='text-danger'>In Stock</p>

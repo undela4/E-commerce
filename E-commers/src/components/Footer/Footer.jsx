@@ -34,7 +34,7 @@ export default function Footer() {
                 <Items title="Order & Purchase" linkes={['Check Order Status',"Shipping,Delivery & Pickup"," Returns & Exchange","Gift Cards"]}/>
                 <Items title="Payment Methods" className="d-flex gap-3" linkes={[<FaCcVisa  style={{fontSize:"30px"}}/>,<FaCcMastercard style={{fontSize:"30px"}}/>,<FaGooglePay style={{fontSize:"30px"}}/>,<FaAmazonPay style={{fontSize:"30px"}} />,]}/>
               
-            <div className="col-sm-4">
+            <div className="col-md-4">
             <h4>Get In Touch</h4>
                 
             <div className="input-group mb-3">

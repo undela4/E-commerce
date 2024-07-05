@@ -15,7 +15,7 @@ import { UserContext } from '../../Usecontext';
 import Cookies from 'js-cookie';
 import { useSelector } from 'react-redux';
 import Review from '../Review&Rating/Review';
-
+import { comma } from '../ProductListPage/ProductCart/.js';
 
 
 export default function Product()
@@ -81,11 +81,11 @@ useEffect(()=>{
 
   return product ? (
     <>
-    <div className="container name">
+    <div className="container" data-aos="fade-down" data-aos-duration="1000">
     <h5 className='m-3 text-capitalize name'><a href="/" className='text-decoration-none text-dark'>Home</a> <RiArrowRightSLine /> {name} <RiArrowRightSLine />{product.model}</h5>
 
       {
-        !r ? (<div className="Product-card">
+        !r ? (<div className="Product-card-in-product-page">
 
           <div className="Product-card-left">
             <div className="product-image">
@@ -96,7 +96,7 @@ useEffect(()=>{
            </div>
             <img src={img} alt="img"/>
             </div>
-            <div className="product-other-images d-flex gap-1 mt-2">
+            <div className="product-other-images d-flex gap-2 mt-2">
               {
                 product.images.map((i,index)=>{
                   return(<img key={index} src={i}
@@ -114,7 +114,7 @@ useEffect(()=>{
              <Rating rate={avgr}/>
               <div className=""><h6>(112)</h6></div>
             </div>
-            <div className="d-flex gap-2"><h6><del>₹ {product.price+5000}</del></h6><h6>₹ {product.price}</h6><h6>(saved 70%)</h6></div>
+            <div className="d-flex gap-2"><h6><del>₹ {comma(Math.floor(product.price+(5000*60)/100))}</del></h6><h6>₹ {comma(Math.floor(product.price))}</h6><h6>(saved 60%)</h6></div>
             <div className="">
               <label htmlFor="sel1" className="form-label">Models</label>
               <select className="form-select" id="sel1" name="sellist1">
@@ -125,9 +125,7 @@ useEffect(()=>{
             </div>
 
             {
-            product&&(
-            
-          <div className="d-flex gap-3 align-baseline mt-3">
+            product.color_options.length!=0&&(<div className="d-flex gap-3 align-baseline mt-3">
 
           <p className='fw-600 fs-3'>Colours:</p>
 

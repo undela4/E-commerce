@@ -4,7 +4,7 @@ import Heart from '../../Review&Rating/Heart';
 import { useNavigate } from 'react-router-dom';
 import Rating from '../../Review&Rating/Rating';
 import { UserContext } from '../../../Usecontext';
-
+import { comma } from './.js';
 
 
 export default function Card({img,title,price,id,reviews,style}) 
@@ -30,6 +30,8 @@ useEffect(()=>{
   const {ud}=useContext(UserContext);
 
 
+
+
   return (
     <>
     <div className="product-card-container"  style={style}>
@@ -52,8 +54,8 @@ useEffect(()=>{
                       </div>
                       <p className=''>Save 60%</p>
                       <div className="prices d-flex  gap-3">
-                          <h5 className='text-secondry'><del>₹ {Math.floor(price+5000)}</del></h5>
-                          <h5 className='text-dark'>₹ {price}</h5>
+                          <h5 className='text-secondry'><del>₹ {Math.floor(price+(price*60)/100)}</del></h5>
+                          <h5 className='text-dark'>₹ {comma(Math.floor(price))}</h5>
                       </div>
 
 

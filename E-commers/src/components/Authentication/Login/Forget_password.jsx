@@ -29,7 +29,7 @@ export function Forget_password({userdata,set})
   {
     
     r.current.setAttribute("disabled", "true");
-    await axios.post('http://localhost:5000/v1/mail',{email:userdata.email,"type":false}).then((r)=>{
+    await axios.post('https://e-commers-application.onrender.com/v1/mail',{email:userdata.email,"type":false}).then((r)=>{
 
         if(r.data.status)
           {
@@ -66,7 +66,7 @@ export function Forget_password({userdata,set})
     console.log(userdata);
     if(userdata.password==userdata.Confirmpassword)
     {
-        axios.put(`http://localhost:5000/v1/forget_password`,
+        axios.put(`https://e-commers-application.onrender.com/v1/forget_password`,
             {"email":userdata.email,"password":userdata.password}).then((r)=>{
                 if(r.data.status)
                     {

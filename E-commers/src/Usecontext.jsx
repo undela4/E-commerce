@@ -16,7 +16,7 @@ const fun=async ()=>{
   try{
     const token=Cookies.get('token');
     if(token)
-        await axios.post(`http://localhost:5000/v1/verify`,{"token":token}).then((result)=>{
+        await axios.post(`https://e-commers-application.onrender.com/v1/verify`,{"token":token}).then((result)=>{
 
             if(result.data.status)
             {

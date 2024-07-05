@@ -50,10 +50,3 @@
     /* transform: scale(1.05); */
 
 }
-
-@media (max-width:789px){
-    .options{
-        /* flex-direction: row; */
-    }
-    
-}

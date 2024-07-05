@@ -11,7 +11,8 @@ import { get_cart_items } from '../cart/methods';
 import { Fun } from '../cart/Cartpage';
 import { errorfunction } from '../../tostify';
 import { create_order } from './helpers';
-
+import Loder from '../loder/Loder';
+import { comma } from '../ProductListPage/ProductCart/.js';
 
 
 export default function Checkout(){
@@ -25,7 +26,7 @@ const nav=useNavigate();
 
 const [address,setaddress]=useState([]);
 const [selectedAddressId, setSelectedAddressId] = useState('');
-
+const [loader,setloader] = useState(false)
 
 
 const r=useRef();
@@ -39,7 +40,7 @@ const {items,setitems,count,setcount,price,setprice}=Fun();
 
 useEffect(()=>{
 
-  get_cart_items(setitems,setcount,setprice);
+  get_cart_items(setitems,setcount,setprice,setloader);
 
   
 },[])
@@ -94,13 +95,13 @@ function drop2()
 }
 
 
-return (
+return loader ? (
     <>
     <div className="container">
 
     <div className="checkout mt-5 row">
 
-        <div className="checkout-left col-sm-7">
+        <div className="checkout-left col-md-7">
 
             <div className="Address mb-5">
 
@@ -108,7 +109,7 @@ return (
 
               <div ref={r} style={{display:"block"}}  >
                 
-           { address.length!=0 &&<div className="">
+           { address.length!=0 ? <div className="">
             {
                     address.map((item,index)=>{
                       const ad=`${item.firstName},${item.houseNumber},
@@ -120,7 +121,7 @@ return (
                         )
                     })
                 }
-            </div>
+            </div>:(<center><h4 className='text-danger'>Loading...</h4></center>)
            }
 
 
@@ -164,7 +165,7 @@ return (
             <div className="d-flex gap-3 justify-content-between">
              <div className="d-flex gap-3">
              <h2 className='text-danger'>Order total::</h2>
-             <h2 className='text-danger'>₹ {price}.00</h2>
+             <h2 className='text-danger'>₹ {comma(price)}.00</h2>
              </div>
               <button className='btn btn-warning' onClick={place_order} >Place your order</button>
 
@@ -182,7 +183,7 @@ return (
 
 </div>
  </>
-  )
+  ):(<center><Loder/></center>)
 }
 
 

@@ -40,17 +40,21 @@ const filters=[
 
     {id:1,
         name:"Price",
-        items:["₹ 25000 - ₹ 35000","₹ 35000 - ₹ 40000","₹ 40000 - ₹ 50000","₹ 50000 - ₹ 70000","₹ 70000 - ₹ 200000"],
+        items:{"mobile":["₹ 25000 - ₹ 35000","₹ 35000 - ₹ 40000","₹ 40000 - ₹ 50000","₹ 50000 - ₹ 70000","₹ 70000 - ₹ 200000"],
+            "smart_tv":["₹ 25000 - ₹ 35000","₹ 35000 - ₹ 40000","₹ 40000 - ₹ 50000","₹ 50000 - ₹ 70000","₹ 70000 - ₹ 200000"],
+            "laptop":["₹ 25000 - ₹ 35000","₹ 35000 - ₹ 40000","₹ 40000 - ₹ 50000","₹ 50000 - ₹ 70000","₹ 70000 - ₹ 200000"],
+            "accessories":["₹ 25000 - ₹ 35000","₹ 35000 - ₹ 40000","₹ 40000 - ₹ 50000","₹ 50000 - ₹ 70000","₹ 70000 - ₹ 200000"]
+
+        },
         type:"checkbox"
 
     },
     {id:2,
         name:"Brands",
-        items:["Apple","Nothing","Samsung","Vivo","Google","Mi","Infinix","Realme","Poco","Lava","Oppo"],
-        items_2:[
+        items:{"mobile":["Apple","Nothing","Samsung","Vivo","Google","Mi","Infinix","Realme","Poco","Lava","Oppo"],
+        "smart_tv":[
             "OnePlus",
             "Xiaomi",
-            "Mi 189.34cm (75 inches) Q1 Series 4K Ultra HD Smart QLED TV L75M6-ESG (Metallic Grey)",
             "Sony",
             "TCL",
             "Vizio",
@@ -59,13 +63,21 @@ const filters=[
             "Philips",
             "Toshiba"
           ],
+          "laptop":["Apple","MSI","Samsung","Dell","Lenovo","Acer","Microsoft","Razer","HP","Asus"],
+          "accessories":["Apple","Logitech","Samsung","Dell","Sony","realme","OnePlus","boAt","Bose","Anker"]
+        }
+          ,
           
         type:"checkbox"
 
     },
     {id:3,
         name:"Sort By",
-        items:["Relevence","Popularity","Price--Low to High","price--High to Low","Newest First"],
+        items:{"mobile":["Price--Low to High","price--High to Low"],
+            "smart_tv":["Price--Low to High","price--High to Low"],
+            "laptop":["Price--Low to High","price--High to Low"],
+            "accessories":["Price--Low to High","price--High to Low"]
+        },
         type:"radio"
 
 
@@ -84,11 +96,11 @@ const filters=[
 
             <div className="product-layout row">
 
-                    <div className="product-filters col-sm-3">
+                    <div className="product-filters col-md-3">
                     {
                         filters.map((e,index)=>{
                             return(
-                            <Dropdown key={index} Key={index} name={e.name} items={e.items} type={e.type}  pl={pl} setpl={setpl} />   
+                            <Dropdown key={index} Key={index} name={e.name} items={e.items[`${name}`]} type={e.type}  pl={pl} setpl={setpl} />   
 
                             )
                         })
@@ -97,7 +109,7 @@ const filters=[
 
                     </div>
 
-                    <div className="col-sm-9">
+                    <div className="col-md-9">
                         <div className="product-list" >
                         {
                            pl.length!=0 ? pl.map((item,index)=>{

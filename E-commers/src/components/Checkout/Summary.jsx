@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { comma } from '../ProductListPage/ProductCart/.js';
 export default function Summary({price})
 {
     return(
@@ -10,7 +10,7 @@ export default function Summary({price})
             <h4 className='fw-bold'>Order summary</h4>
             <div className="flex">
                 <h5>Items:</h5>
-                <h5>₹{price}.00</h5>
+                <h5>₹{comma(Math.floor(price))}.00</h5>
             </div>
             <div className="flex">
                 <h5>Delivery:</h5>
@@ -18,7 +18,7 @@ export default function Summary({price})
             </div>
             <div className="flex">
                 <h5>Total:</h5>
-                <h5>₹{price+59}.00</h5>
+                <h5>₹{comma(Math.floor(price+59))}.00</h5>
             </div>
             <div className="flex">
                 <h5>Promotion Applied</h5>
@@ -30,7 +30,7 @@ export default function Summary({price})
             <hr></hr>
             <div className="flex text-danger fw-bold">
                 <h3>Order Total:</h3>
-                <h3>₹{price-160+59}.00</h3>
+                <h3>₹{comma(Math.floor(price+(50-160)))}.00</h3>
             </div>
             <hr></hr>
             <div className="">

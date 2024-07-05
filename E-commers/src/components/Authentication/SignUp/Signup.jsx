@@ -31,7 +31,7 @@ async function getotp(){
 
   try{
 
-   await axios.post('http://localhost:5000/v1/mail',{email:userdata.email,"type":true,"name":userdata.username}).then((r)=>{
+   await axios.post('https://e-commers-application.onrender.com/v1/mail',{email:userdata.email,"type":true,"name":userdata.username}).then((r)=>{
 
     if(r.data.status)
       {
@@ -58,7 +58,7 @@ async function getotp(){
 async function otp_check(){
 
   if(cotp===sotp){
-    await axios.post('http://localhost:5000/v1/sign_up',userdata).then((result)=>{
+    await axios.post('https://e-commers-application.onrender.com/v1/sign_up',userdata).then((result)=>{
       if(result.data.status)
       { 
       successfunction("Signup Success");

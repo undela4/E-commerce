@@ -38,10 +38,11 @@ exports.cancelOrder =async (req,res)=>{
 
         const {_id,oid}=req.body;
         console.log(req.body)
-        const u= await users.updateOne({_id},{$pull:{'myorders':{_id:oid}} });
+        const u= await users.updateOne({ _id: _id, 'myorders._id': oid },{ 'myorders.$.delivery_status': 'Cancelled' });
         console.log(u);
         res.status(200).send({status:true,msg:"Order Canceled successfully"});
 
+        
     }catch(err){
         console.log(err);
         res.status(500).send({status:false,msg:err.message});

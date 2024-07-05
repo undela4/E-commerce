@@ -25,7 +25,7 @@ const [s,sets]=useState(false);
       try{
           if(s){
             //remove from wish list
-       await axios.post('http://localhost:5000/v1/wishList/del',{"_id":ud._id,"pid":product_id} ).then((r)=>{
+       await axios.post('https://e-commers-application.onrender.com/v1/wishList/del',{"_id":ud._id,"pid":product_id} ).then((r)=>{
               sets(false)
 
 
@@ -34,7 +34,7 @@ const [s,sets]=useState(false);
           }
           else{
             //add to wish list
-            await axios.post('http://localhost:5000/v1/wishList/add',{"_id":ud._id,'pid':product_id}).then((r)=>{
+            await axios.post('https://e-commers-application.onrender.com/v1/wishList/add',{"_id":ud._id,'pid':product_id}).then((r)=>{
             sets(true)
             });
 

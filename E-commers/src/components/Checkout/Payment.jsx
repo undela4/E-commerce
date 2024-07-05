@@ -1,12 +1,10 @@
 import React, { useState,useRef } from 'react'
 import InputFeild from '../Authentication/Login/InputFeild';
-import { FaWallet } from "react-icons/fa";
 import { FaMinusCircle } from "react-icons/fa";
 import { FaGooglePay } from "react-icons/fa6";
 import { FaAmazonPay } from "react-icons/fa";
 import { SiPhonepe } from "react-icons/si";
 import { FcOk } from "react-icons/fc";
-
 export default function Payment(){
   
     const [f,setf]=useState(false);

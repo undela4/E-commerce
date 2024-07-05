@@ -8,7 +8,7 @@ export default  function useFetch_products(){
     
    async function fetch(category,state){
     try{
-        const result= await axios.get(`http://localhost:5000/v1/products/${category}`);
+        const result= await axios.get(`https://e-commers-application.onrender.com/v1/products/${category}`);
         state(result.data.data);
         dispatch(add_products(result.data.data));
 

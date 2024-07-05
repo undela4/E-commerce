@@ -10,7 +10,7 @@ export  async function add_item_to_cart(id,count=1,setf,f)
  try{
     const data={'_id':uId,'data':{'id':id,'count':count} }
 
-    const result=await axios.put('http://localhost:5000/v1/cartupdate',data);
+    const result=await axios.put('https://e-commers-application.onrender.com/v1/cartupdate',data);
     if(result.data.status){
         successfunction("Cart Updated")
         if(setf)

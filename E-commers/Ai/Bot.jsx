@@ -68,7 +68,7 @@ export const Bot = () => {
     }
     else{
       try{
-        const response = await axios.post("http://localhost:5000/v1/gemini",{"message":input});
+        const response = await axios.post("https://e-commers-application.onrender.com/v1/gemini",{"message":input});
         console.log(response.data);
         setflag(false);
 
@@ -98,7 +98,7 @@ export const Bot = () => {
       formData.append('file', image); 
 
     try {
-       const result= await axios.post(`http://localhost:5000/v1/img/?question=${input}`,formData, {
+       const result= await axios.post(`https://e-commers-application.onrender.com/v1/img/?question=${input}`,formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -276,7 +276,7 @@ const AudioRecorder = ({messages,setMessages}) => {
     formData.append('audioFile', audioBlob,'audio.mp3');
 
     try {
-     const result= await axios.post('http://localhost:5000/v1/audio',formData,{ headers: {
+     const result= await axios.post('https://e-commers-application.onrender.com/v1/audio',formData,{ headers: {
       'Content-Type': 'audio/mpeg'
     }});
       console.log(result);

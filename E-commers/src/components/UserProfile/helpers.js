@@ -12,7 +12,7 @@ export async function uploadimg(photo){
         const formData = new FormData();
         formData.append('file', photo);
 
-        const result= await axios.post(`http://localhost:5000/v1/profile/upload_image/${uId}`,formData, {
+        const result= await axios.post(`https://e-commers-application.onrender.com/v1/profile/upload_image/${uId}`,formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -34,7 +34,7 @@ export async function uploadimg(photo){
 export async function get_orders(setorder,setf){
      
   try{
-      const res=await axios.post('http://localhost:5000/v1/orders/get',{"_id":uId});
+      const res=await axios.post('https://e-commers-application.onrender.com/v1/orders/get',{"_id":uId});
       if(res.data.status)
       {
         setorder(res.data.data);
@@ -48,7 +48,7 @@ export async function get_orders(setorder,setf){
 
 export async function cancel_order(oid){
   try{
-      const res=await axios.post('http://localhost:5000/v1/orders/cancel',{"_id":uId,oid:oid});
+      const res=await axios.post('https://e-commers-application.onrender.com/v1/orders/cancel',{"_id":uId,oid:oid});
       if(res.data.status)
       {
         successfunction(res.data.msg);
@@ -65,7 +65,7 @@ export async function cancel_order(oid){
 export async function fetch(setdata,ud){
   try{
 
-    const result=await axios.get('http://localhost:5000/v1/products');
+    const result=await axios.get('https://e-commers-application.onrender.com/v1/products');
     if(result.data.status){
 
       const r=result.data.data;
@@ -87,7 +87,7 @@ export async function fetch(setdata,ud){
 export async function remove(ud,product_id){
   try{
 
-    await axios.post('http://localhost:5000/v1/wishList/del',{"_id":ud._id,"pid":product_id} ).then((r)=>{
+    await axios.post('https://e-commers-application.onrender.com/v1/wishList/del',{"_id":ud._id,"pid":product_id} ).then((r)=>{
       successfunction(r.data.msg)
       
     })

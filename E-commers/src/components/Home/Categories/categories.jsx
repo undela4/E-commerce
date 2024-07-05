@@ -22,7 +22,7 @@ const catadata=[
     },
     {
         id:4,
-        name:'Accessories',
+        name:'accessories',
         img:'https://th.bing.com/th/id/OIG4.xErk.pSKTvzub.3DMOsq?w=270&h=270&c=6&r=0&o=5&dpr=1.1&pid=ImgGn'
     },
 
@@ -43,12 +43,12 @@ export default function Categories() {
    <h5 className='ms-3'>Electronics</h5>
    </div>
 
-    <div className="categories">
+    <div className="categories" data-aos="flip-right">
         {
             catadata.map((item,index)=>{
                 return(
-                    <div className='d-flex flex-column justify-content-center'>
-                    <div className="category-iteM" key={index} onClick={()=>{ nav(`/product/${item.name}`);}}>
+                    <div data-aos="flip-left" key={index}  className='d-flex flex-column align-items-center'>
+                    <div className="category-iteM" onClick={()=>{ nav(`/product/${item.name}`);}}>
                         <img src={item.img}  />
                     </div>
                     <h4 className='text-center'>{item.name}</h4>

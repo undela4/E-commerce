@@ -1,5 +1,4 @@
 .loader {
-    border: 8px solid #f3f3f3; /* Light grey */
     border-top: 8px solid red; /* Blue */
     border-radius: 50%;
     width: 120px;
@@ -20,5 +19,5 @@
 
   .lod{
     margin-top:8%;
-    margin-bottom: 8%;
+    margin-bottom:8%;
   }
