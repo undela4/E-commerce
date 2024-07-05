@@ -10,7 +10,7 @@ export default function Order(item) {
 function onsubmit()
 {
     if (confirm("Make sure you want to cancel the order ?") == true) {
-        cancel_order(item.item[0].oid);
+        cancel_order(item.item[0].order_id);
       }
     
 }
