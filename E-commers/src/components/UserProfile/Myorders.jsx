@@ -1,6 +1,6 @@
 import React ,{useEffect, useState} from 'react';
 import './myorders.css';
-import { get_orders,cancel_order } from './helpers';
+import { get_orders } from './helpers';
 import Loder from '../loder/Loder';
 import { useNavigate } from 'react-router-dom';
 import { comma } from '../ProductListPage/ProductCart/.js';
@@ -33,7 +33,7 @@ useEffect(()=>{
     <div className="orders">
 
     { 
-     orders.length!==0 ? (<Item orders={orders} setorder={setorder} /> )
+     orders.length!==0 ? (<Item orders={orders} setorder={setorder} />)
      :(<Empty text="No Orders yet"/>)
 
     }
