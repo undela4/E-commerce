@@ -36,9 +36,9 @@ exports.getOrders =async (req,res)=>{
 exports.cancelOrder =async (req,res)=>{
     try{
 
-        const {_id,oid}=req.body;
+        const {_id,oid,option}=req.body;
         console.log(req.body)
-        const u= await users.updateOne({_id:_id,'myorders._id':oid },{'myorders.$.delivery_status':'Cancelled'});
+        const u= await users.updateOne({_id:_id,'myorders._id':oid },{'myorders.$.delivery_status':'Cancelled'+option});
         console.log(u);
         res.status(200).send({status:true,msg:"Order Canceled successfully"});
 

@@ -46,9 +46,9 @@ export async function get_orders(setorder,setf){
   }
 }
 
-export async function cancel_order(oid){
+export async function cancel_order(oid,option){
   try{
-      const res=await axios.post('https://e-commers-application.onrender.com/v1/orders/cancel',{"_id":uId,"oid":oid});
+      const res=await axios.post('https://e-commers-application.onrender.com/v1/orders/cancel',{"_id":uId,"oid":oid,"option":option});
       if(res.data.status)
       {
         successfunction(res.data.msg);

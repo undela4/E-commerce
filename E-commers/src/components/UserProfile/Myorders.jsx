@@ -72,8 +72,8 @@ export function Item({orders,setorder}){
   {
     orders.map((i,index)=>{
     return(
-      <>
-  <div className="order_item" key={index} onClick={()=>setorder((t)=>[...t,i])}>
+      <div key={index}>
+  <div className="order_item" onClick={()=>setorder((t)=>[...t,i])}>
   <div className="image" onClick={()=>nav(`/product/${i.category}/${i.product_id}`)}>
     <img src={i.img}/>
     <h5>{i.product_name}</h5>
@@ -98,11 +98,12 @@ export function Item({orders,setorder}){
   </div>
 <hr></hr>
 
-      </>
+      </div>
     )
 
   })
   }
 </>
+
  )
 }

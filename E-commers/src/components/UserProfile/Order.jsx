@@ -7,11 +7,15 @@ export default function Order(item) {
     const [reason,setreason]=useState(false);
     const [option,setoption]=useState('');
     console.log(option)
+
 function onsubmit()
 {
+  if(option!='Select Reason for cancel....')
+  {
     if (confirm("Make sure you want to cancel the order ?") == true) {
-        cancel_order(item.item[0]._id);
-      }
+          cancel_order(item.item[0]._id,option);
+        }
+  }
     
 }
     
@@ -19,24 +23,33 @@ function onsubmit()
     <div className='order'>
     <Item orders={item.item}  />
 
-   <div className="m-4 p-2 d-flex gap-5 justify-content-between">
-   <div className="ms-5">
+   <div className="m-4 p-2 d-flex gap-5 justify-content-between align-baseline">
+   <div className="w-100">
    <Progress od={item.item[0].date_of_order.substring(0,10)}
-     dd={item.item[0].delivery_date.substring(0,10)} 
+       status={item.item[0].delivery_status!='pending' ? item.item[0].delivery_status :`Delivered by  ${item.item[0].delivery_date.substring(0,10)}`} 
      />
    </div>
-   <div className="">
-    <button className="btn btn-danger w-100"
-    style={{display:!reason?"block":"none"}} 
-     onClick={()=>setreason(true)}>Cancel</button>
-    {
-    reason&&<div className='d-flex flex-column gap-4'>
-       <Select setoption={setoption} />
-       <button className='btn btn-outline-danger' disabled={option==''?true:false} onClick={onsubmit} >Cancel</button>
+   {
 
-    </div>
-}
-   </div>
+   item.item[0].delivery_status==="pending" ? (<div className="">
+     <button className="btn btn-danger w-100"
+     style={{display:!reason?"block":"none"}} 
+      onClick={()=>setreason(true)}>Cancel</button>
+     {
+     reason&&<div className='d-flex flex-column gap-4'>
+        <Select setoption={setoption} />
+        <button className='btn btn-outline-danger' disabled={option==''?true:false} onClick={onsubmit} >Cancel</button>
+ 
+     </div>
+ }
+ 
+    </div>):(
+      <div className="pt-0 can-img">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/cancel-order-illustration-5225054-4363243.png"/>
+      </div>
+    )
+   }
+  
 
     </div>
 
@@ -51,7 +64,7 @@ import { Timeline } from 'antd';
 
 
 
-const Progress = ({od,dd}) => (
+const Progress = ({od,status}) => (
   <Timeline
     mode="left"
     items={[
@@ -84,7 +97,7 @@ const Progress = ({od,dd}) => (
       },
       {
         color: 'red',
-        children: `Delivered ${dd}`,
+        children:`${status}`,
       }
     ]}
     

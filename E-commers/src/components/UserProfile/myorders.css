@@ -12,7 +12,7 @@
 }
 .order_item{
     height:max-content;
-    padding: 4%;
+    padding:4%;
     display: flex;
     gap: 2rem;
 
@@ -49,7 +49,9 @@
 .order{
     height: 500px;;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
+
 @media (max-width:789px){
     .order_item{
         flex-direction: column;
@@ -68,5 +70,10 @@
         left:70%;
         top:10%;
     }
-    
+    .can-img img{
+        width: 170px;
+        height:170px;
+        object-fit: contain;
+
+    }
 }
