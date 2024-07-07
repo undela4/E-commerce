@@ -1,0 +1,41 @@
+.Carousel{
+    justify-content: center;
+}
+
+
+.Carousel img{
+    
+    width:100%;
+    height:660px;
+    object-fit: cover;
+
+}
+.hero-section-left{
+    position: relative;
+    left:15%;
+}
+.hero-section-left >p{
+    font-size:20px;
+    font-weight: 500;
+}
+
+
+@media (max-width:789px){
+    
+.Carousel img{
+    height:190px;
+}
+.hero-section-left{
+    position: relative;
+    left:0%;
+}
+.hero-section-left >p{
+    font-size:12px;
+    font-weight: 500;
+}
+.hero-section-left >button{
+    font-size:10px;
+}
+
+    
+}

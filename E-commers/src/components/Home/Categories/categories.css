@@ -37,4 +37,8 @@
     .category-iteM ~h4{
         font-size:0.8em;
     }
+    .names h2,h5{
+        font-size:16px;
+
+    }
 }

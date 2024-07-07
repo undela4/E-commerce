@@ -5,7 +5,7 @@ import Loder from '../loder/Loder';
 import { useNavigate } from 'react-router-dom';
 import { comma } from '../ProductListPage/ProductCart/.js';
 import Order from './Order.jsx';
-
+import { IoMdArrowRoundBack } from "react-icons/io";
 export default function Myorders() {
 
   const [orders,setorders]=useState([]);
@@ -25,7 +25,13 @@ useEffect(()=>{
   return f ? (
 
     <>
+    <div className="d-flex justify-content-between align-items-baseline">
     <h4 className='ms-5 fw-bold fs-1'>My Orders</h4>
+   {
+     order.length!=0&&<IoMdArrowRoundBack className='fs-2 me-4' onClick={()=>setorder([])} />
+    }
+        
+   </div>
     <hr></hr>
     {
     order.length!=0 ? (<Order item={order}/>):(<>
@@ -74,7 +80,7 @@ export function Item({orders,setorder}){
     return(
       <div key={index}>
   <div className="order_item" onClick={()=>setorder((t)=>[...t,i])}>
-  <div className="image" onClick={()=>nav(`/product/${i.category}/${i.product_id}`)}>
+  <div className="image d-flex flex-column align-items-center" onClick={()=>nav(`/product/${i.category}/${i.product_id}`)}>
     <img src={i.img}/>
     <h5>{i.product_name}</h5>
 
@@ -87,7 +93,7 @@ export function Item({orders,setorder}){
   
   </div>
   <div className="p3">
-  <h5><span>Status : </span><span className='text-danger'>{i.delivery_status}</span></h5>
+  <h5><span>Status : </span><span className='text-danger'>{i.delivery_status.substring(0,9)}</span></h5>
   <h5><span>Delivery Date: </span>{i.delivery_date.substring(0,10)}</h5>
  
   </div>
