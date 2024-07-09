@@ -23,28 +23,28 @@ function onsubmit()
     <div className='order'>
     <Item orders={item.item}  />
 
-   <div className="m-4 p-2 row">
-   <div className="col-md-5">
+   <div className="m-4 p-2 d-flex gap-5 justify-content-between align-baseline">
+   <div className="w-100">
    <Progress od={item.item[0].date_of_order.substring(0,10)}
-       status={item.item[0].delivery_status!='pending' ? item.item[0].delivery_status.substring(0,9)+" due to "+ item.item[0].delivery_status.substring(9,) :`Delivered by  ${item.item[0].delivery_date.substring(0,10)}`} 
+       status={item.item[0].delivery_status!='pending' ? item.item[0].delivery_status :`Delivered by  ${item.item[0].delivery_date.substring(0,10)}`} 
      />
    </div>
    {
 
-   item.item[0].delivery_status==="pending" ? (<div className="col-md-6">
+   item.item[0].delivery_status==="pending" ? (<div className="">
      <button className="btn btn-danger w-100"
      style={{display:!reason?"block":"none"}} 
       onClick={()=>setreason(true)}>Cancel</button>
      {
-     reason&&<div className='d-flex flex-column gap-4 w-100'>
+     reason&&<div className='d-flex flex-column gap-4'>
         <Select setoption={setoption} />
         <button className='btn btn-outline-danger' disabled={option==''?true:false} onClick={onsubmit} >Cancel</button>
  
      </div>
  }
-
+ 
     </div>):(
-      <div className="pt-0 can-img col-md-5">
+      <div className="pt-0 can-img">
         <img src="https://cdni.iconscout.com/illustration/premium/thumb/cancel-order-illustration-5225054-4363243.png"/>
       </div>
     )
@@ -105,8 +105,8 @@ const Progress = ({od,status}) => (
 )
 
 
-
 import Form from 'react-bootstrap/Form';
+
 function Select({setoption}) {
 
 function onchange(e){

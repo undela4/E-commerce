@@ -64,7 +64,7 @@ function Nav() {
   const handleNavItemClick = () => setIsCollapsed(true);
 
   return (
-    <div className="container Navig">
+    <div className="container-sm-fluid Navig">
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <NavLink className="navbar-brand me-5" to="/">

@@ -150,7 +150,9 @@ useEffect(()=>{
             <div className="d-flex  Butttons">
               <button className='btn btn-outline-success' onClick={()=>add_to_cart(true)}>Add To Cart</button>
               <button className='btn btn-outline-success' onClick={()=>add_to_cart(false)}>Buy Now</button>
+             
               <button className='ms-lg-5 btn btn-outline-success' onClick={review}>Review</button>
+
             </div>
 
           

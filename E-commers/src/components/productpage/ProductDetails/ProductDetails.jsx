@@ -22,8 +22,8 @@ export const Overview = ({ product }) => {
               <p>Operating_system  :  <span>{ product.operating_system}</span></p>
               <p>Ram :  <span>{product.ram}</span></p>
               <p>Storage : <span>{product.storage}</span></p>
-              <p> Battery :<span>{product.battery_capacity}</span></p>
-              <p>Network : <span>{product.network_technology}</span></p>
+              <p> Battery :  <span>{product.battery_capacity}</span></p>
+              <p>Network :  <span>{product.network_technology}</span></p>
               <p>weight:  <span>{product.weight}</span></p>
   
       

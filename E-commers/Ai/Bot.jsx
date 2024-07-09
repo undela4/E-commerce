@@ -186,13 +186,13 @@ export const Bot = () => {
         <div className="chat-input">
       
         <input type='file' ref={r} onChange={handleImageChange} style={{display:"none"}}></input>
-        <FaImage  className="logo_size"  onClick={()=>{r.current.click()}}/>
-        <FaCamera  className="logo_size"   onClick={()=>setweb(true)}/>
+        <FaImage  className='fs-3' onClick={()=>{r.current.click()}}/>
+        <FaCamera  className='fs-3' onClick={()=>setweb(true)}/>
         <AudioRecorder messages={messages} setMessages={setMessages} />
           <input
             type="text"
             value={input}
-            onKeyDown={(e) =>{
+            onKeyDown={(e) => {
               if (e.key === "Enter")
                 sendMessage();
               }} 
@@ -200,7 +200,7 @@ export const Bot = () => {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message..."
           />
-          <IoSend   className='logo_size send' onClick={sendMessage} />
+          <IoSend   className='fs-1 send' onClick={sendMessage} />
         </div>
 
 

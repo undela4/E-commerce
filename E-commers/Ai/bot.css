@@ -168,16 +168,10 @@
   
 }
 
-.logo_size{
-  font-size:30px;
-}
-@media (max-width:789px) {
+
+@media (max-width:650px) {
   .chat-container{
     height: 560px;
   }
-  .logo_size{
-    font-size:30px;
-  }
-
   
 }
