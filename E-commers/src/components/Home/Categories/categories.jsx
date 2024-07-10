@@ -37,10 +37,9 @@ export default function Categories() {
 
 
   return (
-    < div className="container-fluid-sm">
-   <div className="ps-3 mt-5">
+    < div className="container-sm-fluid">
+   <div className="ps-3 mt-5 names">
    <h2>Categories</h2>
-   <h5 className='ms-3'>Electronics</h5>
    </div>
 
     <div className="categories" data-aos="flip-right">

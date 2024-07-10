@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { comma } from '../ProductListPage/ProductCart/.js';
-
 export default function Cartcard({id,category,img, title,quantity,price,method,Increment,decrement,colors,spec,adf,flag}){
   
   const nav=useNavigate();

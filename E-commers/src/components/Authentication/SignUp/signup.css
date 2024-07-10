@@ -1,5 +1,9 @@
 .signup{
-    height: 600px;
+    height:600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
 }
 #sign-img{
     width: 550px;
@@ -24,5 +28,8 @@
     }
     .controls {
         width: 100%;
+    }
+    .signup{
+        height:max-content;
     }
 }

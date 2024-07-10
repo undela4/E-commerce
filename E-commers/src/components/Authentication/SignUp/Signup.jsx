@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import  './signup.css';
+import '../Login/login.css'
 import InputFeild from '../Login/InputFeild';
 import {Button} from 'react-bootstrap';
 import { FaGoogle } from "react-icons/fa";
@@ -107,7 +108,7 @@ async function onsubmit()
 
 
 return (
-    <div className="login-section signup container align-items-start mt-5">
+    <div className="signup container align-items-start mt-5">
     <img src={login3} id="sign-img" />
 
 {

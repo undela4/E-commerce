@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { comma } from '../ProductListPage/ProductCart/.js';
-
 export default function Price({price,items})
 {
  const nav=useNavigate();
