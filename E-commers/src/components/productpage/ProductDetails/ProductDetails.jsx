@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { comma } from '../../ProductListPage/ProductCart/.js';
-
+import { RiArrowRightDoubleFill } from "react-icons/ri";
 export const Overview = ({ product }) => {
   
     return (
@@ -13,26 +13,27 @@ export const Overview = ({ product }) => {
         <p >Brand: <span className='fw-bold'>{product.brand}</span></p>
         </div>
 
-        <div className="d-flex row">
+        <div className="d-flex align-items-center row">
           <div className="col-md-5"  data-aos="fade-up" data-aos-duration="1200" >
            <img className="w-100" src={product.key_img} alt={product.name} />
           </div>
           {
             product.operating_system ? (<div className="col-md-6 about">
-              <p>➡️Operating_system  :  <span>{ product.operating_system}</span></p>
-              <p>➡️Ram :  <span>{product.ram}</span></p>
-              <p>➡️Storage : <span>{product.storage}</span></p>
-              <p>➡️Battery :<span>{product.battery_capacity}</span></p>
-              <p>➡️Network : <span>{product.network_technology}</span></p>
-              <p>➡️weight:  <span>{product.weight}</span></p>
+              <p><RiArrowRightDoubleFill/>Operating_system  :  <span>{ product.operating_system}</span></p>
+              <p><RiArrowRightDoubleFill/>Ram :  <span>{product.ram}</span></p>
+              <p><RiArrowRightDoubleFill/>Storage : <span>{product.storage}</span></p>
+              <p><RiArrowRightDoubleFill/>Battery :<span>{product.battery_capacity}</span></p>
+              <p><RiArrowRightDoubleFill/>Network : <span>{product.network_technology}</span></p>
+              <p><RiArrowRightDoubleFill/>weight:  <span>{product.weight}</span></p>
   
       
   
-            </div>):( <ul>
+            </div>):(<div className='col-md-6'> <ul>
             {product.additional_features.map((feature, index) => (
-            <li key={index} className='fs-4'>{feature}</li>
+            <li  key={index} className="fs-4" style={{"list-style-type":"none"}}><RiArrowRightDoubleFill/>{feature}</li>
           ))}
-          </ul>)
+          </ul>
+          </div>)
 
           }
        
