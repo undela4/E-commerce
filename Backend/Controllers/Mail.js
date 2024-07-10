@@ -47,8 +47,8 @@ exports.Mail=async(req,res)=>{
             text-align: center;
         }
         .header img {
-            max-width: 100%;
-            height: auto;
+            max-width:200px;
+            height:32px;
         }
         .content {
             padding: 20px;
@@ -89,14 +89,20 @@ exports.Mail=async(req,res)=>{
             height: auto;
             margin-bottom: 10px;
         }
+      .body-img{
+        display:flex;
+        justify-content: center;
+      }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://firebasestorage.googleapis.com/v0/b/react-647c1.appspot.com/o/mail1.jpg?alt=media&token=0b3188d0-bf3f-4544-b5fd-ba97a9cbf032" alt="Header Image">
+            <img src="https://firebasestorage.googleapis.com/v0/b/react-647c1.appspot.com/o/E-mail%20pics%2FEmart_Logo.svg.png?alt=media&token=015b991b-a7b9-4ea5-8930-716b6896cafb" alt="Header Image">
         </div>
-        <img src="https://firebasestorage.googleapis.com/v0/b/react-647c1.appspot.com/o/25224_294121_10150_image.jpg?alt=media&token=4ae50e7b-a745-4382-96cd-2b208f9b59b0" style="max-width: 100%; height: auto; object-fit: contain;" alt="Main Image">
+      <div class="body-img">
+        <img src="https://firebasestorage.googleapis.com/v0/b/react-647c1.appspot.com/o/E-mail%20pics%2Felectronics-mart-india-ipo.webp?alt=media&token=895856f2-22a7-4522-b73d-e70db068f115" style="max-width: 100%; height: auto; object-fit: contain;" alt="Main Image">
+      </div>
         <div class="content">
             <p>Hi <b>${name ? name:"Customer" }</b>,</p>
             <p>Welcome to Undela's Point!</p>
@@ -117,15 +123,29 @@ exports.Mail=async(req,res)=>{
             <p class="note">If you did not make this request, you can safely ignore this message.</p>
         </div>
         <div class="footer">
-            <img src="https://firebasestorage.googleapis.com/v0/b/react-647c1.appspot.com/o/User_Profiles%2Flogo2.png?alt=media&token=911d6a35-5109-4f09-b44e-4c54aa416204" alt="Logo">
+            <img src="https://firebasestorage.googleapis.com/v0/b/react-647c1.appspot.com/o/E-mail%20pics%2FEmart_Logo.svg.png?alt=media&token=015b991b-a7b9-4ea5-8930-716b6896cafb" alt="Logo" >
             <p>&copy; 2024 Undela's Point. All rights reserved.</p>
             <p>123 Electronics Ave, Tech City, TX 12345</p>
         </div>
     </div>
 </body>
 </html>
-` 
+<!-- do not change the markup -->
+<a href="#">
+  Checkout
+</a>
 
+<!-- 
+1. make look like a button
+2. change text color red on hover
+
+Cannot change html, only css.
+Look closely at
+-->  
+
+<div></div>
+<div></div>
+<div></div>`
     const message={
         from:'muraliundela29@gmail.com', 
         to:email,
