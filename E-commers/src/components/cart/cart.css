@@ -32,6 +32,7 @@
 .cart-card{ 
     width: 100%;
     display: flex;
+    gap: 2rem;
 }
 .cart-card-left img{
     width: 180px;

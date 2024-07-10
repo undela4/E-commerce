@@ -12,19 +12,19 @@ export const Overview = ({ product }) => {
         <p >Price: <span className='fw-bold'>₹ {comma(Math.floor(product.price))}</span></p>
         <p >Brand: <span className='fw-bold'>{product.brand}</span></p>
         </div>
-        <div className="d-flex align-items-center">
-          <div className="w-50"  data-aos="fade-up" data-aos-duration="1200" >
-           <img className="w-75" src={product.key_img} alt={product.name} />
 
+        <div className="d-flex row">
+          <div className="col-md-5"  data-aos="fade-up" data-aos-duration="1200" >
+           <img className="w-100" src={product.key_img} alt={product.name} />
           </div>
           {
-            product.operating_system ? (<div className="about">
-              <p>Operating_system  :  <span>{ product.operating_system}</span></p>
-              <p>Ram :  <span>{product.ram}</span></p>
-              <p>Storage : <span>{product.storage}</span></p>
-              <p> Battery :<span>{product.battery_capacity}</span></p>
-              <p>Network : <span>{product.network_technology}</span></p>
-              <p>weight:  <span>{product.weight}</span></p>
+            product.operating_system ? (<div className="col-md-6 about">
+              <p>➡️Operating_system  :  <span>{ product.operating_system}</span></p>
+              <p>➡️Ram :  <span>{product.ram}</span></p>
+              <p>➡️Storage : <span>{product.storage}</span></p>
+              <p>➡️Battery :<span>{product.battery_capacity}</span></p>
+              <p>➡️Network : <span>{product.network_technology}</span></p>
+              <p>➡️weight:  <span>{product.weight}</span></p>
   
       
   
@@ -37,6 +37,7 @@ export const Overview = ({ product }) => {
           }
        
         </div>
+
       </div>
     );
   };
