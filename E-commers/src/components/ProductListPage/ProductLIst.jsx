@@ -85,8 +85,6 @@ const filters=[
 
 ]
 
-  
-
 
   return  pl ?( 
     <>
