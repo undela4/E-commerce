@@ -17,14 +17,10 @@ export default function ProductLIst()
 
 const [pl,setpl]=useState();
 
-
-
 const {name,id}=useParams();
 const [fetch]=useFetch_products();
 const [Fetch_reviews]=useFetchReview();
 const {reviews}=useSelector(state=>state.review_slice);
-
-
 const {fun}=useContext(UserContext);
 
 
@@ -33,7 +29,6 @@ useEffect(()=>{
     fun();
     Fetch_reviews();
 },[])
-
 
 
 const filters=[

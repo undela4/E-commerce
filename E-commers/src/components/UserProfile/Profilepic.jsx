@@ -1,6 +1,4 @@
-import React, { useState,useContext } from 'react'
-import { BsCameraFill } from "react-icons/bs";
-import {useRef} from 'react'
+import React, {useContext } from 'react'
 import userAuth from '../../customeHooks/userAuth';
 import { UserContext } from '../../Usecontext';
 
@@ -11,7 +9,7 @@ export default function Profilepic({f,content_switch})
 {
    
   const [u,Logout]=userAuth();
-  const {ud,fun,loader}=useContext(UserContext);
+  const {ud}=useContext(UserContext);
 
     
 function log(){
@@ -34,7 +32,7 @@ function cs(index)
       </div>
 
 
-      <div className="name mt-3"><h2>Undela Murali</h2></div>
+      <div className="name mt-3"><h2>{ud.username}</h2></div>
 
       <div className="options">
 

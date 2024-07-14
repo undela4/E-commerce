@@ -14,7 +14,7 @@ export function clientValidation(data)
         {
             if (data.hasOwnProperty(key)) 
             {
-                if (data[key].trim() === '') 
+                if (data[key]==null || data[key].trim()==='') 
                 {
                     errorfunction(`Please Enter   ${key} `);
                     return false;

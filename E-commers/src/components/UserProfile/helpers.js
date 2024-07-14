@@ -97,3 +97,19 @@ export async function remove(ud,product_id){
     console.log(err);
   }
 }
+
+//Edit profile details
+export async function EditeProfile(eud){
+  try{
+
+    console.log(eud)
+    await axios.put('http://localhost:5000/v1/editProfile',{"uId":uId,"data":eud} ).then((r)=>{
+      successfunction(r.data.msg)
+      
+    })
+
+  }
+  catch(err){
+    console.log(err);
+  }
+}

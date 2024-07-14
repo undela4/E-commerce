@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 export const ReviewRatings = ({ product_id}) => {
 
+    
 const [avgr,setavgr]=useState(0);
 const {reviews,flag}=useSelector(state=>state.review_slice);
 const [r,setr]=useState(null)
@@ -36,7 +37,7 @@ return r ?  (
       <div className='reviews' >
         {
              r.length!=0 ?  ( <div>
-             <div className="d-flex gap-5 mb-5">
+             <div className="d-flex gap-3 mb-5">
              <div className="">
              <h4>Average Rating: {avgr}</h4>
              <Rating rate={avgr}/>
@@ -61,7 +62,7 @@ return r ?  (
                              <h4>{item.title}</h4> 
                              <p>{item.description}</p>
                              </div>
-                             <div className="w-50">
+                             <div className="review-item">
                                  <img src={item.photo} />
                              </div>
                             

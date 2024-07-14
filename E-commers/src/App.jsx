@@ -4,7 +4,6 @@ import AOS from 'aos'
 import { FcAssistant } from "react-icons/fc";
 import { Toaster } from 'react-hot-toast';
 import Model from '../Ai/Model.jsx';
-import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';
 import { login } from './Redux-Store/userSlice.js';
 import Cookies from 'js-cookie';

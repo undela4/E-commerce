@@ -13,7 +13,7 @@ export const Overview = ({ product }) => {
         <p >Brand: <span className='fw-bold'>{product.brand}</span></p>
         </div>
 
-        <div className="d-flex align-items-center row">
+        <div className="d-flex gap-3 align-items-center row">
           <div className="col-md-5"  data-aos="fade-up" data-aos-duration="1200" >
            <img className="w-100" src={product.key_img} alt={product.name} />
           </div>
@@ -110,7 +110,7 @@ export function Product1({pdata}){
 
       <div className="Product-details-index">
         {
-         ["Overview", "Specification","Reviews","Quations"].map((i,index)=>{
+         ["Overview", "Specification","Reviews","Questions"].map((i,index)=>{
           return(
             <div key={index} className='under-line' style={{borderBottom:f===index? "4px solid blue": "none"}} >
             <h6 style={{fontWeight:f===index ? "bold":""}} className="p-index" onClick={()=>{setf(index)}}>{i}</h6>

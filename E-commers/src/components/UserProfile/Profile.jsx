@@ -20,7 +20,6 @@ export default function Profile() {
 
   useEffect(() => {
     fun();
-
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsSidebarOpen(true); // Open sidebar by default on larger screens
@@ -29,7 +28,7 @@ export default function Profile() {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [fun]);
+  }, []);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
