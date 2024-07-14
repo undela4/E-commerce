@@ -17,8 +17,9 @@ const users = new mongoose.Schema({
         maxlength:10
     },
     phoneNumber_1:{
-        type:Number,
-        length:10
+        type:String,
+        length:10,
+        default:''
     },
     photo:{type:String},
     addressList:[

@@ -4,7 +4,7 @@ const router=express.Router();
 
 const {weather,gemini,image,audio}=require('../Controllers/Ai.js');
 const Authenticate = require('../Controllers/Authentication.js');
-const {getOTP,getotp}=require('../Controllers/getotp.js');
+const {getOTP}=require('../Controllers/getotp.js');
 const {Mail}=require('../Controllers/Mail.js');
 const {getproducts,get_by_category,get_by_id} = require('../Controllers/getproducts.js');
 const {cartupdate,get_cart_items,ClearCart} = require('../Controllers/cartupdate.js');
@@ -96,7 +96,8 @@ router.put('/cartupdate',cartupdate)
 //http://localhost:5000/v1/clear_cart
 router.put('/clear_cart',ClearCart)
 
-
+//http://localhost:5000/v1/editProfile
+router.put('/editProfile',Authenticate.EditProfile)
 
 
 

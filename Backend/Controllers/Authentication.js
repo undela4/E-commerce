@@ -118,7 +118,29 @@ exports.Forgetpassword=async(req,res)=>{
     }
 }
 
+exports.EditProfile=async(req,res)=>{
 
+    try{
+        
+        const{uId,data}=req.body;
+        console.log(req.body)
+
+          const payload= await users.updateOne({_id:uId},{$set:data});
+         console.log(payload)
+            if(payload.modifiedCount>=1) 
+            {
+
+              res.status(200).send({status:true,msg:"Profile updated sucessfully"});
+            }
+            else{
+                res.status(200).send({status:false,msg:"You given Previous details"});
+            }
+ 
+    }
+    catch(err){
+        res.status(500).send({"msg":err.message});
+    }
+}
 
 function tokencreattion(user)
 {
