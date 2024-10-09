@@ -103,7 +103,7 @@ export async function EditeProfile(eud){
   try{
 
     console.log(eud)
-    await axios.put('http://localhost:5000/v1/editProfile',{"uId":uId,"data":eud} ).then((r)=>{
+    await axios.put('https://e-commers-application.onrender.com/v1/editProfile',{"uId":uId,"data":eud} ).then((r)=>{
       successfunction(r.data.msg)
       
     })

@@ -57,7 +57,7 @@ export default function App() {
 import RoutesC from './Routes';
 import HomePage from './components/Home/HomePage';
 import Footer from './components/Footer/Footer';
-import { ToastContainer } from 'react-bootstrap';
+// import { ToastContainer } from 'react-bootstrap';
 
 
 function Start() {

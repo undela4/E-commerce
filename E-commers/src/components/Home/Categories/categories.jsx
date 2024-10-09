@@ -3,27 +3,29 @@ import './categories.css';
 import { useNavigate } from 'react-router-dom';
 import useFetch_products from '../../../customeHooks/fetch_products';
 
+import {MOBILE,ACCESSORIES,TV,LAPTOP} from '../../../assets/img.js'
+
 
 const catadata=[
     {
         id:1,
         name:'mobile',
-        img:'https://th.bing.com/th/id/OIG1.ZfYAdihv.6jTo8pjvo2o?w=270&h=270&c=6&r=0&o=5&dpr=1.1&pid=ImgGn'
+        img:MOBILE
     },
     {
         id:2,
         name:'laptop',
-        img:"https://th.bing.com/th/id/OIG4.Tj5DS9KDQPskBHJt63tJ?w=270&h=270&c=6&r=0&o=5&dpr=1.1&pid=ImgGn"
+        img:LAPTOP
     },
     {
         id:3,
         name:'smart_tv',
-        img:'https://th.bing.com/th/id/OIG3.P7.Ty6ZMGIHxq0yQjLWt?w=270&h=270&c=6&r=0&o=5&dpr=1.1&pid=ImgGn'
+        img:TV
     },
     {
         id:4,
         name:'accessories',
-        img:'https://th.bing.com/th/id/OIG4.xErk.pSKTvzub.3DMOsq?w=270&h=270&c=6&r=0&o=5&dpr=1.1&pid=ImgGn'
+        img:ACCESSORIES
     },
 
 
