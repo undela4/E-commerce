@@ -2,14 +2,15 @@ import React from 'react';
 import {iphone,laptop,tv} from '../../../../assets/img';
 import './.css';
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import { useNavigate, useNavigation } from 'react-router-dom';
 
 export default function Carousel({data,imgonly}) {
 
 
 var d=[
-          {img:iphone,cap:"Experience the Future with iPhone 15."},
-          {img:laptop,cap:"Versatility Meets Performance with Lenovo Yoga."},
-          {img:tv,cap:"Immerse Yourself in Sound with Bose Headset."}
+          {img:iphone,cap:"Experience the Future with iPhone 15.",link:'/product/mobile/66753e02d3ff3c528c470b5f'},
+          {img:laptop,cap:"Versatility Meets Performance with Lenovo Yoga.",link:'/product/laptop/667693efcdd01a3cc4d1c57c'},
+          {img:tv,cap:"Immerse Yourself in Sound with Bose Headset.",link:'/product/accessories/6680375735725ff046aaa782'}
 
       ]
 
@@ -44,7 +45,10 @@ return (
         return(
           <CutomeCarousel img={item.img} 
           active={index===0&&"active"}
-          caption={item.cap} key={index}/>
+          caption={item.cap} key={index}
+          link={item.link}
+          />
+
         )
 
       }
@@ -85,7 +89,9 @@ return(
 
 
 
-function CutomeCarousel({img,caption,active}){
+function CutomeCarousel({img,caption,active,link}){
+
+  const nav = useNavigate();
 
   return(
 
@@ -96,7 +102,7 @@ function CutomeCarousel({img,caption,active}){
     <div className="hero-section-left w-50">
             <p>{caption}</p>
             <br></br>
-            <button style={{background:"#2DC071"}} className='btn  fw-bold align-items-baseline'>Shop Now</button>
+            <button onClick={()=>nav(`${link}`)} style={{background:"#2DC071"}} className='btn  fw-bold align-items-baseline'>Shop Now</button>
     </div>
 
   <div className="hero-section-right w-50">

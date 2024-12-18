@@ -10,6 +10,7 @@ import ACCESSORIES from './img/OIG4.xErk.pSKTvzub.jpg'
 import TV from './img/OIG3.P7.jpg'
 import LAPTOP from './img/OIG4.jpg'
 
+import logo from './img/white_ELECTRIC_MART-05_720x.webp'
 
 
-export {Bandage,login2,login3,iphone,laptop,tv,MOBILE,ACCESSORIES,TV,LAPTOP};
+export {logo,Bandage,login2,login3,iphone,laptop,tv,MOBILE,ACCESSORIES,TV,LAPTOP};

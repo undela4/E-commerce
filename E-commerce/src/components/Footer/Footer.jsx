@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.css';
-import { Bandage } from '../../assets/img';
+import { Bandage,logo } from '../../assets/img';
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";  
 import { FaTwitter } from "react-icons/fa6"; 
@@ -17,7 +17,7 @@ export default function Footer() {
 
         <div className="head d-flex justify-content-around">
             <div className="logo">
-                <img src={Bandage} />
+                <img src={logo} />
             </div>
             <div className="d-flex gap-5">
                 <a href="#"><FaFacebook  className='icon' /></a>

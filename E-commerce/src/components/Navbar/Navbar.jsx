@@ -13,7 +13,7 @@ export default function Navbar() {
 }
 
 
-import { Bandage } from '../../assets/img';
+import { Bandage,logo } from '../../assets/img';
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosSearch } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
@@ -68,7 +68,7 @@ function Nav() {
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <NavLink className="navbar-brand me-5" to="/">
-            <img src={Bandage} width={100} height={30} id="nav-img" alt="logo" />
+            <img src={logo} width={100} height={30} id="nav-img" alt="logo" />
           </NavLink>
           <button 
             className="navbar-toggler" 

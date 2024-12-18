@@ -36,10 +36,9 @@ export default function App() {
 
 <Start/>
 
-<div className="Ai" >
-
+{/* <div className="Ai" >
 <FcAssistant  onClick={() => setModalShow(true)}/>
-</div>
+</div> */}
 
 <Model
   show={modalShow}
@@ -57,7 +56,6 @@ export default function App() {
 import RoutesC from './Routes';
 import HomePage from './components/Home/HomePage';
 import Footer from './components/Footer/Footer';
-// import { ToastContainer } from 'react-bootstrap';
 
 
 function Start() {

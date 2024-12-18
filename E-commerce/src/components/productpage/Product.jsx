@@ -115,14 +115,14 @@ useEffect(()=>{
               <div className=""><h6>(112)</h6></div>
             </div>
             <div className="d-flex gap-2"><h6><del>₹ {comma(Math.floor(product.price+(5000*60)/100))}</del></h6><h6>₹ {comma(Math.floor(product.price))}</h6><h6>(saved 60%)</h6></div>
-            <div className="">
+            {/* <div className="">
               <label htmlFor="sel1" className="form-label">Models</label>
               <select className="form-select" id="sel1" name="sellist1">
                 <option>model-1</option>
                 <option>model-2</option>
                
               </select>
-            </div>
+            </div> */}
 
             {
             product.color_options.length!=0&&(<div className="d-flex gap-3 align-baseline mt-3">

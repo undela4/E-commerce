@@ -10,7 +10,7 @@ box-sizing: border-box;
 user-select: none;
 
 }
-.containe{
+.containe{ 
   width: 100%;
 }
 
@@ -19,7 +19,7 @@ user-select: none;
 .Ai{
   position: fixed;
   right:10px;
-  bottom:5%;
+  /* bottom:5%;  */
   font-size:80px;
 }
 
